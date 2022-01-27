@@ -710,7 +710,7 @@
 									"font": "Arial;13;0",
 									"left": 159.5,
 									"top": 180.5,
-									"width": 112.5654296875,
+									"width": 112,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+dQvWSEFFJLo="
@@ -18438,7 +18438,7 @@
 									"font": "Arial;13;0",
 									"left": 48,
 									"width": 953,
-									"height": 1145,
+									"height": 1097,
 									"nameLabel": {
 										"$ref": "AAAAAAF+j4INM1pKqAs="
 									},
@@ -18552,7 +18552,7 @@
 											"left": 379,
 											"top": 80,
 											"width": 1,
-											"height": 1065
+											"height": 1017
 										}
 									],
 									"fillColor": "#ffff91",
@@ -18560,7 +18560,7 @@
 									"left": 312,
 									"top": 40,
 									"width": 133.419921875,
-									"height": 1105,
+									"height": 1057,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+j4i4FVq2atM="
 									},
@@ -18674,7 +18674,7 @@
 											"left": 693,
 											"top": 80,
 											"width": 1,
-											"height": 1065
+											"height": 1015
 										}
 									],
 									"fillColor": "#ffff91",
@@ -18682,7 +18682,7 @@
 									"left": 624,
 									"top": 40,
 									"width": 137.787109375,
-									"height": 1105,
+									"height": 1055,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+j4kO+1rWvrs="
 									},
@@ -18796,7 +18796,7 @@
 											"left": 919,
 											"top": 80,
 											"width": 1,
-											"height": 1065
+											"height": 1017
 										}
 									],
 									"fillColor": "#ffff91",
@@ -18804,7 +18804,7 @@
 									"left": 880,
 									"top": 40,
 									"width": 77.80810546875,
-									"height": 1105,
+									"height": 1057,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+j4p9WFr44uE="
 									},
@@ -18832,9 +18832,9 @@
 											"font": "Arial;13;0",
 											"left": 111.9599609375,
 											"top": 157,
-											"width": 83.38623046875,
+											"width": 92.55224609375,
 											"height": 13,
-											"text": "Login Berhasil"
+											"text": "Login Validation"
 										},
 										{
 											"_type": "LabelView",
@@ -18859,12 +18859,84 @@
 											"model": {
 												"$ref": "AAAAAAF+j6hy/F0dhDY="
 											},
-											"visible": false,
+											"subViews": [
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFchMEjj7Jo=",
+													"_parent": {
+														"$ref": "AAAAAAF+j6hy/F0iWhs="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFchD0jgimc="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFchMEjkJCo=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFchMEjj7Jo="
+															},
+															"fillColor": "#adadff",
+															"font": "Arial;13;0",
+															"left": 100,
+															"top": 190,
+															"width": 89.60986328125,
+															"height": 13,
+															"text": "[Login Berhasil]"
+														}
+													],
+													"fillColor": "#adadff",
+													"font": "Arial;13;0",
+													"left": 80,
+													"top": 175,
+													"width": 888,
+													"height": 866,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFchMEjkJCo="
+													}
+												},
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFcr3kjsl3Y=",
+													"_parent": {
+														"$ref": "AAAAAAF+j6hy/F0iWhs="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFcrxEjpZdY="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFcr3kjts0I=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFcr3kjsl3Y="
+															},
+															"fillColor": "#adadff",
+															"font": "Arial;13;0",
+															"left": 100,
+															"top": 1056,
+															"width": 77.33349609375,
+															"height": 13,
+															"text": "[Login Gagal]"
+														}
+													],
+													"fillColor": "#adadff",
+													"font": "Arial;13;0",
+													"left": 80,
+													"top": 1041,
+													"width": 888,
+													"height": 56,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFcr3kjts0I="
+													}
+												}
+											],
 											"fillColor": "#adadff",
 											"font": "Arial;13;0",
 											"left": 80,
 											"top": 175,
-											"width": 888
+											"width": 888,
+											"height": 922
 										}
 									],
 									"fillColor": "#adadff",
@@ -18872,7 +18944,7 @@
 									"left": 80,
 									"top": 152,
 									"width": 888,
-									"height": 889,
+									"height": 945,
 									"nameLabel": {
 										"$ref": "AAAAAAF+j6hy/F0g7/c="
 									},
@@ -21902,14 +21974,14 @@
 											"left": 112,
 											"top": 105,
 											"width": 1,
-											"height": 1040
+											"height": 992
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 56,
 									"top": 40,
 									"width": 111.1181640625,
-									"height": 1105,
+									"height": 1057,
 									"stereotypeDisplay": "icon",
 									"nameCompartment": {
 										"$ref": "AAAAAAF+kNP4JINTjK4="
@@ -25952,230 +26024,6 @@
 									"activation": {
 										"$ref": "AAAAAAF+kEj3x3sZDDQ="
 									}
-								},
-								{
-									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAF+lJZCA0zziQE=",
-									"_parent": {
-										"$ref": "AAAAAAF+j4INM1pIL+o="
-									},
-									"model": {
-										"$ref": "AAAAAAF+lJZCA0zyxm0="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lJZCBEz0m2Y=",
-											"_parent": {
-												"$ref": "AAAAAAF+lJZCA0zziQE="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lJZCA0zyxm0="
-											},
-											"font": "Arial;13;0",
-											"left": 691,
-											"top": 1075,
-											"width": 95.4052734375,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lJZCA0zziQE="
-											},
-											"edgePosition": 1,
-											"text": "63 : Login Gagal"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lJZCBEz1cgM=",
-											"_parent": {
-												"$ref": "AAAAAAF+lJZCA0zziQE="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lJZCA0zyxm0="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 753,
-											"top": 1075,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lJZCA0zziQE="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lJZCBEz2iwo=",
-											"_parent": {
-												"$ref": "AAAAAAF+lJZCA0zziQE="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lJZCA0zyxm0="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 719,
-											"top": 1076,
-											"height": 13,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lJZCA0zziQE="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAF+lJZCBEz3kWk=",
-											"_parent": {
-												"$ref": "AAAAAAF+lJZCA0zziQE="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lJZCA0zyxm0="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;13;0",
-											"left": 686,
-											"top": 1092,
-											"width": 14,
-											"height": 29
-										}
-									],
-									"font": "Arial;13;0",
-									"head": {
-										"$ref": "AAAAAAF+j4kO+1rbfM8="
-									},
-									"tail": {
-										"$ref": "AAAAAAF+j4kO+1rbfM8="
-									},
-									"points": "699:1072;729:1072;729:1092;699:1092",
-									"nameLabel": {
-										"$ref": "AAAAAAF+lJZCBEz0m2Y="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAF+lJZCBEz1cgM="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAF+lJZCBEz2iwo="
-									},
-									"activation": {
-										"$ref": "AAAAAAF+lJZCBEz3kWk="
-									}
-								},
-								{
-									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAF+kFpa23vr01Y=",
-									"_parent": {
-										"$ref": "AAAAAAF+j4INM1pIL+o="
-									},
-									"model": {
-										"$ref": "AAAAAAF+kFpa23vqrD8="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+kFpa23vsraw=",
-											"_parent": {
-												"$ref": "AAAAAAF+kFpa23vr01Y="
-											},
-											"model": {
-												"$ref": "AAAAAAF+kFpa23vqrD8="
-											},
-											"font": "Arial;13;0",
-											"left": 454,
-											"top": 1104,
-											"width": 155.37158203125,
-											"height": 13,
-											"alpha": 1.4601402031821105,
-											"distance": 9.055385138137417,
-											"hostEdge": {
-												"$ref": "AAAAAAF+kFpa23vr01Y="
-											},
-											"edgePosition": 1,
-											"text": "64 : Return Halaman Login"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+kFpa23vt8aA=",
-											"_parent": {
-												"$ref": "AAAAAAF+kFpa23vr01Y="
-											},
-											"model": {
-												"$ref": "AAAAAAF+kFpa23vqrD8="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 531,
-											"top": 1120,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAF+kFpa23vr01Y="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+kFpa23vuP8A=",
-											"_parent": {
-												"$ref": "AAAAAAF+kFpa23vr01Y="
-											},
-											"model": {
-												"$ref": "AAAAAAF+kFpa23vqrD8="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 532,
-											"top": 1085,
-											"height": 13,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+kFpa23vr01Y="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAF+kFpa23vvcZY=",
-											"_parent": {
-												"$ref": "AAAAAAF+kFpa23vr01Y="
-											},
-											"model": {
-												"$ref": "AAAAAAF+kFpa23vqrD8="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 379,
-											"top": 1101,
-											"width": 14,
-											"height": 25
-										}
-									],
-									"font": "Arial;13;0",
-									"head": {
-										"$ref": "AAAAAAF+j4i4FVq71aA="
-									},
-									"tail": {
-										"$ref": "AAAAAAF+j4kO+1rbfM8="
-									},
-									"points": "686:1101;379:1101",
-									"nameLabel": {
-										"$ref": "AAAAAAF+kFpa23vsraw="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAF+kFpa23vt8aA="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAF+kFpa23vuP8A="
-									},
-									"activation": {
-										"$ref": "AAAAAAF+kFpa23vvcZY="
-									}
 								}
 							]
 						}
@@ -27072,35 +26920,6 @@
 								"$ref": "AAAAAAF+j4i4FVq0ziY="
 							},
 							"messageSort": "reply"
-						},
-						{
-							"_type": "UMLMessage",
-							"_id": "AAAAAAF+lJZCA0zyxm0=",
-							"_parent": {
-								"$ref": "AAAAAAF+j4INM1pHIF4="
-							},
-							"name": "Login Gagal",
-							"source": {
-								"$ref": "AAAAAAF+j4kO+lrUeKk="
-							},
-							"target": {
-								"$ref": "AAAAAAF+j4kO+lrUeKk="
-							}
-						},
-						{
-							"_type": "UMLMessage",
-							"_id": "AAAAAAF+kFpa23vqrD8=",
-							"_parent": {
-								"$ref": "AAAAAAF+j4INM1pHIF4="
-							},
-							"name": "Return Halaman Login",
-							"source": {
-								"$ref": "AAAAAAF+j4kO+lrUeKk="
-							},
-							"target": {
-								"$ref": "AAAAAAF+j4i4FVq0ziY="
-							},
-							"messageSort": "reply"
 						}
 					],
 					"participants": [
@@ -27160,8 +26979,28 @@
 							"_parent": {
 								"$ref": "AAAAAAF+j4INM1pHIF4="
 							},
-							"name": "Login Berhasil",
-							"interactionOperator": "seq"
+							"name": "Login Validation",
+							"interactionOperator": "seq",
+							"operands": [
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFchD0jgimc=",
+									"_parent": {
+										"$ref": "AAAAAAF+j6hy/F0dhDY="
+									},
+									"name": "InteractionOperand1",
+									"guard": "Login Berhasil"
+								},
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFcrxEjpZdY=",
+									"_parent": {
+										"$ref": "AAAAAAF+j6hy/F0dhDY="
+									},
+									"name": "InteractionOperand2",
+									"guard": "Login Gagal"
+								}
+							]
 						}
 					]
 				},
@@ -27199,9 +27038,9 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 72.33740234375,
+											"left": 74.84228515625,
 											"top": 5,
-											"width": 147.60888671875,
+											"width": 165.2529296875,
 											"height": 15,
 											"text": "SequenceDiagramHome"
 										},
@@ -27215,7 +27054,7 @@
 											"font": "Arial;15;1",
 											"left": 53,
 											"top": 5,
-											"width": 14.33740234375,
+											"width": 16.84228515625,
 											"height": 15,
 											"text": "sd"
 										}
@@ -27224,7 +27063,7 @@
 									"font": "Arial;15;0",
 									"left": 48,
 									"width": 889,
-									"height": 369,
+									"height": 345,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lTMDEmuHlb8="
 									},
@@ -27338,7 +27177,7 @@
 											"left": 355,
 											"top": 80,
 											"width": 1,
-											"height": 289
+											"height": 265
 										}
 									],
 									"fillColor": "#ffff91",
@@ -27346,7 +27185,7 @@
 									"left": 280,
 									"top": 40,
 									"width": 150.869140625,
-									"height": 329,
+									"height": 305,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lTMDEmuKA9g="
 									},
@@ -27460,7 +27299,7 @@
 											"left": 590,
 											"top": 80,
 											"width": 1,
-											"height": 289
+											"height": 265
 										}
 									],
 									"fillColor": "#ffff91",
@@ -27468,7 +27307,7 @@
 									"left": 512,
 									"top": 40,
 									"width": 155.908203125,
-									"height": 329,
+									"height": 305,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lTMDEmuRkiI="
 									},
@@ -27582,7 +27421,7 @@
 											"left": 867,
 											"top": 80,
 											"width": 1,
-											"height": 289
+											"height": 265
 										}
 									],
 									"fillColor": "#ffff91",
@@ -27590,7 +27429,7 @@
 									"left": 824,
 									"top": 40,
 									"width": 86.70166015625,
-									"height": 329,
+									"height": 305,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lTMDE2uYEXE="
 									},
@@ -27616,11 +27455,11 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 110.9951171875,
+											"left": 115.1845703125,
 											"top": 157,
-											"width": 90.56787109375,
+											"width": 106.63720703125,
 											"height": 15,
-											"text": "Login Berhasil"
+											"text": "Login Validation"
 										},
 										{
 											"_type": "LabelView",
@@ -27632,7 +27471,7 @@
 											"font": "Arial;15;1",
 											"left": 85,
 											"top": 157,
-											"width": 20.9951171875,
+											"width": 25.1845703125,
 											"height": 15,
 											"text": "seq"
 										},
@@ -27645,12 +27484,84 @@
 											"model": {
 												"$ref": "AAAAAAF+lTMDGm0/Fcg="
 											},
-											"visible": false,
+											"subViews": [
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFHWG0h+9WY=",
+													"_parent": {
+														"$ref": "AAAAAAF+lTMDE2uhZhA="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFHV+0h7vIs="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFHWG0h/LM8=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFHWG0h+9WY="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 192,
+															"width": 103.39599609375,
+															"height": 15,
+															"text": "[Login Berhasil]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 177,
+													"width": 825,
+													"height": 104,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFHWG0h/LM8="
+													}
+												},
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFIFBkiHCmg=",
+													"_parent": {
+														"$ref": "AAAAAAF+lTMDE2uhZhA="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFIE90iEQeo="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFIFBkiIySY=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFIFBkiHCmg="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 296,
+															"width": 89.23095703125,
+															"height": 15,
+															"text": "[Login Gagal]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 281,
+													"width": 825,
+													"height": 45,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFIFBkiIySY="
+													}
+												}
+											],
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 80,
-											"top": 175,
-											"width": 888
+											"top": 177,
+											"width": 825,
+											"height": 149
 										}
 									],
 									"fillColor": "#ffff91",
@@ -27658,7 +27569,7 @@
 									"left": 80,
 									"top": 152,
 									"width": 825,
-									"height": 145,
+									"height": 193,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lTMDE2ufCtQ="
 									},
@@ -28146,17 +28057,17 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 607,
+											"left": 602,
 											"top": 144,
-											"width": 244.31396484375,
+											"width": 148.98193359375,
 											"height": 15,
-											"alpha": 1.5999133054765449,
-											"distance": 103.04368005850722,
+											"alpha": 1.630723469959152,
+											"distance": 50.08991914547278,
 											"hostEdge": {
 												"$ref": "AAAAAAF+lTMDFGu28aY="
 											},
 											"edgePosition": 1,
-											"text": "5 : Login Berhasil Buat Data Session"
+											"text": "5 : Validasi Data Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -28214,7 +28125,7 @@
 											"left": 583,
 											"top": 164,
 											"width": 14,
-											"height": 141
+											"height": 157
 										}
 									],
 									"fillColor": "#ffff91",
@@ -28690,7 +28601,7 @@
 											"left": 115,
 											"top": 107,
 											"width": 1,
-											"height": 262
+											"height": 238
 										}
 									],
 									"fillColor": "#ffff91",
@@ -28698,7 +28609,7 @@
 									"left": 56,
 									"top": 40,
 									"width": 118.33251953125,
-									"height": 329,
+									"height": 305,
 									"stereotypeDisplay": "icon",
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lTMDFmwlRic="
@@ -29051,120 +28962,6 @@
 								},
 								{
 									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAF+lTMDGGzuOJA=",
-									"_parent": {
-										"$ref": "AAAAAAF+lTMDEmuFfBU="
-									},
-									"model": {
-										"$ref": "AAAAAAF+lTMDGm05tSA="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lTMDGGzvPLw=",
-											"_parent": {
-												"$ref": "AAAAAAF+lTMDGGzuOJA="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lTMDGm05tSA="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 580,
-											"top": 298,
-											"width": 110.0830078125,
-											"height": 15,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lTMDGGzuOJA="
-											},
-											"edgePosition": 1,
-											"text": "12 : Login Gagal"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lTMDGGzwTEA=",
-											"_parent": {
-												"$ref": "AAAAAAF+lTMDGGzuOJA="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lTMDGm05tSA="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 650,
-											"top": 299,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lTMDGGzuOJA="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lTMDGGzxjvg=",
-											"_parent": {
-												"$ref": "AAAAAAF+lTMDGGzuOJA="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lTMDGm05tSA="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 616,
-											"top": 300,
-											"height": 13,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lTMDGGzuOJA="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAF+lTMDGGzy3OE=",
-											"_parent": {
-												"$ref": "AAAAAAF+lTMDGGzuOJA="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lTMDGm05tSA="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 583,
-											"top": 316,
-											"width": 14,
-											"height": 29
-										}
-									],
-									"fillColor": "#ffff91",
-									"font": "Arial;15;0",
-									"head": {
-										"$ref": "AAAAAAF+lTMDE2uWbKs="
-									},
-									"tail": {
-										"$ref": "AAAAAAF+lTMDE2uWbKs="
-									},
-									"points": "596:296;626:296;626:316;596:316",
-									"nameLabel": {
-										"$ref": "AAAAAAF+lTMDGGzvPLw="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAF+lTMDGGzwTEA="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAF+lTMDGGzxjvg="
-									},
-									"activation": {
-										"$ref": "AAAAAAF+lTMDGGzy3OE="
-									}
-								},
-								{
-									"_type": "UMLSeqMessageView",
 									"_id": "AAAAAAF+lTMDGGzzg8M=",
 									"_parent": {
 										"$ref": "AAAAAAF+lTMDEmuFfBU="
@@ -29185,7 +28982,7 @@
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 379,
-											"top": 327,
+											"top": 311,
 											"width": 179.27490234375,
 											"height": 15,
 											"alpha": 1.4601402031821105,
@@ -29194,7 +28991,7 @@
 												"$ref": "AAAAAAF+lTMDGGzzg8M="
 											},
 											"edgePosition": 1,
-											"text": "13 : Return Halaman Login"
+											"text": "12 : Return Halaman Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -29208,7 +29005,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 468,
-											"top": 344,
+											"top": 328,
 											"height": 13,
 											"alpha": 1.5707963267948966,
 											"distance": 25,
@@ -29229,7 +29026,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 469,
-											"top": 309,
+											"top": 293,
 											"height": 13,
 											"alpha": -1.5707963267948966,
 											"distance": 10,
@@ -29250,7 +29047,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 355,
-											"top": 325,
+											"top": 309,
 											"width": 14,
 											"height": 25
 										}
@@ -29263,7 +29060,7 @@
 									"tail": {
 										"$ref": "AAAAAAF+lTMDE2uWbKs="
 									},
-									"points": "583:325;355:325",
+									"points": "583:309;355:309",
 									"nameLabel": {
 										"$ref": "AAAAAAF+lTMDGGz06+U="
 									},
@@ -29344,7 +29141,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lTMDEmuE5Hc="
 							},
-							"name": "Login Berhasil Buat Data Session",
+							"name": "Validasi Data Login",
 							"source": {
 								"$ref": "AAAAAAF+lTMDGm08kEg="
 							},
@@ -29442,20 +29239,6 @@
 						},
 						{
 							"_type": "UMLMessage",
-							"_id": "AAAAAAF+lTMDGm05tSA=",
-							"_parent": {
-								"$ref": "AAAAAAF+lTMDEmuE5Hc="
-							},
-							"name": "Login Gagal",
-							"source": {
-								"$ref": "AAAAAAF+lTMDGm08kEg="
-							},
-							"target": {
-								"$ref": "AAAAAAF+lTMDGm08kEg="
-							}
-						},
-						{
-							"_type": "UMLMessage",
 							"_id": "AAAAAAF+lTMDGm06tEY=",
 							"_parent": {
 								"$ref": "AAAAAAF+lTMDEmuE5Hc="
@@ -29527,8 +29310,28 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lTMDEmuE5Hc="
 							},
-							"name": "Login Berhasil",
-							"interactionOperator": "seq"
+							"name": "Login Validation",
+							"interactionOperator": "seq",
+							"operands": [
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFHV+0h7vIs=",
+									"_parent": {
+										"$ref": "AAAAAAF+lTMDGm0/Fcg="
+									},
+									"name": "InteractionOperand1",
+									"guard": "Login Berhasil"
+								},
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFIE90iEQeo=",
+									"_parent": {
+										"$ref": "AAAAAAF+lTMDGm0/Fcg="
+									},
+									"name": "InteractionOperand2",
+									"guard": "Login Gagal"
+								}
+							]
 						}
 					]
 				},
@@ -29566,9 +29369,9 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 72.33740234375,
+											"left": 74.84228515625,
 											"top": 5,
-											"width": 146.78125,
+											"width": 161.9423828125,
 											"height": 15,
 											"text": "SequenceDiagramLogin"
 										},
@@ -29582,7 +29385,7 @@
 											"font": "Arial;15;1",
 											"left": 53,
 											"top": 5,
-											"width": 14.33740234375,
+											"width": 16.84228515625,
 											"height": 15,
 											"text": "sd"
 										}
@@ -29591,7 +29394,7 @@
 									"font": "Arial;15;0",
 									"left": 48,
 									"width": 889,
-									"height": 369,
+									"height": 289,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lRw4L2EDy6g="
 									},
@@ -29705,7 +29508,7 @@
 											"left": 331,
 											"top": 80,
 											"width": 1,
-											"height": 289
+											"height": 209
 										}
 									],
 									"fillColor": "#ffff91",
@@ -29713,7 +29516,7 @@
 									"left": 256,
 									"top": 40,
 									"width": 150.869140625,
-									"height": 329,
+									"height": 249,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lRw4L2EGAYk="
 									},
@@ -29827,7 +29630,7 @@
 											"left": 566,
 											"top": 80,
 											"width": 1,
-											"height": 289
+											"height": 209
 										}
 									],
 									"fillColor": "#ffff91",
@@ -29835,7 +29638,7 @@
 									"left": 488,
 									"top": 40,
 									"width": 155.908203125,
-									"height": 329,
+									"height": 249,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lRw4L2ENq7w="
 									},
@@ -29949,7 +29752,7 @@
 											"left": 867,
 											"top": 80,
 											"width": 1,
-											"height": 289
+											"height": 209
 										}
 									],
 									"fillColor": "#ffff91",
@@ -29957,7 +29760,7 @@
 									"left": 824,
 									"top": 40,
 									"width": 86.70166015625,
-									"height": 329,
+									"height": 249,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lRw4L2EUl1E="
 									},
@@ -29983,11 +29786,11 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 110.9951171875,
+											"left": 115.1845703125,
 											"top": 157,
-											"width": 90.56787109375,
+											"width": 106.63720703125,
 											"height": 15,
-											"text": "Login Berhasil"
+											"text": "Login Validation"
 										},
 										{
 											"_type": "LabelView",
@@ -29999,7 +29802,7 @@
 											"font": "Arial;15;1",
 											"left": 85,
 											"top": 157,
-											"width": 20.9951171875,
+											"width": 25.1845703125,
 											"height": 15,
 											"text": "seq"
 										},
@@ -30012,12 +29815,84 @@
 											"model": {
 												"$ref": "AAAAAAF+lRw4OmK7wf8="
 											},
-											"visible": false,
+											"subViews": [
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFVre0i79qA=",
+													"_parent": {
+														"$ref": "AAAAAAF+lRw4MGEdx3E="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFVrZUi4XgA="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFVre0i8EHU=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFVre0i79qA="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 192,
+															"width": 103.39599609375,
+															"height": 15,
+															"text": "[Login Berhasil]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 177,
+													"width": 825,
+													"height": 56,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFVre0i8EHU="
+													}
+												},
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFVymkjEjeU=",
+													"_parent": {
+														"$ref": "AAAAAAF+lRw4MGEdx3E="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFVyjEjBfPM="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFVym0jFmK4=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFVymkjEjeU="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 248,
+															"width": 89.23095703125,
+															"height": 15,
+															"text": "[Login Gagal]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 233,
+													"width": 825,
+													"height": 56,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFVym0jFmK4="
+													}
+												}
+											],
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 80,
-											"top": 175,
-											"width": 888
+											"top": 177,
+											"width": 825,
+											"height": 112
 										}
 									],
 									"fillColor": "#ffff91",
@@ -30025,7 +29900,7 @@
 									"left": 80,
 									"top": 152,
 									"width": 825,
-									"height": 129,
+									"height": 137,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lRw4L2Eby+E="
 									},
@@ -30513,17 +30388,17 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 584,
-											"top": 143,
-											"width": 273.50830078125,
+											"left": 583,
+											"top": 144,
+											"width": 148.98193359375,
 											"height": 15,
-											"alpha": 1.604680653829574,
-											"distance": 118.06777714516353,
+											"alpha": 1.625286773147693,
+											"distance": 55.08175741568164,
 											"hostEdge": {
 												"$ref": "AAAAAAF+lRw4MGEyBAw="
 											},
 											"edgePosition": 1,
-											"text": "5 : Login Berhasil dan Buat Data Session"
+											"text": "5 : Validasi Data Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -30581,7 +30456,7 @@
 											"left": 559,
 											"top": 164,
 											"width": 14,
-											"height": 125
+											"height": 101
 										}
 									],
 									"fillColor": "#ffff91",
@@ -31057,7 +30932,7 @@
 											"left": 115,
 											"top": 107,
 											"width": 1,
-											"height": 262
+											"height": 182
 										}
 									],
 									"fillColor": "#ffff91",
@@ -31065,127 +30940,13 @@
 									"left": 56,
 									"top": 40,
 									"width": 118.33251953125,
-									"height": 329,
+									"height": 249,
 									"stereotypeDisplay": "icon",
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lRw4M2Gh+UI="
 									},
 									"linePart": {
 										"$ref": "AAAAAAF+lRw4M2Gmhuo="
-									}
-								},
-								{
-									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAF+lRw4OGJqnNs=",
-									"_parent": {
-										"$ref": "AAAAAAF+lRw4L2EBBDo="
-									},
-									"model": {
-										"$ref": "AAAAAAF+lRw4OmK1fI0="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lRw4OGJrwUY=",
-											"_parent": {
-												"$ref": "AAAAAAF+lRw4OGJqnNs="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lRw4OmK1fI0="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 555,
-											"top": 290,
-											"width": 101.74072265625,
-											"height": 15,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lRw4OGJqnNs="
-											},
-											"edgePosition": 1,
-											"text": "9 : Login Gagal"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lRw4OGJsyt8=",
-											"_parent": {
-												"$ref": "AAAAAAF+lRw4OGJqnNs="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lRw4OmK1fI0="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 620,
-											"top": 291,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lRw4OGJqnNs="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lRw4OGJt6Aw=",
-											"_parent": {
-												"$ref": "AAAAAAF+lRw4OGJqnNs="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lRw4OmK1fI0="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 586,
-											"top": 292,
-											"height": 13,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lRw4OGJqnNs="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAF+lRw4OGJufTI=",
-											"_parent": {
-												"$ref": "AAAAAAF+lRw4OGJqnNs="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lRw4OmK1fI0="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 559,
-											"top": 308,
-											"width": 14,
-											"height": 29
-										}
-									],
-									"fillColor": "#ffff91",
-									"font": "Arial;15;0",
-									"head": {
-										"$ref": "AAAAAAF+lRw4L2ESzKA="
-									},
-									"tail": {
-										"$ref": "AAAAAAF+lRw4L2ESzKA="
-									},
-									"points": "566:288;596:288;596:308;572:308",
-									"nameLabel": {
-										"$ref": "AAAAAAF+lRw4OGJrwUY="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAF+lRw4OGJsyt8="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAF+lRw4OGJt6Aw="
-									},
-									"activation": {
-										"$ref": "AAAAAAF+lRw4OGJufTI="
 									}
 								},
 								{
@@ -31210,7 +30971,7 @@
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 355,
-											"top": 319,
+											"top": 255,
 											"width": 179.27490234375,
 											"height": 15,
 											"alpha": 1.4601402031821105,
@@ -31219,7 +30980,7 @@
 												"$ref": "AAAAAAF+lRw4OGJvfuE="
 											},
 											"edgePosition": 1,
-											"text": "10 : Return Halaman Login"
+											"text": "9 : Return Halaman Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -31233,7 +30994,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 444,
-											"top": 336,
+											"top": 272,
 											"height": 13,
 											"alpha": 1.5707963267948966,
 											"distance": 25,
@@ -31254,7 +31015,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 445,
-											"top": 301,
+											"top": 237,
 											"height": 13,
 											"alpha": -1.5707963267948966,
 											"distance": 10,
@@ -31275,7 +31036,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 331,
-											"top": 317,
+											"top": 253,
 											"width": 14,
 											"height": 25
 										}
@@ -31288,7 +31049,7 @@
 									"tail": {
 										"$ref": "AAAAAAF+lRw4L2ESzKA="
 									},
-									"points": "559:317;331:317",
+									"points": "559:253;331:253",
 									"nameLabel": {
 										"$ref": "AAAAAAF+lRw4OGJwjbA="
 									},
@@ -31369,7 +31130,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lRw4LmEA8MY="
 							},
-							"name": "Login Berhasil dan Buat Data Session",
+							"name": "Validasi Data Login",
 							"source": {
 								"$ref": "AAAAAAF+lRw4OmK4s0A="
 							},
@@ -31421,20 +31182,6 @@
 								"$ref": "AAAAAAF+lRw4OmK4s0A="
 							},
 							"messageSort": "reply"
-						},
-						{
-							"_type": "UMLMessage",
-							"_id": "AAAAAAF+lRw4OmK1fI0=",
-							"_parent": {
-								"$ref": "AAAAAAF+lRw4LmEA8MY="
-							},
-							"name": "Login Gagal",
-							"source": {
-								"$ref": "AAAAAAF+lRw4OmK4s0A="
-							},
-							"target": {
-								"$ref": "AAAAAAF+lRw4OmK4s0A="
-							}
 						},
 						{
 							"_type": "UMLMessage",
@@ -31509,8 +31256,28 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lRw4LmEA8MY="
 							},
-							"name": "Login Berhasil",
-							"interactionOperator": "seq"
+							"name": "Login Validation",
+							"interactionOperator": "seq",
+							"operands": [
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFVrZUi4XgA=",
+									"_parent": {
+										"$ref": "AAAAAAF+lRw4OmK7wf8="
+									},
+									"name": "InteractionOperand1",
+									"guard": "Login Berhasil"
+								},
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFVyjEjBfPM=",
+									"_parent": {
+										"$ref": "AAAAAAF+lRw4OmK7wf8="
+									},
+									"name": "InteractionOperand2",
+									"guard": "Login Gagal"
+								}
+							]
 						}
 					]
 				},
@@ -31548,9 +31315,9 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 72.33740234375,
+											"left": 74.84228515625,
 											"top": 5,
-											"width": 183.4462890625,
+											"width": 198.607421875,
 											"height": 15,
 											"text": "SequenceDiagramKlimatologi"
 										},
@@ -31564,7 +31331,7 @@
 											"font": "Arial;15;1",
 											"left": 53,
 											"top": 5,
-											"width": 14.33740234375,
+											"width": 16.84228515625,
 											"height": 15,
 											"text": "sd"
 										}
@@ -31573,7 +31340,7 @@
 									"font": "Arial;15;0",
 									"left": 48,
 									"width": 929,
-									"height": 657,
+									"height": 633,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lTreJ3Yh8Ag="
 									},
@@ -31687,7 +31454,7 @@
 											"left": 363,
 											"top": 80,
 											"width": 1,
-											"height": 577
+											"height": 556
 										}
 									],
 									"fillColor": "#ffff91",
@@ -31695,7 +31462,7 @@
 									"left": 288,
 									"top": 40,
 									"width": 150.869140625,
-									"height": 617,
+									"height": 596,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lTreJ3YkSV4="
 									},
@@ -31809,7 +31576,7 @@
 											"left": 646,
 											"top": 80,
 											"width": 1,
-											"height": 577
+											"height": 556
 										}
 									],
 									"fillColor": "#ffff91",
@@ -31817,7 +31584,7 @@
 									"left": 568,
 									"top": 40,
 									"width": 155.908203125,
-									"height": 617,
+									"height": 596,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lTreKHYrrCE="
 									},
@@ -31931,7 +31698,7 @@
 											"left": 907,
 											"top": 80,
 											"width": 1,
-											"height": 577
+											"height": 553
 										}
 									],
 									"fillColor": "#ffff91",
@@ -31939,7 +31706,7 @@
 									"left": 864,
 									"top": 40,
 									"width": 86.70166015625,
-									"height": 617,
+									"height": 593,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lTreKHYynVw="
 									},
@@ -31965,11 +31732,11 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 110.9951171875,
+											"left": 115.1845703125,
 											"top": 157,
-											"width": 90.56787109375,
+											"width": 106.63720703125,
 											"height": 15,
-											"text": "Login Berhasil"
+											"text": "Login Validation"
 										},
 										{
 											"_type": "LabelView",
@@ -31981,7 +31748,7 @@
 											"font": "Arial;15;1",
 											"left": 85,
 											"top": 157,
-											"width": 20.9951171875,
+											"width": 25.1845703125,
 											"height": 15,
 											"text": "seq"
 										},
@@ -31994,12 +31761,84 @@
 											"model": {
 												"$ref": "AAAAAAF+lTreMnfZcmo="
 											},
-											"visible": false,
+											"subViews": [
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFgv9kj7Q/s=",
+													"_parent": {
+														"$ref": "AAAAAAF+lTreKHY7qco="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFgv2Uj4iao="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFgv9kj82Zk=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFgv9kj7Q/s="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 192,
+															"width": 103.39599609375,
+															"height": 15,
+															"text": "[Login Berhasil]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 177,
+													"width": 865,
+													"height": 408,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFgv9kj82Zk="
+													}
+												},
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFgyJkkE1AQ=",
+													"_parent": {
+														"$ref": "AAAAAAF+lTreKHY7qco="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFgyCkkBcBw="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFgyJkkFiJ4=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFgyJkkE1AQ="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 600,
+															"width": 89.23095703125,
+															"height": 15,
+															"text": "[Login Gagal]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 585,
+													"width": 865,
+													"height": 48,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFgyJkkFiJ4="
+													}
+												}
+											],
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 80,
-											"top": 175,
-											"width": 888
+											"top": 177,
+											"width": 865,
+											"height": 456
 										}
 									],
 									"fillColor": "#ffff91",
@@ -32007,7 +31846,7 @@
 									"left": 80,
 									"top": 152,
 									"width": 865,
-									"height": 433,
+									"height": 481,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lTreKHY52Aw="
 									},
@@ -32495,17 +32334,17 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 655,
-											"top": 143,
-											"width": 244.31396484375,
+											"left": 663,
+											"top": 144,
+											"width": 148.98193359375,
 											"height": 15,
-											"alpha": 1.6128757298124983,
-											"distance": 95.08417323613851,
+											"alpha": 1.625286773147693,
+											"distance": 55.08175741568164,
 											"hostEdge": {
 												"$ref": "AAAAAAF+lTreKHZQHTg="
 											},
 											"edgePosition": 1,
-											"text": "5 : Login Berhasil Buat Data Session"
+											"text": "5 : Validasi Data Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -32563,7 +32402,7 @@
 											"left": 639,
 											"top": 164,
 											"width": 14,
-											"height": 429
+											"height": 445
 										}
 									],
 									"fillColor": "#ffff91",
@@ -35091,7 +34930,7 @@
 											"left": 115,
 											"top": 107,
 											"width": 1,
-											"height": 550
+											"height": 526
 										}
 									],
 									"fillColor": "#ffff91",
@@ -35099,7 +34938,7 @@
 									"left": 56,
 									"top": 40,
 									"width": 118.33251953125,
-									"height": 617,
+									"height": 593,
 									"stereotypeDisplay": "icon",
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lTreK3a/hYk="
@@ -36250,120 +36089,6 @@
 								},
 								{
 									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAF+lTreMHeIr/c=",
-									"_parent": {
-										"$ref": "AAAAAAF+lTreJ3YfJuE="
-									},
-									"model": {
-										"$ref": "AAAAAAF+lTreMnfT+0o="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lTreMHeJlTc=",
-											"_parent": {
-												"$ref": "AAAAAAF+lTreMHeIr/c="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lTreMnfT+0o="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 630,
-											"top": 594,
-											"width": 110.0830078125,
-											"height": 15,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lTreMHeIr/c="
-											},
-											"edgePosition": 1,
-											"text": "37 : Login Gagal"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lTreMHeKvVg=",
-											"_parent": {
-												"$ref": "AAAAAAF+lTreMHeIr/c="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lTreMnfT+0o="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 700,
-											"top": 595,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lTreMHeIr/c="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lTreMHeLJBI=",
-											"_parent": {
-												"$ref": "AAAAAAF+lTreMHeIr/c="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lTreMnfT+0o="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 666,
-											"top": 596,
-											"height": 13,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lTreMHeIr/c="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAF+lTreMHeMTgA=",
-											"_parent": {
-												"$ref": "AAAAAAF+lTreMHeIr/c="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lTreMnfT+0o="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 639,
-											"top": 612,
-											"width": 14,
-											"height": 29
-										}
-									],
-									"fillColor": "#ffff91",
-									"font": "Arial;15;0",
-									"head": {
-										"$ref": "AAAAAAF+lTreKHYwy9I="
-									},
-									"tail": {
-										"$ref": "AAAAAAF+lTreKHYwy9I="
-									},
-									"points": "646:592;676:592;676:612;652:612",
-									"nameLabel": {
-										"$ref": "AAAAAAF+lTreMHeJlTc="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAF+lTreMHeKvVg="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAF+lTreMHeLJBI="
-									},
-									"activation": {
-										"$ref": "AAAAAAF+lTreMHeMTgA="
-									}
-								},
-								{
-									"_type": "UMLSeqMessageView",
 									"_id": "AAAAAAF+lTreMHeNO80=",
 									"_parent": {
 										"$ref": "AAAAAAF+lTreJ3YfJuE="
@@ -36384,7 +36109,7 @@
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 411,
-											"top": 623,
+											"top": 607,
 											"width": 179.27490234375,
 											"height": 15,
 											"alpha": 1.4601402031821105,
@@ -36393,7 +36118,7 @@
 												"$ref": "AAAAAAF+lTreMHeNO80="
 											},
 											"edgePosition": 1,
-											"text": "38 : Return Halaman Login"
+											"text": "37 : Return Halaman Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -36407,7 +36132,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 500,
-											"top": 640,
+											"top": 624,
 											"height": 13,
 											"alpha": 1.5707963267948966,
 											"distance": 25,
@@ -36428,7 +36153,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 605,
+											"top": 589,
 											"height": 13,
 											"alpha": -1.5707963267948966,
 											"distance": 10,
@@ -36449,7 +36174,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 363,
-											"top": 621,
+											"top": 605,
 											"width": 14,
 											"height": 25
 										}
@@ -36462,7 +36187,7 @@
 									"tail": {
 										"$ref": "AAAAAAF+lTreKHYwy9I="
 									},
-									"points": "639:621;363:621",
+									"points": "639:605;363:605",
 									"nameLabel": {
 										"$ref": "AAAAAAF+lTreMHeOJNY="
 									},
@@ -36543,7 +36268,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lTreJ3Ye+iM="
 							},
-							"name": "Login Berhasil Buat Data Session",
+							"name": "Validasi Data Login",
 							"source": {
 								"$ref": "AAAAAAF+lTreMnfWr3g="
 							},
@@ -37001,20 +36726,6 @@
 						},
 						{
 							"_type": "UMLMessage",
-							"_id": "AAAAAAF+lTreMnfT+0o=",
-							"_parent": {
-								"$ref": "AAAAAAF+lTreJ3Ye+iM="
-							},
-							"name": "Login Gagal",
-							"source": {
-								"$ref": "AAAAAAF+lTreMnfWr3g="
-							},
-							"target": {
-								"$ref": "AAAAAAF+lTreMnfWr3g="
-							}
-						},
-						{
-							"_type": "UMLMessage",
 							"_id": "AAAAAAF+lTreMnfUzkE=",
 							"_parent": {
 								"$ref": "AAAAAAF+lTreJ3Ye+iM="
@@ -37086,8 +36797,28 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lTreJ3Ye+iM="
 							},
-							"name": "Login Berhasil",
-							"interactionOperator": "seq"
+							"name": "Login Validation",
+							"interactionOperator": "seq",
+							"operands": [
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFgv2Uj4iao=",
+									"_parent": {
+										"$ref": "AAAAAAF+lTreMnfZcmo="
+									},
+									"name": "InteractionOperand1",
+									"guard": "Login Berhasil"
+								},
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFgyCkkBcBw=",
+									"_parent": {
+										"$ref": "AAAAAAF+lTreMnfZcmo="
+									},
+									"name": "InteractionOperand2",
+									"guard": "Login Gagal"
+								}
+							]
 						}
 					]
 				},
@@ -37125,9 +36856,9 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 72.33740234375,
+											"left": 74.84228515625,
 											"top": 5,
-											"width": 163.451171875,
+											"width": 182.7578125,
 											"height": 15,
 											"text": "SequenceDiagramProyeksi"
 										},
@@ -37141,7 +36872,7 @@
 											"font": "Arial;15;1",
 											"left": 53,
 											"top": 5,
-											"width": 14.33740234375,
+											"width": 16.84228515625,
 											"height": 15,
 											"text": "sd"
 										}
@@ -37150,7 +36881,7 @@
 									"font": "Arial;15;0",
 									"left": 48,
 									"width": 873,
-									"height": 537,
+									"height": 457,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lWDN4n89YHM="
 									},
@@ -37264,7 +36995,7 @@
 											"left": 347,
 											"top": 80,
 											"width": 1,
-											"height": 457
+											"height": 377
 										}
 									],
 									"fillColor": "#ffff91",
@@ -37272,7 +37003,7 @@
 									"left": 272,
 									"top": 40,
 									"width": 150.869140625,
-									"height": 497,
+									"height": 417,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lWDN4n9AxAM="
 									},
@@ -37386,7 +37117,7 @@
 											"left": 582,
 											"top": 80,
 											"width": 1,
-											"height": 457
+											"height": 377
 										}
 									],
 									"fillColor": "#ffff91",
@@ -37394,7 +37125,7 @@
 									"left": 504,
 									"top": 40,
 									"width": 155.908203125,
-									"height": 497,
+									"height": 417,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lWDN4n9Hg8I="
 									},
@@ -37508,7 +37239,7 @@
 											"left": 851,
 											"top": 80,
 											"width": 1,
-											"height": 457
+											"height": 377
 										}
 									],
 									"fillColor": "#ffff91",
@@ -37516,7 +37247,7 @@
 									"left": 808,
 									"top": 40,
 									"width": 86.70166015625,
-									"height": 497,
+									"height": 417,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lWDN4n9OSMo="
 									},
@@ -37542,11 +37273,11 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 110.9951171875,
+											"left": 115.1845703125,
 											"top": 157,
-											"width": 90.56787109375,
+											"width": 106.63720703125,
 											"height": 15,
-											"text": "Login Berhasil"
+											"text": "Login Validation"
 										},
 										{
 											"_type": "LabelView",
@@ -37558,7 +37289,7 @@
 											"font": "Arial;15;1",
 											"left": 85,
 											"top": 157,
-											"width": 20.9951171875,
+											"width": 25.1845703125,
 											"height": 15,
 											"text": "seq"
 										},
@@ -37571,12 +37302,84 @@
 											"model": {
 												"$ref": "AAAAAAF+lWDN6oD1KYk="
 											},
-											"visible": false,
+											"subViews": [
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFvg00lUF4s=",
+													"_parent": {
+														"$ref": "AAAAAAF+lWDN439XoDk="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFvgr0lRe7s="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFvg00lVkd4=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFvg00lUF4s="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 192,
+															"width": 103.39599609375,
+															"height": 15,
+															"text": "[Login Berhasil]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 177,
+													"width": 809,
+													"height": 232,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFvg00lVkd4="
+													}
+												},
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFvjj0ld99w=",
+													"_parent": {
+														"$ref": "AAAAAAF+lWDN439XoDk="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFvjfElaUPc="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFvjj0leSxA=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFvjj0ld99w="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 424,
+															"width": 89.23095703125,
+															"height": 15,
+															"text": "[Login Gagal]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 409,
+													"width": 809,
+													"height": 45,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFvjj0leSxA="
+													}
+												}
+											],
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 80,
-											"top": 175,
-											"width": 888
+											"top": 177,
+											"width": 809,
+											"height": 277
 										}
 									],
 									"fillColor": "#ffff91",
@@ -38074,15 +37877,15 @@
 											"font": "Arial;15;0",
 											"left": 599,
 											"top": 144,
-											"width": 244.31396484375,
+											"width": 148.98193359375,
 											"height": 15,
-											"alpha": 1.5999133054765449,
-											"distance": 103.04368005850722,
+											"alpha": 1.625286773147693,
+											"distance": 55.08175741568164,
 											"hostEdge": {
 												"$ref": "AAAAAAF+lWDN439s0Bs="
 											},
 											"edgePosition": 1,
-											"text": "5 : Login Berhasil Buat Data Session"
+											"text": "5 : Validasi Data Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -38140,7 +37943,7 @@
 											"left": 575,
 											"top": 164,
 											"width": 14,
-											"height": 309
+											"height": 269
 										}
 									],
 									"fillColor": "#ffff91",
@@ -38616,7 +38419,7 @@
 											"left": 115,
 											"top": 107,
 											"width": 1,
-											"height": 430
+											"height": 350
 										}
 									],
 									"fillColor": "#ffff91",
@@ -38624,7 +38427,7 @@
 									"left": 56,
 									"top": 40,
 									"width": 118.33251953125,
-									"height": 497,
+									"height": 417,
 									"stereotypeDisplay": "icon",
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lWDN5X/b7cw="
@@ -39663,120 +39466,6 @@
 								},
 								{
 									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAF+lWDN6ICkhVU=",
-									"_parent": {
-										"$ref": "AAAAAAF+lWDN4n87hpU="
-									},
-									"model": {
-										"$ref": "AAAAAAF+lWDN6YDvANs="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lWDN6IClXhw=",
-											"_parent": {
-												"$ref": "AAAAAAF+lWDN6ICkhVU="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lWDN6YDvANs="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 577,
-											"top": 463,
-											"width": 110.0830078125,
-											"height": 15,
-											"alpha": 1.8490947971208873,
-											"distance": 14.560219778561036,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lWDN6ICkhVU="
-											},
-											"edgePosition": 1,
-											"text": "18 : Login Gagal"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lWDN6ICmBho=",
-											"_parent": {
-												"$ref": "AAAAAAF+lWDN6ICkhVU="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lWDN6YDvANs="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 642,
-											"top": 467,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lWDN6ICkhVU="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lWDN6ICnI6Y=",
-											"_parent": {
-												"$ref": "AAAAAAF+lWDN6ICkhVU="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lWDN6YDvANs="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 608,
-											"top": 468,
-											"height": 13,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lWDN6ICkhVU="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAF+lWDN6ICo4pk=",
-											"_parent": {
-												"$ref": "AAAAAAF+lWDN6ICkhVU="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lWDN6YDvANs="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 575,
-											"top": 484,
-											"width": 14,
-											"height": 29
-										}
-									],
-									"fillColor": "#ffff91",
-									"font": "Arial;15;0",
-									"head": {
-										"$ref": "AAAAAAF+lWDN4n9M4K4="
-									},
-									"tail": {
-										"$ref": "AAAAAAF+lWDN4n9M4K4="
-									},
-									"points": "588:464;618:464;618:484;588:484",
-									"nameLabel": {
-										"$ref": "AAAAAAF+lWDN6IClXhw="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAF+lWDN6ICmBho="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAF+lWDN6ICnI6Y="
-									},
-									"activation": {
-										"$ref": "AAAAAAF+lWDN6ICo4pk="
-									}
-								},
-								{
-									"_type": "UMLSeqMessageView",
 									"_id": "AAAAAAF+lWDN6ICp0aM=",
 									"_parent": {
 										"$ref": "AAAAAAF+lWDN4n87hpU="
@@ -39797,7 +39486,7 @@
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 371,
-											"top": 503,
+											"top": 423,
 											"width": 179.27490234375,
 											"height": 15,
 											"alpha": 1.4601402031821105,
@@ -39806,7 +39495,7 @@
 												"$ref": "AAAAAAF+lWDN6ICp0aM="
 											},
 											"edgePosition": 1,
-											"text": "19 : Return Halaman Login"
+											"text": "18 : Return Halaman Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -39820,7 +39509,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 460,
-											"top": 520,
+											"top": 440,
 											"height": 13,
 											"alpha": 1.5707963267948966,
 											"distance": 25,
@@ -39841,7 +39530,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 461,
-											"top": 485,
+											"top": 405,
 											"height": 13,
 											"alpha": -1.5707963267948966,
 											"distance": 10,
@@ -39862,7 +39551,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 347,
-											"top": 501,
+											"top": 421,
 											"width": 14,
 											"height": 25
 										}
@@ -39875,7 +39564,7 @@
 									"tail": {
 										"$ref": "AAAAAAF+lWDN4n9M4K4="
 									},
-									"points": "575:501;347:501",
+									"points": "575:421;347:421",
 									"nameLabel": {
 										"$ref": "AAAAAAF+lWDN6ICqxoA="
 									},
@@ -39956,7 +39645,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lWDN4n86c+8="
 							},
-							"name": "Login Berhasil Buat Data Session",
+							"name": "Validasi Data Login",
 							"source": {
 								"$ref": "AAAAAAF+lWDN6oDybqw="
 							},
@@ -40140,20 +39829,6 @@
 						},
 						{
 							"_type": "UMLMessage",
-							"_id": "AAAAAAF+lWDN6YDvANs=",
-							"_parent": {
-								"$ref": "AAAAAAF+lWDN4n86c+8="
-							},
-							"name": "Login Gagal",
-							"source": {
-								"$ref": "AAAAAAF+lWDN6oDybqw="
-							},
-							"target": {
-								"$ref": "AAAAAAF+lWDN6oDybqw="
-							}
-						},
-						{
-							"_type": "UMLMessage",
 							"_id": "AAAAAAF+lWDN6YDw+cc=",
 							"_parent": {
 								"$ref": "AAAAAAF+lWDN4n86c+8="
@@ -40225,8 +39900,28 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lWDN4n86c+8="
 							},
-							"name": "Login Berhasil",
-							"interactionOperator": "seq"
+							"name": "Login Validation",
+							"interactionOperator": "seq",
+							"operands": [
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFvgr0lRe7s=",
+									"_parent": {
+										"$ref": "AAAAAAF+lWDN6oD1KYk="
+									},
+									"name": "InteractionOperand1",
+									"guard": "Login Berhasil"
+								},
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFvjfElaUPc=",
+									"_parent": {
+										"$ref": "AAAAAAF+lWDN6oD1KYk="
+									},
+									"name": "InteractionOperand2",
+									"guard": "Login Gagal"
+								}
+							]
 						}
 					]
 				},
@@ -40289,7 +39984,7 @@
 									"font": "Arial;15;0",
 									"left": 48,
 									"width": 873,
-									"height": 481,
+									"height": 457,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lXRNU6Z5tkQ="
 									},
@@ -40403,7 +40098,7 @@
 											"left": 347,
 											"top": 80,
 											"width": 1,
-											"height": 401
+											"height": 380
 										}
 									],
 									"fillColor": "#ffff91",
@@ -40411,7 +40106,7 @@
 									"left": 272,
 									"top": 40,
 									"width": 150.869140625,
-									"height": 441,
+									"height": 420,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lXRNU6Z8Byw="
 									},
@@ -40525,7 +40220,7 @@
 											"left": 598,
 											"top": 80,
 											"width": 1,
-											"height": 401
+											"height": 380
 										}
 									],
 									"fillColor": "#ffff91",
@@ -40533,7 +40228,7 @@
 									"left": 520,
 									"top": 40,
 									"width": 155.908203125,
-									"height": 441,
+									"height": 420,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lXRNU6aD46M="
 									},
@@ -40647,7 +40342,7 @@
 											"left": 851,
 											"top": 80,
 											"width": 1,
-											"height": 401
+											"height": 377
 										}
 									],
 									"fillColor": "#ffff91",
@@ -40655,7 +40350,7 @@
 									"left": 808,
 									"top": 40,
 									"width": 86.70166015625,
-									"height": 441,
+									"height": 417,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lXRNU6aKNE8="
 									},
@@ -40683,9 +40378,9 @@
 											"font": "Arial;15;0",
 											"left": 115.1845703125,
 											"top": 157,
-											"width": 96.06103515625,
+											"width": 106.63720703125,
 											"height": 15,
-											"text": "Login Berhasil"
+											"text": "Login Validation"
 										},
 										{
 											"_type": "LabelView",
@@ -40710,12 +40405,84 @@
 											"model": {
 												"$ref": "AAAAAAF+lXRNW6gxcBs="
 											},
-											"visible": false,
+											"subViews": [
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFzzsUl6y3Q=",
+													"_parent": {
+														"$ref": "AAAAAAF+lXRNU6aTeso="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFzzjUl3hnw="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFzzsUl776Y=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFzzsUl6y3Q="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 192,
+															"width": 103.39599609375,
+															"height": 15,
+															"text": "[Login Berhasil]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 177,
+													"width": 809,
+													"height": 232,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFzzsUl776Y="
+													}
+												},
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nFz2ikmD/B8=",
+													"_parent": {
+														"$ref": "AAAAAAF+lXRNU6aTeso="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nFz2eEmARjw="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nFz2ikmEhIk=",
+															"_parent": {
+																"$ref": "AAAAAAF+nFz2ikmD/B8="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 424,
+															"width": 89.23095703125,
+															"height": 15,
+															"text": "[Login Gagal]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 409,
+													"width": 809,
+													"height": 48,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nFz2ikmEhIk="
+													}
+												}
+											],
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 80,
-											"top": 175,
-											"width": 888
+											"top": 177,
+											"width": 809,
+											"height": 280
 										}
 									],
 									"fillColor": "#ffff91",
@@ -40723,7 +40490,7 @@
 									"left": 80,
 									"top": 152,
 									"width": 809,
-									"height": 257,
+									"height": 305,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lXRNU6aR/Ko="
 									},
@@ -41213,15 +40980,15 @@
 											"font": "Arial;15;0",
 											"left": 615,
 											"top": 144,
-											"width": 244.31396484375,
+											"width": 148.98193359375,
 											"height": 15,
-											"alpha": 1.5999133054765449,
-											"distance": 103.04368005850722,
+											"alpha": 1.625286773147693,
+											"distance": 55.08175741568164,
 											"hostEdge": {
 												"$ref": "AAAAAAF+lXRNVKaoEJU="
 											},
 											"edgePosition": 1,
-											"text": "5 : Login Berhasil Buat Data Session"
+											"text": "5 : Validasi Data Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -41279,7 +41046,7 @@
 											"left": 591,
 											"top": 164,
 											"width": 14,
-											"height": 245
+											"height": 269
 										}
 									],
 									"fillColor": "#ffff91",
@@ -41755,7 +41522,7 @@
 											"left": 115,
 											"top": 107,
 											"width": 1,
-											"height": 374
+											"height": 350
 										}
 									],
 									"fillColor": "#ffff91",
@@ -41763,7 +41530,7 @@
 									"left": 56,
 									"top": 40,
 									"width": 118.33251953125,
-									"height": 441,
+									"height": 417,
 									"stereotypeDisplay": "icon",
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lXRNVacXUYo="
@@ -43028,120 +42795,6 @@
 								},
 								{
 									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAF+lXRNWafgcuU=",
-									"_parent": {
-										"$ref": "AAAAAAF+lXRNU6Z38qg="
-									},
-									"model": {
-										"$ref": "AAAAAAF+lXRNWqgr0rc="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lXRNWafhGMw=",
-											"_parent": {
-												"$ref": "AAAAAAF+lXRNWafgcuU="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lXRNWqgr0rc="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 597,
-											"top": 402,
-											"width": 110.0830078125,
-											"height": 15,
-											"alpha": 1.6262938012713997,
-											"distance": 18.027756377319946,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lXRNWafgcuU="
-											},
-											"edgePosition": 1,
-											"text": "20 : Login Gagal"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lXRNWafiMtM=",
-											"_parent": {
-												"$ref": "AAAAAAF+lXRNWafgcuU="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lXRNWqgr0rc="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 658,
-											"top": 403,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lXRNWafgcuU="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lXRNWafjaVI=",
-											"_parent": {
-												"$ref": "AAAAAAF+lXRNWafgcuU="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lXRNWqgr0rc="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 624,
-											"top": 404,
-											"height": 13,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lXRNWafgcuU="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAF+lXRNWafkqEE=",
-											"_parent": {
-												"$ref": "AAAAAAF+lXRNWafgcuU="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lXRNWqgr0rc="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 591,
-											"top": 420,
-											"width": 14,
-											"height": 29
-										}
-									],
-									"fillColor": "#ffff91",
-									"font": "Arial;15;0",
-									"head": {
-										"$ref": "AAAAAAF+lXRNU6aImzs="
-									},
-									"tail": {
-										"$ref": "AAAAAAF+lXRNU6aImzs="
-									},
-									"points": "604:400;634:400;634:420;604:420",
-									"nameLabel": {
-										"$ref": "AAAAAAF+lXRNWafhGMw="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAF+lXRNWafiMtM="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAF+lXRNWafjaVI="
-									},
-									"activation": {
-										"$ref": "AAAAAAF+lXRNWafkqEE="
-									}
-								},
-								{
-									"_type": "UMLSeqMessageView",
 									"_id": "AAAAAAF+lXRNWaflb10=",
 									"_parent": {
 										"$ref": "AAAAAAF+lXRNU6Z38qg="
@@ -43171,7 +42824,7 @@
 												"$ref": "AAAAAAF+lXRNWaflb10="
 											},
 											"edgePosition": 1,
-											"text": "21 : Return Halaman Login"
+											"text": "20 : Return Halaman Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -43321,7 +42974,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lXRNU6Z21h4="
 							},
-							"name": "Login Berhasil Buat Data Session",
+							"name": "Validasi Data Login",
 							"source": {
 								"$ref": "AAAAAAF+lXRNW6gusW4="
 							},
@@ -43534,20 +43187,6 @@
 						},
 						{
 							"_type": "UMLMessage",
-							"_id": "AAAAAAF+lXRNWqgr0rc=",
-							"_parent": {
-								"$ref": "AAAAAAF+lXRNU6Z21h4="
-							},
-							"name": "Login Gagal",
-							"source": {
-								"$ref": "AAAAAAF+lXRNW6gusW4="
-							},
-							"target": {
-								"$ref": "AAAAAAF+lXRNW6gusW4="
-							}
-						},
-						{
-							"_type": "UMLMessage",
 							"_id": "AAAAAAF+lXRNWqgsxew=",
 							"_parent": {
 								"$ref": "AAAAAAF+lXRNU6Z21h4="
@@ -43619,8 +43258,28 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lXRNU6Z21h4="
 							},
-							"name": "Login Berhasil",
-							"interactionOperator": "seq"
+							"name": "Login Validation",
+							"interactionOperator": "seq",
+							"operands": [
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFzzjUl3hnw=",
+									"_parent": {
+										"$ref": "AAAAAAF+lXRNW6gxcBs="
+									},
+									"name": "InteractionOperand1",
+									"guard": "Login Berhasil"
+								},
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nFz2eEmARjw=",
+									"_parent": {
+										"$ref": "AAAAAAF+lXRNW6gxcBs="
+									},
+									"name": "InteractionOperand2",
+									"guard": "Login Gagal"
+								}
+							]
 						}
 					]
 				},
@@ -43658,9 +43317,9 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 72.33740234375,
+											"left": 74.84228515625,
 											"top": 5,
-											"width": 154.28125,
+											"width": 171.11962890625,
 											"height": 15,
 											"text": "SequenceDiagramLogout"
 										},
@@ -43674,7 +43333,7 @@
 											"font": "Arial;15;1",
 											"left": 53,
 											"top": 5,
-											"width": 14.33740234375,
+											"width": 16.84228515625,
 											"height": 15,
 											"text": "sd"
 										}
@@ -43683,7 +43342,7 @@
 									"font": "Arial;15;0",
 									"left": 48,
 									"width": 817,
-									"height": 417,
+									"height": 377,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lYiRELBiED0="
 									},
@@ -43797,7 +43456,7 @@
 											"left": 315,
 											"top": 80,
 											"width": 1,
-											"height": 337
+											"height": 297
 										}
 									],
 									"fillColor": "#ffff91",
@@ -43805,7 +43464,7 @@
 									"left": 240,
 									"top": 40,
 									"width": 150.869140625,
-									"height": 377,
+									"height": 337,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lYiRELBlOS8="
 									},
@@ -43919,7 +43578,7 @@
 											"left": 542,
 											"top": 80,
 											"width": 1,
-											"height": 337
+											"height": 297
 										}
 									],
 									"fillColor": "#ffff91",
@@ -43927,7 +43586,7 @@
 									"left": 464,
 									"top": 40,
 									"width": 155.908203125,
-									"height": 377,
+									"height": 337,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lYiRELBsr2Y="
 									},
@@ -44041,7 +43700,7 @@
 											"left": 803,
 											"top": 80,
 											"width": 1,
-											"height": 337
+											"height": 297
 										}
 									],
 									"fillColor": "#ffff91",
@@ -44049,7 +43708,7 @@
 									"left": 760,
 									"top": 40,
 									"width": 86.70166015625,
-									"height": 377,
+									"height": 337,
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lYiRELBz8DU="
 									},
@@ -44075,11 +43734,11 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 110.9951171875,
+											"left": 115.1845703125,
 											"top": 157,
-											"width": 90.56787109375,
+											"width": 106.63720703125,
 											"height": 15,
-											"text": "Login Berhasil"
+											"text": "Login Validation"
 										},
 										{
 											"_type": "LabelView",
@@ -44091,7 +43750,7 @@
 											"font": "Arial;15;1",
 											"left": 85,
 											"top": 157,
-											"width": 20.9951171875,
+											"width": 25.1845703125,
 											"height": 15,
 											"text": "seq"
 										},
@@ -44104,12 +43763,84 @@
 											"model": {
 												"$ref": "AAAAAAF+lYiRF7IaEwQ="
 											},
-											"visible": false,
+											"subViews": [
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nF6Js0nAZPM=",
+													"_parent": {
+														"$ref": "AAAAAAF+lYiRELB8Srs="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nF6JlUm9Xig="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nF6Js0nBRKE=",
+															"_parent": {
+																"$ref": "AAAAAAF+nF6Js0nAZPM="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 192,
+															"width": 103.39599609375,
+															"height": 15,
+															"text": "[Login Berhasil]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 177,
+													"width": 753,
+													"height": 144,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nF6Js0nBRKE="
+													}
+												},
+												{
+													"_type": "UMLInteractionOperandView",
+													"_id": "AAAAAAF+nF6Nq0nJXMo=",
+													"_parent": {
+														"$ref": "AAAAAAF+lYiRELB8Srs="
+													},
+													"model": {
+														"$ref": "AAAAAAF+nF6NmknGgbw="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF+nF6Nq0nK4nc=",
+															"_parent": {
+																"$ref": "AAAAAAF+nF6Nq0nJXMo="
+															},
+															"fillColor": "#ffff91",
+															"font": "Arial;15;0",
+															"left": 100,
+															"top": 336,
+															"width": 89.23095703125,
+															"height": 15,
+															"text": "[Login Gagal]"
+														}
+													],
+													"fillColor": "#ffff91",
+													"font": "Arial;15;0",
+													"left": 80,
+													"top": 321,
+													"width": 753,
+													"height": 56,
+													"guardLabel": {
+														"$ref": "AAAAAAF+nF6Nq0nK4nc="
+													}
+												}
+											],
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
 											"left": 80,
-											"top": 175,
-											"width": 888
+											"top": 177,
+											"width": 753,
+											"height": 200
 										}
 									],
 									"fillColor": "#ffff91",
@@ -44117,7 +43848,7 @@
 									"left": 80,
 									"top": 152,
 									"width": 753,
-									"height": 169,
+									"height": 225,
 									"nameLabel": {
 										"$ref": "AAAAAAF+lYiRELB6a0A="
 									},
@@ -44605,17 +44336,17 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 551,
+											"left": 559,
 											"top": 143,
-											"width": 244.31396484375,
+											"width": 148.98193359375,
 											"height": 15,
-											"alpha": 1.6128757298124983,
-											"distance": 95.08417323613851,
+											"alpha": 1.6433947673718257,
+											"distance": 55.14526271584895,
 											"hostEdge": {
 												"$ref": "AAAAAAF+lYiREbCR/r0="
 											},
 											"edgePosition": 1,
-											"text": "5 : Login Berhasil Buat Data Session"
+											"text": "5 : Validasi Data Login"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -45149,7 +44880,7 @@
 											"left": 115,
 											"top": 107,
 											"width": 1,
-											"height": 310
+											"height": 270
 										}
 									],
 									"fillColor": "#ffff91",
@@ -45157,7 +44888,7 @@
 									"left": 56,
 									"top": 40,
 									"width": 118.33251953125,
-									"height": 377,
+									"height": 337,
 									"stereotypeDisplay": "icon",
 									"nameCompartment": {
 										"$ref": "AAAAAAF+lYiRErEAewE="
@@ -45255,7 +44986,7 @@
 											"left": 308,
 											"top": 232,
 											"width": 14,
-											"height": 105
+											"height": 33
 										}
 									],
 									"fillColor": "#ffff91",
@@ -45757,8 +45488,8 @@
 											},
 											"fillColor": "#ffff91",
 											"font": "Arial;15;0",
-											"left": 341,
-											"top": 332,
+											"left": 335,
+											"top": 347,
 											"width": 179.27490234375,
 											"height": 15,
 											"alpha": 1.5707963267948966,
@@ -45780,8 +45511,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 430,
-											"top": 348,
+											"left": 424,
+											"top": 363,
 											"height": 13,
 											"alpha": 1.5707963267948966,
 											"distance": 25,
@@ -45801,8 +45532,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 431,
-											"top": 313,
+											"left": 425,
+											"top": 328,
 											"height": 13,
 											"alpha": -1.5707963267948966,
 											"distance": 10,
@@ -45822,8 +45553,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 308,
-											"top": 329,
+											"left": 315,
+											"top": 344,
 											"width": 14,
 											"height": 25
 										}
@@ -45836,7 +45567,7 @@
 									"tail": {
 										"$ref": "AAAAAAF+lYiRELBxO4g="
 									},
-									"points": "542:329;321:329",
+									"points": "535:344;315:344",
 									"nameLabel": {
 										"$ref": "AAAAAAF+lYiRFbHF9ks="
 									},
@@ -45848,234 +45579,6 @@
 									},
 									"activation": {
 										"$ref": "AAAAAAF+lYiRFbHI3DU="
-									}
-								},
-								{
-									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAF+lYiRFbHJQDY=",
-									"_parent": {
-										"$ref": "AAAAAAF+lYiRELBgbP8="
-									},
-									"model": {
-										"$ref": "AAAAAAF+lYiRF7IUz5k="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lYiRFbHKXso=",
-											"_parent": {
-												"$ref": "AAAAAAF+lYiRFbHJQDY="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lYiRF7IUz5k="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 532,
-											"top": 346,
-											"width": 110.0830078125,
-											"height": 15,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lYiRFbHJQDY="
-											},
-											"edgePosition": 1,
-											"text": "15 : Login Gagal"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lYiRFbHLgzw=",
-											"_parent": {
-												"$ref": "AAAAAAF+lYiRFbHJQDY="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lYiRF7IUz5k="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 602,
-											"top": 347,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lYiRFbHJQDY="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lYiRFbHMTYQ=",
-											"_parent": {
-												"$ref": "AAAAAAF+lYiRFbHJQDY="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lYiRF7IUz5k="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 568,
-											"top": 348,
-											"height": 13,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lYiRFbHJQDY="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAF+lYiRFbHN3D8=",
-											"_parent": {
-												"$ref": "AAAAAAF+lYiRFbHJQDY="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lYiRF7IUz5k="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 535,
-											"top": 364,
-											"width": 14,
-											"height": 29
-										}
-									],
-									"fillColor": "#ffff91",
-									"font": "Arial;15;0",
-									"head": {
-										"$ref": "AAAAAAF+lYiRELBxO4g="
-									},
-									"tail": {
-										"$ref": "AAAAAAF+lYiRELBxO4g="
-									},
-									"points": "548:344;578:344;578:364;548:364",
-									"nameLabel": {
-										"$ref": "AAAAAAF+lYiRFbHKXso="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAF+lYiRFbHLgzw="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAF+lYiRFbHMTYQ="
-									},
-									"activation": {
-										"$ref": "AAAAAAF+lYiRFbHN3D8="
-									}
-								},
-								{
-									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAF+lYiRFbHO+RQ=",
-									"_parent": {
-										"$ref": "AAAAAAF+lYiRELBgbP8="
-									},
-									"model": {
-										"$ref": "AAAAAAF+lYiRF7IVy4Y="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lYiRFbHPuuk=",
-											"_parent": {
-												"$ref": "AAAAAAF+lYiRFbHO+RQ="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lYiRF7IVy4Y="
-											},
-											"fillColor": "#ffff91",
-											"font": "Arial;15;0",
-											"left": 335,
-											"top": 375,
-											"width": 179.27490234375,
-											"height": 15,
-											"alpha": 1.4601402031821105,
-											"distance": 9.055385138137417,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lYiRFbHO+RQ="
-											},
-											"edgePosition": 1,
-											"text": "16 : Return Halaman Login"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lYiRFbHQUuE=",
-											"_parent": {
-												"$ref": "AAAAAAF+lYiRFbHO+RQ="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lYiRF7IVy4Y="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 424,
-											"top": 392,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lYiRFbHO+RQ="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF+lYiRFbHR+20=",
-											"_parent": {
-												"$ref": "AAAAAAF+lYiRFbHO+RQ="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lYiRF7IVy4Y="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 425,
-											"top": 357,
-											"height": 13,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAF+lYiRFbHO+RQ="
-											},
-											"edgePosition": 1
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAF+lYiRFbHSbyg=",
-											"_parent": {
-												"$ref": "AAAAAAF+lYiRFbHO+RQ="
-											},
-											"model": {
-												"$ref": "AAAAAAF+lYiRF7IVy4Y="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 315,
-											"top": 373,
-											"width": 14,
-											"height": 25
-										}
-									],
-									"fillColor": "#ffff91",
-									"font": "Arial;15;0",
-									"head": {
-										"$ref": "AAAAAAF+lYiRELBqY6g="
-									},
-									"tail": {
-										"$ref": "AAAAAAF+lYiRELBxO4g="
-									},
-									"points": "535:373;315:373",
-									"nameLabel": {
-										"$ref": "AAAAAAF+lYiRFbHPuuk="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAF+lYiRFbHQUuE="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAF+lYiRFbHR+20="
-									},
-									"activation": {
-										"$ref": "AAAAAAF+lYiRFbHSbyg="
 									}
 								}
 							]
@@ -46145,7 +45648,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lYiRELBfWto="
 							},
-							"name": "Login Berhasil Buat Data Session",
+							"name": "Validasi Data Login",
 							"source": {
 								"$ref": "AAAAAAF+lYiRF7IXwkg="
 							},
@@ -46283,35 +45786,6 @@
 								"$ref": "AAAAAAF+lYiRF7IWg3g="
 							},
 							"messageSort": "reply"
-						},
-						{
-							"_type": "UMLMessage",
-							"_id": "AAAAAAF+lYiRF7IUz5k=",
-							"_parent": {
-								"$ref": "AAAAAAF+lYiRELBfWto="
-							},
-							"name": "Login Gagal",
-							"source": {
-								"$ref": "AAAAAAF+lYiRF7IXwkg="
-							},
-							"target": {
-								"$ref": "AAAAAAF+lYiRF7IXwkg="
-							}
-						},
-						{
-							"_type": "UMLMessage",
-							"_id": "AAAAAAF+lYiRF7IVy4Y=",
-							"_parent": {
-								"$ref": "AAAAAAF+lYiRELBfWto="
-							},
-							"name": "Return Halaman Login",
-							"source": {
-								"$ref": "AAAAAAF+lYiRF7IXwkg="
-							},
-							"target": {
-								"$ref": "AAAAAAF+lYiRF7IWg3g="
-							},
-							"messageSort": "reply"
 						}
 					],
 					"participants": [
@@ -46371,8 +45845,28 @@
 							"_parent": {
 								"$ref": "AAAAAAF+lYiRELBfWto="
 							},
-							"name": "Login Berhasil",
-							"interactionOperator": "seq"
+							"name": "Login Validation",
+							"interactionOperator": "seq",
+							"operands": [
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nF6JlUm9Xig=",
+									"_parent": {
+										"$ref": "AAAAAAF+lYiRF7IaEwQ="
+									},
+									"name": "InteractionOperand1",
+									"guard": "Login Berhasil"
+								},
+								{
+									"_type": "UMLInteractionOperand",
+									"_id": "AAAAAAF+nF6NmknGgbw=",
+									"_parent": {
+										"$ref": "AAAAAAF+lYiRF7IaEwQ="
+									},
+									"name": "InteractionOperand2",
+									"guard": "Login Gagal"
+								}
+							]
 						}
 					]
 				},
@@ -46409,9 +45903,9 @@
 												"$ref": "AAAAAAF+kM/mLIDiAsk="
 											},
 											"font": "Arial;13;0",
-											"left": 48.72998046875,
+											"left": 46.55908203125,
 											"top": 29,
-											"width": 140.43896484375,
+											"width": 130.2509765625,
 											"height": 13,
 											"text": "CommunicationDiagram"
 										},
@@ -46424,7 +45918,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 29,
-											"width": 14.72998046875,
+											"width": 12.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -54252,9 +53746,9 @@
 												"$ref": "AAAAAAF+lhYqf9xuUz8="
 											},
 											"font": "Arial;13;0",
-											"left": 96.72998046875,
+											"left": 94.55908203125,
 											"top": 29,
-											"width": 170.05712890625,
+											"width": 159.86279296875,
 											"height": 13,
 											"text": "CommunicationDiagramProfil"
 										},
@@ -54267,7 +53761,7 @@
 											"font": "Arial;13;1",
 											"left": 77,
 											"top": 29,
-											"width": 14.72998046875,
+											"width": 12.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -70298,7 +69792,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -89067,7 +88562,7 @@
 											"top": 445,
 											"width": 132.91357421875,
 											"height": 13,
-											"text": "do/Klik Proyeksi Data",
+											"text": "do/Klik Kirim",
 											"horizontalAlignment": 0
 										},
 										{
@@ -90568,7 +90063,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF+mLTEK4aryyM="
 									},
-									"name": "Klik Proyeksi Data"
+									"name": "Klik Kirim"
 								},
 								{
 									"_type": "UMLActivity",
@@ -100640,9 +100135,9 @@
 											"font": "Arial;13;1",
 											"left": 605,
 											"top": 359,
-											"width": 50,
+											"width": 61.38818359375,
 											"height": 13,
-											"text": "User"
+											"text": "Edit Profil"
 										},
 										{
 											"_type": "LabelView",
@@ -100678,7 +100173,7 @@
 									"font": "Arial;13;0",
 									"left": 600,
 									"top": 352,
-									"width": 60,
+									"width": 71.38818359375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+kb/ntgCsPRE="
@@ -100699,7 +100194,7 @@
 							"containerChangeable": true,
 							"left": 600,
 							"top": 352,
-							"width": 60,
+							"width": 71.38818359375,
 							"height": 41,
 							"nameCompartment": {
 								"$ref": "AAAAAAF+kb/ntgCrJg8="
@@ -101594,7 +101089,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF+kb/nsP7fToY="
 					},
-					"name": "User"
+					"name": "Edit Profil"
 				},
 				{
 					"_type": "UMLAction",
@@ -120321,7 +119816,7 @@
 											"font": "Arial;13;0",
 											"left": -160,
 											"top": -160,
-											"width": 109.05908203125,
+											"width": 109.3955078125,
 											"height": 13,
 											"text": "(from ActivityProfil)"
 										},
@@ -120732,7 +120227,7 @@
 											"font": "Arial;13;0",
 											"left": -80,
 											"top": -144,
-											"width": 109.05908203125,
+											"width": 109.3955078125,
 											"height": 13,
 											"text": "(from ActivityProfil)"
 										},
@@ -120934,7 +120429,7 @@
 											"font": "Arial;13;0",
 											"left": 16,
 											"top": -1680,
-											"width": 109.05908203125,
+											"width": 109.3955078125,
 											"height": 13,
 											"text": "(from ActivityProfil)"
 										},
@@ -121341,7 +120836,7 @@
 											"font": "Arial;13;0",
 											"left": -48,
 											"top": -1888,
-											"width": 109.05908203125,
+											"width": 109.3955078125,
 											"height": 13,
 											"text": "(from ActivityProfil)"
 										},
@@ -121449,7 +120944,7 @@
 											"font": "Arial;13;0",
 											"left": -32,
 											"top": -1872,
-											"width": 109.05908203125,
+											"width": 109.3955078125,
 											"height": 13,
 											"text": "(from ActivityProfil)"
 										},
