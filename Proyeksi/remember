@@ -1,0 +1,6 @@
+django-admin startproject ...
+py .\manage.py runserver
+py .\manage.py createsuperuser
+py .\manage.py migrate
+py .\manage.py startapp ...
+py .\manage.py makemigrations
