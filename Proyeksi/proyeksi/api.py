@@ -5,15 +5,13 @@ from rest_framework.response import Response
 
 from proyeksi.serializer import KlimatologiSerializer
 
-import json
-
 # Klimatologi Viewset
 
 
 class KlimatologiViewSet(viewsets.ModelViewSet):
     queryset = Klimatologi.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
     serializer_class = KlimatologiSerializer
 

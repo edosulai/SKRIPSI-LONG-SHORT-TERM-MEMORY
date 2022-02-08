@@ -14,21 +14,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
 from rest_framework import routers
 
 from proyeksi.api import KlimatologiViewSet
-from proyeksi.views import index, Klimatologi, Proyeksi, User
+from proyeksi.views import index, klimatologi, Auth, Klimatologi, Proyeksi, UserView
+from django.contrib.auth.decorators import login_required
 
 router = routers.DefaultRouter()
-router.register('api/klimatologi', KlimatologiViewSet, 'klimatologi')
+router.register('klimatologi', KlimatologiViewSet, 'klimatologi')
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
-    path('klimatologi/', Klimatologi.as_view(), name="klimatologi"),
-    path('proyeksi/',  Proyeksi.as_view(), name="proyeksi"),
-    path('user/',  User.as_view(), name="user"),
+
+    path('klimatologi/', login_required(klimatologi,
+         login_url='/auth/'), name="klimatologi"),
+
+    path('klimatologi/tambah/', login_required(Klimatologi.as_view(),
+         login_url='/auth/'), name="klimatologi.tambah"),
+
+    path('proyeksi/', login_required(Proyeksi.as_view(),
+         login_url='/auth/'), name="proyeksi"),
+
+    path('user/', login_required(UserView.as_view(), login_url='/auth/'), name="user"),
+
+    path('auth/', Auth.as_view(), name="auth"),
+
+    path('api/', include((router.urls, 'proyeksi'))),
+
     path('', index, name="home")
 ]
-
-urlpatterns += router.urls

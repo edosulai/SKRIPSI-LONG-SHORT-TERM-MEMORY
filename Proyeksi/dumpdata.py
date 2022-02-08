@@ -32,4 +32,4 @@ with open(CSV_PATH, newline='') as csvfile:
             ddd_car=row[10] if row[10] else NULL
         )
 
-# exec(open('seed.py').read())
+# exec(open('dumpdata.py').read())

@@ -8,8 +8,9 @@ module.exports = {
     // },
     mode: 'jit',
     content: [
-        '../**/templates/*.html',
-        '../**/templates/**/*.html'
+        './resources/templates/*.html',
+        './resources/templates/**/*.html',
+        './proyeksi/forms.py'
     ],
     theme: {
         extend: {

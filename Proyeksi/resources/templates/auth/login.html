@@ -1,0 +1,41 @@
+{% extends 'layouts/guest.html' %}
+
+{% block main %}
+
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div>
+        <a href="{% url "auth" %}">
+            {% include "components/logo.html" with classes="w-20 h-20 fill-current text-gray-500" %}
+        </a>
+    </div>
+
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+
+        {% include "components/status.html" with status=status %}
+        {% include "components/errors.html" with errors=errors %}
+
+        <form method="POST" action="{% url "auth" %}">
+            {% csrf_token %}
+
+            <div>
+                {% include "components/label.html" with for=login_form.username.auto_id slot=login_form.username.label %}
+                {{login_form.username}}
+            </div>
+
+            <div class="mt-4">
+                {% include "components/label.html" with for=login_form.password.auto_id slot=login_form.password.label %}
+                {{login_form.password}}
+            </div>
+
+            <div class="block mt-4">
+                {% include "components/bool_input.html" with for=login_form.remember_me.auto_id slot=login_form.remember_me label=login_form.remember_me.label %}
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                {% include "components/button.html" with slot="Log in" type="submit" %}
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock main %}

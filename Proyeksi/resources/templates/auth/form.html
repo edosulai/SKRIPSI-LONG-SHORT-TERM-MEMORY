@@ -1,0 +1,80 @@
+{% extends 'layouts/app.html' %}
+
+{% block header %}
+<div class="flex">
+  <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{title}}</h2>
+</div>
+{% endblock header %}
+
+{% block main %}
+
+<div class="py-12">
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+      <div class="flex flex-col">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
+              <div class="container mx-auto p-10 bg-white dark:bg-gray-800 justify-center w-fit">
+                <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Edit Profil</h3>
+
+                {% include "components/status.html" with status=status %}
+                {% include "components/errors.html" with errors=errors %}
+
+                <form method="POST" action="{% url "user" %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="_method" value="put">
+
+                  <div class="flex w-full border-b-2 pb-5 mt-10">
+                    <div class="flex flex-col w-40 justify-around">
+                      {% include "components/label.html" with for=user_form.first_name.auto_id slot=user_form.first_name.label class="pt-2" %}
+                      {% include "components/label.html" with for=user_form.username.auto_id slot=user_form.username.label class="pt-2" %}
+                      {% include "components/label.html" with for=user_form.email.auto_id slot=user_form.email.label class="pt-2" %}
+                    </div>
+                    <div class="w-96">
+                      <div class="flex">
+                        {{user_form.first_name}}
+                        {{user_form.last_name}}
+                      </div>
+                      {{user_form.username}}
+                      {{user_form.email}}
+                    </div>
+                  </div>
+
+                  <div class="flex w-full border-b-2 pb-5 mt-5">
+                    <div class="flex flex-col w-40 justify-around">
+                      {% include "components/label.html" with for=user_form.new_password.auto_id slot=user_form.new_password.label class="pt-2" %}
+                    </div>
+                    <div class="w-96 flex">
+                      {{user_form.new_password}}
+                      {{user_form.repeat_password}}
+                    </div>
+                  </div>
+
+                  <div class="flex w-full mt-5">
+                    <div class="flex flex-col w-40 justify-around">
+                      {% include "components/label.html" with for=user_form.password.auto_id slot=user_form.password.label class="pt-2" %}
+                    </div>
+                    <div class="w-96">
+                      {{user_form.password}}
+                    </div>
+                  </div>
+
+                  <div class="flex my-5 items-center justify-end">
+                    {% include "components/button.html" with slot="Kirim" type="submit" %}
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock main %}
