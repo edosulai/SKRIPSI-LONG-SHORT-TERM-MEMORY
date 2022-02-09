@@ -1,0 +1,73 @@
+{% extends 'layouts/app.html' %}
+
+{% block header %}
+<div class="flex">
+  <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{title}}</h2>
+</div>
+{% endblock header %}
+
+{% block main %}
+
+<div class="py-12">
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+      <div class="flex flex-col">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
+              <div class="container mx-auto p-10 bg-white dark:bg-gray-800 shadow-lg">
+                <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Proyeksi Data</h3>
+
+                {% include "components/status.html" with status=status %}
+                {% include "components/errors.html" with errors=errors %}
+
+                <form method="POST" action="{% url "klimatologi" %}">
+                  {% csrf_token %}
+
+                  <div class="flex mt-10">
+                    <div class="flex w-6/12">
+                      <div class="flex flex-col mr-5 border-r-2 pr-32 justify-around">
+                        {% include "components/label.html" with for=proyeksi_form.learning_rate.auto_id slot=proyeksi_form.learning_rate.label class="pt-2" %}
+                        {% include "components/label.html" with for=proyeksi_form.dropout.auto_id slot=proyeksi_form.dropout.label class="pt-2" %}
+                        {% include "components/label.html" with for=proyeksi_form.sequence.auto_id slot=proyeksi_form.sequence.label class="pt-2" %}
+                        {% include "components/label.html" with for=proyeksi_form.epoch.auto_id slot=proyeksi_form.epoch.label class="pt-2" %}
+                        {% include "components/label.html" with for=proyeksi_form.batch_size.auto_id slot=proyeksi_form.batch_size.label class="pt-2" %}
+                      </div>
+                      <div>
+                        {{proyeksi_form.learning_rate}}
+                        {{proyeksi_form.dropout}}
+                        {{proyeksi_form.sequence}}
+                        {{proyeksi_form.epoch}}
+                        {{proyeksi_form.batch_size}}
+                      </div>
+                    </div>
+                    <div class="flex w-6/12 h-fit">
+                      <div class="flex flex-col mr-5 border-r-2 pr-32 justify-around">
+                        {% include "components/label.html" with for=proyeksi_form.nan_handling.auto_id slot=proyeksi_form.nan_handling.label class="pt-2" %}
+                      </div>
+                      <div>
+                        {{proyeksi_form.nan_handling}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex mt-4 items-center justify-end">
+                    <div class="flex mr-8">
+                      {% include "components/button.html" with slot="Kirim" type="submit" %}
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock main %}

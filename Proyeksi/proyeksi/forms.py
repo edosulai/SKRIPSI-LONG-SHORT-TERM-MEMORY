@@ -5,10 +5,12 @@ from django.contrib.auth.models import User
 
 from proyeksi.models import Klimatologi
 
+
 class FormContextMixin:
     def __init__(self, *args, **kwargs):
         self.context = kwargs.pop("context", {})
         super().__init__(*args, **kwargs)
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(
@@ -129,33 +131,30 @@ class UserForm(FormContextMixin, forms.Form):
         new_password = self.cleaned_data.get("new_password")
         repeat_password = self.cleaned_data.get("repeat_password")
         password = self.cleaned_data.get("password")
-                
+
         if check_password(password, self.context["request"].user.password) is not True:
             raise forms.ValidationError("Password Salah.")
 
         if new_password != repeat_password:
             raise forms.ValidationError(
                 "Password Baru dan Ulangi Password tidak sama.")
-            
+
         return self.cleaned_data
 
     class Meta:
         model = User
 
 
-class KlimatologiForm(forms.Form):
+class KlimatologiForm(forms.ModelForm):
     tanggal = forms.DateField(
         label='Tanggal',
         widget=forms.TextInput(
             attrs={
                 'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'type': 'date',
-
-                'autofocus': 'autofocus'
             }
         )
     )
-
     tn = forms.FloatField(
         required=False,
         label='Temperatur Min.',
@@ -260,3 +259,59 @@ class KlimatologiForm(forms.Form):
 
     class Meta:
         model = Klimatologi
+        fields = '__all__'
+
+
+class ProyeksiForm(forms.Form):
+    learning_rate = forms.FloatField(
+        label='Nilai Learning Rate',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    dropout = forms.FloatField(
+        label='Nilai Dropout',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    sequence = forms.IntegerField(
+        label='Panjang Sequence',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    epoch = forms.IntegerField(
+        label='Jumlah Epoch',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    batch_size = forms.IntegerField(
+        label='Ukuran Batch',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    nan_handling = forms.ChoiceField(
+        label='Penanganan Data Kosong',
+        widget=forms.RadioSelect(
+            attrs={
+                'class': 'rounded rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 my-2',
+            }
+        ),
+        choices=(
+            (1, 'Drop NaN'),
+            (2, 'Interpolate NaN'),
+        )
+    )

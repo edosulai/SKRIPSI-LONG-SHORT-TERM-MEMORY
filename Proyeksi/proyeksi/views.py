@@ -1,10 +1,11 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
-from proyeksi.forms import LoginForm, KlimatologiForm, UserForm
+from proyeksi.models import Klimatologi
+from proyeksi.forms import LoginForm, KlimatologiForm, UserForm, ProyeksiForm
 
 
 def index(request):
@@ -12,13 +13,7 @@ def index(request):
         'title': 'Home'
     })
 
-
-def klimatologi(request):
-    return render(request, 'klimatologi/index.html', {
-        'title': 'Data Klimatologi'
-    })
-
-class Auth(View):
+class AuthView(View):
     http_method_names = ['get', 'post', 'put', 'delete']
 
     def dispatch(self, *args, **kwargs):
@@ -27,7 +22,7 @@ class Auth(View):
             return self.put(*args, **kwargs)
         if method == 'delete':
             return self.delete(*args, **kwargs)
-        return super(Auth, self).dispatch(*args, **kwargs)
+        return super(AuthView, self).dispatch(*args, **kwargs)
 
     def get(self, request):
         return render(request, 'auth/login.html', {
@@ -37,8 +32,11 @@ class Auth(View):
 
     def post(self, request):
         loginform = LoginForm(request.POST)
-
+        
         if loginform.is_valid():
+            if not loginform.cleaned_data.get('remember_me'):
+                self.request.session.set_expiry(0)
+                self.request.session.modified = True
             login(request, authenticate(username=loginform.cleaned_data.get('username'), password=loginform.cleaned_data.get('password')))
             return redirect('home')
         
@@ -54,23 +52,110 @@ class Auth(View):
         return redirect('auth')
 
 
-class Klimatologi(View):
-
-    def get(self, request):
-        return render(request, 'klimatologi/form.html', {
-            'title': 'Tambah Data Klimatologi',
-            'klimatologi_form': KlimatologiForm()
-        })
-
-
-class Proyeksi(View):
+class KlimatologiView(View):
     http_method_names = ['get', 'post', 'put', 'delete']
     
-    def get(self, request):
-        return render(request, 'home.html', {
-          'title': 'Proyeksi Data'
-        })
+    def dispatch(self, *args, **kwargs):
+        method = self.request.POST.get('_method', '').lower()
+        if method == 'put':
+            return self.put(*args, **kwargs)
+        if method == 'delete':
+            return self.delete(*args, **kwargs)
+        return super(KlimatologiView, self).dispatch(*args, **kwargs)
 
+    def get(self, request, target=None):
+        if target and target.isnumeric():
+            klimatologi = get_object_or_404(Klimatologi, id=target)
+            return render(request, 'klimatologi/form.html', {
+                'id': klimatologi.id,
+                'title': 'Edit Data Klimatologi',
+                'subtitle': 'Edit Data',
+                'klimatologi_form': KlimatologiForm(initial={
+                    'tanggal': klimatologi.tanggal,
+                    'tn': klimatologi.tn,
+                    'tx': klimatologi.tx,
+                    'tavg': klimatologi.tavg,
+                    'rh_avg': klimatologi.rh_avg,
+                    'rr': klimatologi.rr,
+                    'ss': klimatologi.ss,
+                    'ff_x': klimatologi.ff_x,
+                    'ddd_x': klimatologi.ddd_x,
+                    'ff_avg': klimatologi.ff_avg,
+                    'ddd_car': klimatologi.ddd_car
+                })
+            })
+
+        elif target == 'tambah':
+            return render(request, 'klimatologi/form.html', {
+                'title': 'Tambah Data Klimatologi',
+                'subtitle': 'Tambah Data',
+                'klimatologi_form': KlimatologiForm()
+            })
+        
+        return render(request, 'klimatologi/index.html', {
+            'title': 'Data Klimatologi'
+        })
+        
+    def post(self, request):
+        klimatologiform = KlimatologiForm(request.POST)
+        if klimatologiform.is_valid():
+            klimatologiform.save()
+            return redirect('klimatologi')
+        
+        return render(request, 'klimatologi/form.html', {
+            'title': 'Tambah Data Klimatologi',
+            'klimatologi_form': KlimatologiForm(initial={
+                'tanggal': klimatologiform.cleaned_data.get('tanggal'),
+                'tn': klimatologiform.cleaned_data.get('tn'),
+                'tx': klimatologiform.cleaned_data.get('tx'),
+                'tavg': klimatologiform.cleaned_data.get('tavg'),
+                'rh_avg': klimatologiform.cleaned_data.get('rh_avg'),
+                'rr': klimatologiform.cleaned_data.get('rr'),
+                'ss': klimatologiform.cleaned_data.get('ss'),
+                'ff_x': klimatologiform.cleaned_data.get('ff_x'),
+                'ddd_x': klimatologiform.cleaned_data.get('ddd_x'),
+                'ff_avg': klimatologiform.cleaned_data.get('ff_avg'),
+                'ddd_car': klimatologiform.cleaned_data.get('ddd_car')
+            }),
+            'errors': klimatologiform.errors
+        })
+        
+    def put(self, request, target):
+        klimatologiform = KlimatologiForm(request.POST)
+        if klimatologiform.is_valid():
+            klimatologi = get_object_or_404(Klimatologi, id=target)
+            klimatologi.tanggal = klimatologiform.cleaned_data.get('tanggal')
+            klimatologi.tn = klimatologiform.cleaned_data.get('tn')
+            klimatologi.tx = klimatologiform.cleaned_data.get('tx')
+            klimatologi.tavg = klimatologiform.cleaned_data.get('tavg')
+            klimatologi.rh_avg = klimatologiform.cleaned_data.get('rh_avg')
+            klimatologi.rr = klimatologiform.cleaned_data.get('rr')
+            klimatologi.ss = klimatologiform.cleaned_data.get('ss')
+            klimatologi.ff_x = klimatologiform.cleaned_data.get('ff_x')
+            klimatologi.ddd_x = klimatologiform.cleaned_data.get('ddd_x')
+            klimatologi.ff_avg = klimatologiform.cleaned_data.get('ff_avg')
+            klimatologi.ddd_car = klimatologiform.cleaned_data.get('ddd_car')
+            klimatologi.save()
+            return redirect('klimatologi')
+        
+        return render(request, 'klimatologi/form.html', {
+            'id': target,
+            'title': 'Edit Data Klimatologi',
+            'klimatologi_form': KlimatologiForm(initial={
+                'tanggal': klimatologiform.cleaned_data.get('tanggal'),
+                'tn': klimatologiform.cleaned_data.get('tn'),
+                'tx': klimatologiform.cleaned_data.get('tx'),
+                'tavg': klimatologiform.cleaned_data.get('tavg'),
+                'rh_avg': klimatologiform.cleaned_data.get('rh_avg'),
+                'rr': klimatologiform.cleaned_data.get('rr'),
+                'ss': klimatologiform.cleaned_data.get('ss'),
+                'ff_x': klimatologiform.cleaned_data.get('ff_x'),
+                'ddd_x': klimatologiform.cleaned_data.get('ddd_x'),
+                'ff_avg': klimatologiform.cleaned_data.get('ff_avg'),
+                'ddd_car': klimatologiform.cleaned_data.get('ddd_car')
+            }),
+            'errors': klimatologiform.errors
+        })
 
 class UserView(View):
     http_method_names = ['get', 'post', 'put', 'delete']
@@ -118,3 +203,31 @@ class UserView(View):
           }),
           'errors': userform.errors
         })
+        
+        
+class ProyeksiView(View):
+    http_method_names = ['get', 'post', 'put', 'delete']
+
+    def dispatch(self, *args, **kwargs):
+        method = self.request.POST.get('_method', '').lower()
+        if method == 'put':
+            return self.put(*args, **kwargs)
+        if method == 'delete':
+            return self.delete(*args, **kwargs)
+        return super(ProyeksiView, self).dispatch(*args, **kwargs)
+    
+    def get(self, request):
+        return render(request, 'proyeksi/form.html', {
+          'title': 'Proyeksi',
+          'proyeksi_form': ProyeksiForm(initial={
+              'learning_rate': 0.01,
+              'dropout': 0.1,
+              'sequence': 7,
+              'epoch': 5,
+              'batch_size': 32,
+              'nan_handling': 2
+          })
+        })
+    
+    def post(self, request):
+        pass

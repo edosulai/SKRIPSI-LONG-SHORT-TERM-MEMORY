@@ -5,7 +5,7 @@
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{title}}</h2>
 
     <div class="space-x-4 sm:-my-px sm:ml-10 sm:flex">
-        <a href="{% url "klimatologi.tambah" %}"
+        <a href="{% url "klimatologi" target="tambah" %}"
             class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Tambah
             Data</a>
     </div>
@@ -152,18 +152,19 @@
 
         $('#dataTables tbody').on('click', 'button', function () {
             let data = table.row($(this).parents('tr')).data();
-            let class_name = $(this).attr('class');
-            if (class_name.hasClass("edit-klimatologi")) {
+            if ($(this).hasClass("edit-klimatologi")) {
                 window.location.replace("/klimatologi/" + data['id']);
-            } else if (class_name.hasClass("delete-klimatologi")) {
+            } else if ($(this).hasClass("delete-klimatologi")) {
                 $.ajax({
                     url: '/api/klimatologi/' + data['id'] + '/',
-                    method: 'DELETE'
-                }).success(function (data, textStatus, jqXHR) {
-                    location.reload();
-                }).error(function (jqXHR, textStatus, errorThrown) {
-                    console.log(jqXHR)
-                });
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]')
+                            .value
+                    },
+                    success: (response) => table.ajax.reload(),
+                    error: (jqXHR, textStatus, errorThrown) => console.log(errorThrown)
+                })
             }
         });
     });

@@ -22,18 +22,18 @@ ORDER_COLUMN_CHOICES = Choices(
 
 
 class Klimatologi(models.Model):
-    tanggal = models.DateField()      # Tanggal
-    tn = models.FloatField(blank=True)   # Temperatur minimum
-    tx = models.FloatField(blank=True)   # Temperatur maksimum
-    tavg = models.FloatField(blank=True)   # Temperatur rata-rata
-    rh_avg = models.FloatField(blank=True)   # Kelembapan rata-rata
-    rr = models.FloatField(blank=True)   # Curah hujan
-    ss = models.FloatField(blank=True)   # Lamanya penyinaran matahari
-    ff_x = models.FloatField(blank=True)   # Kecepatan angin maksimum
-    ddd_x = models.FloatField(blank=True)  # Arah angin saat kecepatan maksimum
-    ff_avg = models.FloatField(blank=True)   # Kecepatan angin rata-rata
+    tanggal = models.DateField()
+    tn = models.FloatField(blank=True)
+    tx = models.FloatField(blank=True)
+    tavg = models.FloatField(blank=True)
+    rh_avg = models.FloatField(blank=True)
+    rr = models.FloatField(blank=True)
+    ss = models.FloatField(blank=True)
+    ff_x = models.FloatField(blank=True)
+    ddd_x = models.FloatField(blank=True)
+    ff_avg = models.FloatField(blank=True)
     ddd_car = models.CharField(
-        blank=True, max_length=2)   # Arah angin terbanya
+        blank=True, max_length=2)
 
     def __str__(self) -> str:
         return "{}".format(self.tanggal)
@@ -41,12 +41,15 @@ class Klimatologi(models.Model):
 
 def query_data_by_args(**kwargs):
     draw = int(kwargs.get('draw')[0] if kwargs.get('draw', None) else 0)
-    length = int(kwargs.get('length')[0] if  kwargs.get('length', None)  else 0)
-    start = int(kwargs.get('start')[0] if  kwargs.get('start', None)  else 0)
-    search_value = kwargs.get('search[value]')[0] if  kwargs.get('search[value]', None)  else None
-    order_column = int(kwargs.get('order[0][column]')[0] if  kwargs.get('order[0][column]', None)  else 0)
-    order = kwargs.get('order[0][dir]')[0] if  kwargs.get('order[0][dir]', None)  else None
-    
+    length = int(kwargs.get('length')[0] if kwargs.get('length', None) else 0)
+    start = int(kwargs.get('start')[0] if kwargs.get('start', None) else 0)
+    search_value = kwargs.get('search[value]')[0] if kwargs.get(
+        'search[value]', None) else None
+    order_column = int(kwargs.get('order[0][column]')[
+                       0] if kwargs.get('order[0][column]', None) else 0)
+    order = kwargs.get('order[0][dir]')[0] if kwargs.get(
+        'order[0][dir]', None) else None
+
     order_column = ORDER_COLUMN_CHOICES[order_column]
     if order == 'desc':
         order_column = '-' + order_column
