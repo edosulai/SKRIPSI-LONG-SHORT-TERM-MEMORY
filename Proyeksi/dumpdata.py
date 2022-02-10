@@ -17,6 +17,7 @@ CSV_PATH = '../Assets/Data/1985-2021.csv'
 with open(CSV_PATH, newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',')
     next(spamreader, None)
+    Klimatologi.objects.all().delete()
     for row in spamreader:
         Klimatologi.objects.create(
             tanggal=datetime.strptime(row[0], '%d-%m-%Y').strftime('%Y-%m-%d'),
