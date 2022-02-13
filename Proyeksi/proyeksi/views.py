@@ -7,11 +7,17 @@ from django.contrib.auth.models import User
 from proyeksi.models import Klimatologi
 from proyeksi.forms import LoginForm, KlimatologiForm, UserForm, ProyeksiForm
 
+import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+import json
+
 
 def index(request):
     return render(request, 'home.html', {
         'title': 'Home'
     })
+
 
 class AuthView(View):
     http_method_names = ['get', 'post', 'put', 'delete']
@@ -32,14 +38,15 @@ class AuthView(View):
 
     def post(self, request):
         loginform = LoginForm(request.POST)
-        
+
         if loginform.is_valid():
             if not loginform.cleaned_data.get('remember_me'):
                 self.request.session.set_expiry(0)
                 self.request.session.modified = True
-            login(request, authenticate(username=loginform.cleaned_data.get('username'), password=loginform.cleaned_data.get('password')))
+            login(request, authenticate(username=loginform.cleaned_data.get(
+                'username'), password=loginform.cleaned_data.get('password')))
             return redirect('home')
-        
+
         return render(request, 'auth/login.html', {
             'title': 'Login Sistem',
             'login_form': LoginForm(),
@@ -54,7 +61,7 @@ class AuthView(View):
 
 class KlimatologiView(View):
     http_method_names = ['get', 'post', 'put', 'delete']
-    
+
     def dispatch(self, *args, **kwargs):
         method = self.request.POST.get('_method', '').lower()
         if method == 'put':
@@ -91,17 +98,17 @@ class KlimatologiView(View):
                 'subtitle': 'Tambah Data',
                 'klimatologi_form': KlimatologiForm()
             })
-        
+
         return render(request, 'klimatologi/index.html', {
             'title': 'Data Klimatologi'
         })
-        
+
     def post(self, request):
         klimatologiform = KlimatologiForm(request.POST)
         if klimatologiform.is_valid():
             klimatologiform.save()
             return redirect('klimatologi')
-        
+
         return render(request, 'klimatologi/form.html', {
             'title': 'Tambah Data Klimatologi',
             'klimatologi_form': KlimatologiForm(initial={
@@ -119,7 +126,7 @@ class KlimatologiView(View):
             }),
             'errors': klimatologiform.errors
         })
-        
+
     def put(self, request, target):
         klimatologiform = KlimatologiForm(request.POST)
         if klimatologiform.is_valid():
@@ -137,7 +144,7 @@ class KlimatologiView(View):
             klimatologi.ddd_car = klimatologiform.cleaned_data.get('ddd_car')
             klimatologi.save()
             return redirect('klimatologi')
-        
+
         return render(request, 'klimatologi/form.html', {
             'id': target,
             'title': 'Edit Data Klimatologi',
@@ -157,6 +164,7 @@ class KlimatologiView(View):
             'errors': klimatologiform.errors
         })
 
+
 class UserView(View):
     http_method_names = ['get', 'post', 'put', 'delete']
 
@@ -167,18 +175,18 @@ class UserView(View):
         if method == 'delete':
             return self.delete(*args, **kwargs)
         return super(UserView, self).dispatch(*args, **kwargs)
-    
+
     def get(self, request):
         return render(request, 'auth/form.html', {
-          'title': 'Edit Profil',
-          'user_form': UserForm(initial={
-              'first_name': request.user.first_name,
-              'last_name': request.user.last_name,
-              'username': request.user.username,
-              'email': request.user.email
-          })
+            'title': 'Edit Profil',
+            'user_form': UserForm(initial={
+                'first_name': request.user.first_name,
+                'last_name': request.user.last_name,
+                'username': request.user.username,
+                'email': request.user.email
+            })
         })
-        
+
     def put(self, request):
         userform = UserForm(request.POST, context={"request": request})
 
@@ -194,17 +202,17 @@ class UserView(View):
             return redirect('home')
 
         return render(request, 'auth/form.html', {
-          'title': 'Edit Profil',
-          'user_form': UserForm(initial={
-              'first_name': request.user.first_name,
-              'last_name': request.user.last_name,
-              'username': request.user.username,
-              'email': request.user.email
-          }),
-          'errors': userform.errors
+            'title': 'Edit Profil',
+            'user_form': UserForm(initial={
+                'first_name': request.user.first_name,
+                'last_name': request.user.last_name,
+                'username': request.user.username,
+                'email': request.user.email
+            }),
+            'errors': userform.errors
         })
-        
-        
+
+
 class ProyeksiView(View):
     http_method_names = ['get', 'post', 'put', 'delete']
 
@@ -215,19 +223,43 @@ class ProyeksiView(View):
         if method == 'delete':
             return self.delete(*args, **kwargs)
         return super(ProyeksiView, self).dispatch(*args, **kwargs)
-    
+
     def get(self, request):
         return render(request, 'proyeksi/form.html', {
-          'title': 'Proyeksi',
-          'proyeksi_form': ProyeksiForm(initial={
-              'learning_rate': 0.01,
-              'dropout': 0.1,
-              'sequence': 7,
-              'epoch': 5,
-              'batch_size': 32,
-              'nan_handling': 2
-          })
+            'title': 'Proyeksi',
+            'proyeksi_form': ProyeksiForm(initial={
+                'learning_rate': 0.01,
+                'dropout': 0.1,
+                'sequence': 90,
+                'max_epoch': 30,
+                'batch_size': 256,
+                'hidden_units': 64,
+                'much_predict': 30,
+                'nan_handling': 2
+            })
         })
-    
+
     def post(self, request):
-        pass
+        return render(request, 'proyeksi/result.html', {
+            'title': 'Hasil Proyeksi'
+        })
+
+        # ys = 200 + np.random.randn(100)
+        # x = [x for x in range(len(ys))]
+
+        # plt.plot(x, ys, '-')
+        # plt.fill_between(x, ys, 195, where=(ys > 195), facecolor='g', alpha=0.6)
+
+        # plt.title("Sample Visualization")
+
+        # return HttpResponse(json.dumps({
+        #     'title': 'Proyeksi',
+        #     'data': pd.DataFrame(
+        #         {
+        #             'num_legs': [2, 4, 8, 0],
+        #             'num_wings': [2, 0, 0, 0],
+        #             'num_specimen_seen': [10, 2, 1, 8]
+        #         },
+        #         index=['falcon', 'dog', 'spider', 'fish']
+        #     ).to_dict()
+        # }), content_type="application/json")

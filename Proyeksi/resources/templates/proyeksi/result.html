@@ -1,0 +1,213 @@
+{% extends 'layouts/app.html' %}
+
+{% block header %}
+<div class="flex">
+  <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{title}}</h2>
+</div>
+{% endblock header %}
+
+{% block main %}
+
+<div class="py-12">
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+      <div class="flex flex-col">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
+              <div class="container mx-auto p-10 bg-white dark:bg-gray-800 shadow-lg">
+                <div class="mb-16">
+                  <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Hasil Proyeksi Data</h3>
+
+                  <div class="grid grid-rows-1 grid-flow-col gap-4">
+                    <div class="col-span-2">
+                      <table id="opsi_prediksi" class="text-sm min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                          <tr>
+                            <td scope="col"
+                              class="px-6 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Opsi
+                            </td>
+                            <td scope="col"
+                              class="px-6 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Value
+                            </td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">Learning Rate (ADAM)</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">0.01</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">Dropout</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">0.1</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">Panjang Sequence</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">90</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">Max Epoch</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">30</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">Ukuran Batch</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">256</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">Ukuran Hidden Units</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">64</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">Jumlah Prediksi ke Depan</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">30 Hari</div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col-span-4">
+
+                      <h4 class="text-gray-700 dark:text-gray-300 font-medium mb-2">Training Model...</h4>
+
+                      <code class="language-html text-xs">
+                        <p>Epoch 12/30</p>
+                        <p>46/46 [==============================] - ETA: 0s - loss: 0.0746</p>
+                        <p>Epoch 00012: ReduceLROnPlateau reducing learning rate to 0.004999999888241291.</p>
+                        <p>Epoch 00023: ReduceLROnPlateau reducing learning rate to 0.0024999999441206455.</p>
+                        <p>46/46 [==============================] - 14s 305ms/step - loss: 0.0737 - val_loss: 0.0680 -
+                          lr:
+                          0.0050</p>
+                        <p>Epoch 00023: early stopping</p>
+                        <p>CPU times: total: 14min 25s</p>
+                        <p>Wall time: 5min 47s</p>
+                      </code>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-16">
+                  <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Grafik Hasil Proyeksi Data
+                  </h3>
+
+                  <canvas id="myChart" width="400" height="200"></canvas>
+                </div>
+
+                <div class="mb-16">
+                  <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Tabel Keterangan Grafik Hasil
+                    Proyeksi Data
+                  </h3>
+
+                  <div class="flex">
+                    <div class="w-4/12 mx-2">
+                      <table id="histori" class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                          <tr>
+                            <td colspan="2" scope="col"
+                              class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                              Tabel Data Histori</td>
+                          </tr>
+                          <tr>
+                            <th scope="col"
+                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              tanggal
+                            </th>
+                            <th scope="col"
+                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              rr
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+
+                    <div class="w-4/12 mx-2">
+                      <table id="pelatihan" class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                          <tr>
+                            <td colspan="2" scope="col"
+                              class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                              Tabel Data Pelatihan</td>
+                          </tr>
+                          <tr>
+                            <th scope="col"
+                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              tanggal
+                            </th>
+                            <th scope="col"
+                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              rr
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+
+                    <div class="w-4/12 mx-2">
+                      <table id="proyeksi" class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                          <tr>
+                            <td colspan="2" scope="col"
+                              class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                              Tabel Data Prediksi</td>
+                          </tr>
+                          <tr>
+                            <th scope="col"
+                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              tanggal
+                            </th>
+                            <th scope="col"
+                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              rr
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock main %}

@@ -264,7 +264,7 @@ class KlimatologiForm(forms.ModelForm):
 
 class ProyeksiForm(forms.Form):
     learning_rate = forms.FloatField(
-        label='Nilai Learning Rate',
+        label='Nilai Learning Rate (ADAM)',
         widget=forms.TextInput(
             attrs={
                 'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
@@ -287,8 +287,8 @@ class ProyeksiForm(forms.Form):
             }
         )
     )
-    epoch = forms.IntegerField(
-        label='Jumlah Epoch',
+    max_epoch = forms.IntegerField(
+        label='Max Epoch',
         widget=forms.TextInput(
             attrs={
                 'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
@@ -297,6 +297,22 @@ class ProyeksiForm(forms.Form):
     )
     batch_size = forms.IntegerField(
         label='Ukuran Batch',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    hidden_units = forms.IntegerField(
+        label='Jumlah Hidden Units',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    much_predict = forms.IntegerField(
+        label='Jumlah Prediksi ke Depan (Hari)',
         widget=forms.TextInput(
             attrs={
                 'class': 'block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',

@@ -23,32 +23,45 @@
                 {% include "components/status.html" with status=status %}
                 {% include "components/errors.html" with errors=errors %}
 
-                <form method="POST" action="{% url "klimatologi" %}">
+                <form method="POST" action="{% url "proyeksi" %}">
                   {% csrf_token %}
 
                   <div class="flex mt-10">
-                    <div class="flex w-6/12">
-                      <div class="flex flex-col mr-5 border-r-2 pr-32 justify-around">
+                    <div class="flex w-6/12 mr-10">
+                      <div class="flex flex-col mr-5 border-r-2 justify-around w-7/12">
                         {% include "components/label.html" with for=proyeksi_form.learning_rate.auto_id slot=proyeksi_form.learning_rate.label class="pt-2" %}
                         {% include "components/label.html" with for=proyeksi_form.dropout.auto_id slot=proyeksi_form.dropout.label class="pt-2" %}
                         {% include "components/label.html" with for=proyeksi_form.sequence.auto_id slot=proyeksi_form.sequence.label class="pt-2" %}
-                        {% include "components/label.html" with for=proyeksi_form.epoch.auto_id slot=proyeksi_form.epoch.label class="pt-2" %}
+                        {% include "components/label.html" with for=proyeksi_form.max_epoch.auto_id slot=proyeksi_form.max_epoch.label class="pt-2" %}
                         {% include "components/label.html" with for=proyeksi_form.batch_size.auto_id slot=proyeksi_form.batch_size.label class="pt-2" %}
                       </div>
-                      <div>
+                      <div class="w-5/12">
                         {{proyeksi_form.learning_rate}}
                         {{proyeksi_form.dropout}}
                         {{proyeksi_form.sequence}}
-                        {{proyeksi_form.epoch}}
+                        {{proyeksi_form.max_epoch}}
                         {{proyeksi_form.batch_size}}
                       </div>
                     </div>
-                    <div class="flex w-6/12 h-fit">
-                      <div class="flex flex-col mr-5 border-r-2 pr-32 justify-around">
-                        {% include "components/label.html" with for=proyeksi_form.nan_handling.auto_id slot=proyeksi_form.nan_handling.label class="pt-2" %}
+                    <div class="flex flex-col w-6/12 h-fit ml-10">
+                      <div class="flex mb-8">
+                        <div class="flex flex-col mr-5 border-r-2 justify-around w-7/12">
+                          {% include "components/label.html" with for=proyeksi_form.hidden_units.auto_id slot=proyeksi_form.hidden_units.label class="pt-2" %}
+                          {% include "components/label.html" with for=proyeksi_form.much_predict.auto_id slot=proyeksi_form.much_predict.label class="pt-2" %}
+                        </div>
+                        <div class="w-5/12">
+                          {{proyeksi_form.hidden_units}}
+                          {{proyeksi_form.much_predict}}
+                        </div>
                       </div>
-                      <div>
-                        {{proyeksi_form.nan_handling}}
+
+                      <div class="flex">
+                        <div class="flex flex-col mr-5 border-r-2 justify-around w-7/12">
+                          {% include "components/label.html" with for=proyeksi_form.nan_handling.auto_id slot=proyeksi_form.nan_handling.label class="pt-2" %}
+                        </div>
+                        <div class="w-5/12">
+                          {{proyeksi_form.nan_handling}}
+                        </div>
                       </div>
                     </div>
                   </div>
