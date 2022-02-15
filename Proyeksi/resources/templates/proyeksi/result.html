@@ -18,12 +18,12 @@
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 
               <div class="container mx-auto p-10 bg-white dark:bg-gray-800 shadow-lg">
-                <div class="mb-16">
+                <div class="mb-16" id="prediction-result">
                   <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Hasil Proyeksi Data</h3>
 
-                  <div class="grid grid-rows-1 grid-flow-col gap-4">
-                    <div class="col-span-2">
-                      <table id="opsi_prediksi" class="text-sm min-w-full divide-y divide-gray-200">
+                  <div class="flex justify-between">
+                    <div class="w-4/12 mr-5">
+                      <table class="text-sm min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                           <tr>
                             <td scope="col"
@@ -42,7 +42,8 @@
                               <div class="text-sm text-gray-900 dark:text-gray-300">Learning Rate (ADAM)</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">0.01</div>
+                              <div class="text-sm text-gray-900 dark:text-gray-300" id="learning_rate">{{learning_rate}}
+                              </div>
                             </td>
                           </tr>
                           <tr>
@@ -50,7 +51,7 @@
                               <div class="text-sm text-gray-900 dark:text-gray-300">Dropout</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">0.1</div>
+                              <div class="text-sm text-gray-900 dark:text-gray-300" id="dropout">{{dropout}}</div>
                             </td>
                           </tr>
                           <tr>
@@ -58,7 +59,7 @@
                               <div class="text-sm text-gray-900 dark:text-gray-300">Panjang Sequence</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">90</div>
+                              <div class="text-sm text-gray-900 dark:text-gray-300" id="sequence">{{sequence}}</div>
                             </td>
                           </tr>
                           <tr>
@@ -66,7 +67,7 @@
                               <div class="text-sm text-gray-900 dark:text-gray-300">Max Epoch</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">30</div>
+                              <div class="text-sm text-gray-900 dark:text-gray-300" id="max_epoch">{{max_epoch}}</div>
                             </td>
                           </tr>
                           <tr>
@@ -74,7 +75,7 @@
                               <div class="text-sm text-gray-900 dark:text-gray-300">Ukuran Batch</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">256</div>
+                              <div class="text-sm text-gray-900 dark:text-gray-300" id="batch_size">{{batch_size}}</div>
                             </td>
                           </tr>
                           <tr>
@@ -82,36 +83,42 @@
                               <div class="text-sm text-gray-900 dark:text-gray-300">Ukuran Hidden Units</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">64</div>
+                              <div class="text-sm text-gray-900 dark:text-gray-300" id="hidden_units">{{hidden_units}}
+                              </div>
                             </td>
                           </tr>
                           <tr>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">Jumlah Prediksi ke Depan</div>
+                              <div class="text-sm text-gray-900 dark:text-gray-300">Jumlah
+                                Prediksi ke Depan</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">30 Hari</div>
+                              <div class="text-sm text-gray-900 dark:text-gray-300" id="much_predict"
+                                value="{{much_predict}}">{{much_predict}}
+                                Hari</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300">Penanganan Data Kosong</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-gray-900 dark:text-gray-300" id="nan_handling"
+                                value="{{nan_handling}}">
+                                {% if nan_handling == 1 %}
+                                Drop NaN
+                                {% else %}
+                                Interpolate NaN
+                                {% endif %}
+                              </div>
                             </td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
-                    <div class="col-span-4">
-
+                    <div class="w-8/12 ml-5">
                       <h4 class="text-gray-700 dark:text-gray-300 font-medium mb-2">Training Model...</h4>
-
-                      <code class="language-html text-xs">
-                        <p>Epoch 12/30</p>
-                        <p>46/46 [==============================] - ETA: 0s - loss: 0.0746</p>
-                        <p>Epoch 00012: ReduceLROnPlateau reducing learning rate to 0.004999999888241291.</p>
-                        <p>Epoch 00023: ReduceLROnPlateau reducing learning rate to 0.0024999999441206455.</p>
-                        <p>46/46 [==============================] - 14s 305ms/step - loss: 0.0737 - val_loss: 0.0680 -
-                          lr:
-                          0.0050</p>
-                        <p>Epoch 00023: early stopping</p>
-                        <p>CPU times: total: 14min 25s</p>
-                        <p>Wall time: 5min 47s</p>
-                      </code>
+                      <pre class="overflow-auto h-56"><code class="language-html">[[terminal]]</code></pre>
                     </div>
                   </div>
                 </div>
@@ -120,7 +127,7 @@
                   <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Grafik Hasil Proyeksi Data
                   </h3>
 
-                  <canvas id="myChart" width="400" height="200"></canvas>
+                  <canvas id="predict-chart" width="400" height="200"></canvas>
                 </div>
 
                 <div class="mb-16">
@@ -209,5 +216,9 @@
     </div>
   </div>
 </div>
+
+<script>
+
+</script>
 
 {% endblock main %}

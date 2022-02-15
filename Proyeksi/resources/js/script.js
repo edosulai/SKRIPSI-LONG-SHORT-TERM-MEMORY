@@ -1,8 +1,7 @@
 import colorLib from '@kurkle/color';
-import { DateTime } from 'luxon';
 import 'chartjs-adapter-luxon';
 
-import { createApp } from 'vue/dist/vue.esm-browser';
+import { createApp, nextTick } from 'vue/dist/vue.esm-browser';
 import VueClickAway from "vue3-click-away";
 import {
   Chart,
@@ -59,12 +58,22 @@ Chart.register(
   SubTitle
 );
 
+const CHART_COLORS = {
+  red: 'rgb(255, 99, 132)',
+  orange: 'rgb(255, 159, 64)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  purple: 'rgb(153, 102, 255)',
+  grey: 'rgb(201, 203, 207)'
+};
+
 function transparentize(value, opacity) {
   let alpha = opacity === undefined ? 0.5 : 1 - opacity;
   return colorLib(value).alpha(alpha).rgbString();
 }
 
-const dropdownTrigger = createApp({
+const DropdownTrigger = createApp({
   data() {
     return {
       open: false
@@ -79,20 +88,10 @@ const dropdownTrigger = createApp({
   }
 })
 
-dropdownTrigger.use(VueClickAway)
-dropdownTrigger.mount('.dropdown-trigger')
+DropdownTrigger.use(VueClickAway)
+DropdownTrigger.mount('.dropdown-trigger')
 
-const CHART_COLORS = {
-  red: 'rgb(255, 99, 132)',
-  orange: 'rgb(255, 159, 64)',
-  yellow: 'rgb(255, 205, 86)',
-  green: 'rgb(75, 192, 192)',
-  blue: 'rgb(54, 162, 235)',
-  purple: 'rgb(153, 102, 255)',
-  grey: 'rgb(201, 203, 207)'
-};
-
-const table = $('#klimatologi').DataTable({
+const TableKlimatologi = $('#klimatologi').DataTable({
   processing: true,
   serverSide: true,
   language: {
@@ -168,9 +167,7 @@ $('#klimatologi tbody').on('click', 'button', function () {
   }
 });
 
-import dataFrame from '../../../Jupyter Notebook/dataFrame.json';
-
-const ChartPrediksi = new Chart(document.getElementById('myChart'), {
+const ChartPrediksi = new Chart(document.getElementById('predict-chart'), {
   type: 'line',
   data: null,
   options: {
@@ -242,66 +239,134 @@ const TableProyeksi = $('#proyeksi').DataTable({
   searching: false,
 })
 
-const SetHasilPrediksi = function ({ histori, train, future }) {
+const PredictionResult = createApp({
+  delimiters: ['[[', ']]'],
+  data() {
+    return {
+      connection: new WebSocket('ws://' + window.location.host + '/ws/proyeksi/'),
+      terminal: "...\n"
+    }
+  },
+  mounted() {
 
-  future[0] = train[train.length - 1]
+    this.learning_rate = document.getElementById('learning_rate').innerHTML
+    this.dropout = document.getElementById('dropout').innerHTML
+    this.sequence = document.getElementById('sequence').innerHTML
+    this.max_epoch = document.getElementById('max_epoch').innerHTML
+    this.batch_size = document.getElementById('batch_size').innerHTML
+    this.hidden_units = document.getElementById('hidden_units').innerHTML
+    this.much_predict = document.getElementById('much_predict').getAttribute('value')
+    this.nan_handling = document.getElementById('nan_handling').getAttribute('value')
 
-  ChartPrediksi.data = {
-    labels: train.concat(future.slice(1, future.length)).map(x => x.tanggal),
-    datasets: [
-      {
-        label: 'Histori',
-        data: histori.map(x => x.rr),
-        borderColor: CHART_COLORS.blue,
-        backgroundColor: transparentize(CHART_COLORS.blue, 0.5),
-        fill: false,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
-      },
-      {
-        label: 'Pelatihan',
-        data: train.map(x => x.rr),
-        borderColor: CHART_COLORS.orange,
-        backgroundColor: transparentize(CHART_COLORS.orange, 0.5),
-        fill: false,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
-      },
-      {
-        label: 'Prediksi',
-        data: train.map(() => null).slice(0, train.length - 1).concat(future.map(x => x.rr)),
-        borderColor: CHART_COLORS.red,
-        backgroundColor: transparentize(CHART_COLORS.red, 0.5),
-        fill: false,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
+    this.waitForConnection = (callback, interval) => {
+      if (this.connection.readyState === 1) {
+        callback();
+      } else {
+        let that = this;
+        setTimeout(function () {
+          that.waitForConnection(callback, interval);
+        }, interval);
       }
-    ]
+    }
+
+    this.sendMessage = (message, callback) => {
+      this.waitForConnection(() => {
+        this.connection.send(message);
+        if (typeof callback !== 'undefined') {
+          callback();
+        }
+      }, 1000);
+    }
+
+    this.connection.onmessage = (event) => {
+      let data = JSON.parse(event.data);
+      if (data.message) {
+        let terminalElem = document.querySelector("pre")
+        let newstring = `${this.terminal}${data.message}`
+        let matchstring = newstring.match("\n\.*\r")
+        terminalElem.scrollTop = terminalElem.scrollHeight
+        if (matchstring != null) {
+          this.terminal = newstring.replace(matchstring[0], '\n')
+          terminalElem.scrollTop = terminalElem.scrollHeight
+        } else {
+          this.terminal = newstring
+          terminalElem.scrollTop = terminalElem.scrollHeight
+        }
+      } else if (data.results) {
+        let future = data.results.future
+        let train = data.results.train
+        let histori = data.results.histori
+
+        future[0] = train[train.length - 1]
+
+        ChartPrediksi.data = {
+          labels: train.concat(future.slice(1, future.length)).map(x => x.tanggal),
+          datasets: [
+            {
+              label: 'Histori',
+              data: histori.map(x => x.rr),
+              borderColor: CHART_COLORS.blue,
+              backgroundColor: transparentize(CHART_COLORS.blue, 0.5),
+              fill: false,
+              cubicInterpolationMode: 'monotone',
+              tension: 0.4
+            },
+            {
+              label: 'Pelatihan',
+              data: train.map(x => x.rr),
+              borderColor: CHART_COLORS.orange,
+              backgroundColor: transparentize(CHART_COLORS.orange, 0.5),
+              fill: false,
+              cubicInterpolationMode: 'monotone',
+              tension: 0.4
+            },
+            {
+              label: 'Prediksi',
+              data: train.map(() => null).slice(0, train.length - 1).concat(future.map(x => x.rr)),
+              borderColor: CHART_COLORS.red,
+              backgroundColor: transparentize(CHART_COLORS.red, 0.5),
+              fill: false,
+              cubicInterpolationMode: 'monotone',
+              tension: 0.4
+            }
+          ]
+        }
+
+        ChartPrediksi.update()
+
+        TableHistori.rows.add(histori.map(x => {
+          return {
+            tanggal: x.tanggal,
+            rr: x.rr.toFixed(2)
+          }
+        })).draw()
+
+        TablePelatihan.rows.add(train.map(x => {
+          return {
+            tanggal: x.tanggal,
+            rr: x.rr.toFixed(2)
+          }
+        })).draw()
+
+        TableProyeksi.rows.add(future.filter((value, index, arr) => index > 0).map(x => {
+          return {
+            tanggal: x.tanggal,
+            rr: x.rr.toFixed(2)
+          }
+        })).draw()
+      }
+    }
+
+    this.sendMessage(JSON.stringify({
+      learning_rate: this.learning_rate,
+      dropout: this.dropout,
+      sequence: this.sequence,
+      max_epoch: this.max_epoch,
+      batch_size: this.batch_size,
+      hidden_units: this.hidden_units,
+      much_predict: this.much_predict,
+      nan_handling: this.nan_handling
+    }))
+
   }
-
-  ChartPrediksi.update()
-
-  TableHistori.rows.add(histori.map(x => {
-    return {
-      tanggal: x.tanggal,
-      rr: x.rr.toFixed(2)
-    }
-  })).draw()
-
-  TablePelatihan.rows.add(train.map(x => {
-    return {
-      tanggal: x.tanggal,
-      rr: x.rr.toFixed(2)
-    }
-  })).draw()
-
-  TableProyeksi.rows.add(future.map(x => {
-    return {
-      tanggal: x.tanggal,
-      rr: x.rr.toFixed(2)
-    }
-  })).draw()
-
-}
-
-if (document.getElementById('opsi_prediksi')) SetHasilPrediksi(dataFrame)
+}).mount('#prediction-result')

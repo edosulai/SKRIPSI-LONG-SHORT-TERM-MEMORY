@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import View
 from django.contrib.auth import authenticate, login, logout
@@ -7,17 +7,11 @@ from django.contrib.auth.models import User
 from proyeksi.models import Klimatologi
 from proyeksi.forms import LoginForm, KlimatologiForm, UserForm, ProyeksiForm
 
-import numpy as np
-import pandas as pd
-from matplotlib import pyplot as plt
-import json
-
 
 def index(request):
     return render(request, 'home.html', {
         'title': 'Home'
     })
-
 
 class AuthView(View):
     http_method_names = ['get', 'post', 'put', 'delete']
@@ -230,36 +224,41 @@ class ProyeksiView(View):
             'proyeksi_form': ProyeksiForm(initial={
                 'learning_rate': 0.01,
                 'dropout': 0.1,
-                'sequence': 90,
+                'sequence': 14,
                 'max_epoch': 30,
                 'batch_size': 256,
                 'hidden_units': 64,
-                'much_predict': 30,
+                'much_predict': 10,
                 'nan_handling': 2
             })
         })
 
     def post(self, request):
-        return render(request, 'proyeksi/result.html', {
-            'title': 'Hasil Proyeksi'
+        proyeksiform = ProyeksiForm(request.POST)
+        if proyeksiform.is_valid():
+            return render(request, 'proyeksi/result.html', {
+                'title': 'Hasil Proyeksi',
+                'learning_rate': proyeksiform.cleaned_data.get('learning_rate'),
+                'dropout': proyeksiform.cleaned_data.get('dropout'),
+                'sequence': proyeksiform.cleaned_data.get('sequence'),
+                'max_epoch': proyeksiform.cleaned_data.get('max_epoch'),
+                'batch_size': proyeksiform.cleaned_data.get('batch_size'),
+                'hidden_units': proyeksiform.cleaned_data.get('hidden_units'),
+                'much_predict': proyeksiform.cleaned_data.get('much_predict'),
+                'nan_handling': proyeksiform.cleaned_data.get('nan_handling')
+            })
+
+        return render(request, 'proyeksi/form.html', {
+            'title': 'Tambah Data Klimatologi',
+            'klimatologi_form': ProyeksiForm(initial={
+                'learning_rate': proyeksiform.cleaned_data.get('learning_rate'),
+                'dropout': proyeksiform.cleaned_data.get('dropout'),
+                'sequence': proyeksiform.cleaned_data.get('sequence'),
+                'max_epoch': proyeksiform.cleaned_data.get('max_epoch'),
+                'batch_size': proyeksiform.cleaned_data.get('batch_size'),
+                'hidden_units': proyeksiform.cleaned_data.get('hidden_units'),
+                'much_predict': proyeksiform.cleaned_data.get('much_predict'),
+                'nan_handling': proyeksiform.cleaned_data.get('nan_handling')
+            }),
+            'errors': proyeksiform.errors
         })
-
-        # ys = 200 + np.random.randn(100)
-        # x = [x for x in range(len(ys))]
-
-        # plt.plot(x, ys, '-')
-        # plt.fill_between(x, ys, 195, where=(ys > 195), facecolor='g', alpha=0.6)
-
-        # plt.title("Sample Visualization")
-
-        # return HttpResponse(json.dumps({
-        #     'title': 'Proyeksi',
-        #     'data': pd.DataFrame(
-        #         {
-        #             'num_legs': [2, 4, 8, 0],
-        #             'num_wings': [2, 0, 0, 0],
-        #             'num_specimen_seen': [10, 2, 1, 8]
-        #         },
-        #         index=['falcon', 'dog', 'spider', 'fish']
-        #     ).to_dict()
-        # }), content_type="application/json")
