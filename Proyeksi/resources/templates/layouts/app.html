@@ -7,8 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="https://pagecdn.io/lib/font-awesome/5.10.0-11/css/all.min.css"
-    integrity="sha256-p9TTWD+813MlLaxMXMbTA7wN/ArzGyW/L7c5+KkjOkM=" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static "css/jquery.dataTables.min.css" %}">
   <link rel="stylesheet" href="{% static "css/app.css" %}">
   <script src="{% static "js/jquery-3.6.0.min.js" %}"></script>
@@ -17,12 +15,12 @@
 </head>
 
 <body class="font-sans antialiased">
-  <div class="min-h-screen bg-gray-100">
+  <div class="min-h-screen bg-light-100 dark:bg-dark-black text-light-900 dark:text-dark-white antialiased">
     {% include "layouts/navigation.html" %}
 
-    <header class="bg-white shadow">
+    <header class="bg-light-white dark:bg-dark-900 shadow">
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-light-800 dark:text-dark-50 leading-tight">
           {% block header %}{% endblock header %}
         </h2>
       </div>

@@ -2,96 +2,157 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-	width: 7px;
-	height: 7px;
+/* Color Theme */
+/* light-white   = dark-900 */
+/* light-50      = dark-800 */
+/* light-100     = dark-700 */
+/* light-200     = dark-600 */
+/* light-300     = dark-500 */
+/* light-400     = dark-400 */
+/* light-500     = dark-300 */
+/* light-600     = dark-200 */
+/* light-700     = dark-100 */
+/* light-800     = dark-50 */
+/* light-900     = dark-white */
+
+@layer base {
+	::-webkit-scrollbar {
+		@apply w-2 h-2;
+	}
+
+	::-webkit-scrollbar-track {
+		@apply bg-light-100;
+	}
+
+	.dark ::-webkit-scrollbar-track {
+		@apply bg-dark-black;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-light-500;
+	}
+
+	.dark ::-webkit-scrollbar-thumb {
+		@apply bg-dark-300;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-light-700;
+	}
+
+	.dark ::-webkit-scrollbar-thumb:hover {
+		@apply bg-dark-100;
+	}
 }
 
-::-webkit-scrollbar-track {
-	background: transparent;
-}
 
-::-webkit-scrollbar-thumb {
-	background: #CBD5E0;
-}
+@layer components {
+	.dot {
+		@apply bg-yellow-400;
+	}
 
-::-webkit-scrollbar-thumb:hover {
-	background: #718096;
-}
+	input:checked~.dot {
+		@apply bg-gray-700 translate-x-full !important;
+	}
 
-.dot {
-	--tw-bg-opacity: 1 !important;
-	background-color: rgba(245, 158, 11, var(--tw-bg-opacity)) !important;
-}
+	.dataTables_wrapper {
+		@apply p-8 w-full;
+	}
 
-input:checked~.dot {
-	transform: translateX(100%) !important;
-	--tw-bg-opacity: 1 !important;
-	/* background-color: rgba(107, 114, 128, var(--tw-bg-opacity)) !important; */
-	background-color: rgba(55, 65, 81, var(--tw-bg-opacity)) !important;
-	/* background-color: rgba(31, 41, 55, var(--tw-bg-opacity)) !important; */
-}
+	.dataTables_wrapper .dataTables_filter,
+	.dataTables_wrapper .dataTables_length {
+		@apply mb-4;
+	}
 
-.dataTables_wrapper {
-	padding: 2rem !important;
-	width: 100% !important;
-}
+	.dataTables_wrapper .dataTables_processing {
+		background: transparent !important;
+	}
 
-.dataTables_wrapper select,
-.dataTables_wrapper .dataTables_filter input {
-	color: #4a5568 !important;
-	padding-left: 1rem !important;
-	padding-right: 2rem !important;
-	padding-top: .5rem !important;
-	padding-bottom: .5rem !important;
-	line-height: 1.25 !important;
-	border-width: 2px !important;
-	border-radius: .25rem !important;
-	border-color: #edf2f7 !important;
-	background-color: #edf2f7 !important;
-}
+	.dataTables_wrapper label,
+	.dataTables_info {
+		@apply text-light-700 !important;
+	}
 
-table.dataTable.hover tbody tr:hover,
-table.dataTable.display tbody tr:hover {
-	background-color: #ebf4ff !important;
-}
+	.dark .dataTables_wrapper label,
+	.dark .dataTables_info {
+		@apply text-dark-100 !important;
+	}
 
-.dataTables_filter,
-.datatable_length {
-	margin-bottom: 2rem !important;
-}
+	.dataTables_wrapper .dataTables_filter input {
+		@apply px-2 py-2 bg-light-100 rounded-md shadow-sm border-light-300 !important;
+	}
 
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-	font-weight: 700 !important;
-	border-radius: .25rem !important;
-	border: 1px solid transparent !important;
-}
+	.dark .dataTables_wrapper .dataTables_filter input {
+		@apply px-2 py-2 bg-dark-black rounded-md shadow-sm border-dark-500 !important;
+	}
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-	color: #fff !important;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
-	font-weight: 700 !important;
-	border-radius: .25rem !important;
-	background: #667eea !important;
-	border: 1px solid transparent !important;
-}
+	.dataTables_wrapper select {
+		@apply pl-4 pr-8 py-2 bg-light-100 rounded-md shadow-sm border-light-300 !important;
+	}
 
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-	color: #fff !important;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
-	font-weight: 700 !important;
-	border-radius: .25rem !important;
-	background: #667eea !important;
-	border: 1px solid transparent !important;
-}
+	.dark .dataTables_wrapper select {
+		@apply pl-4 pr-8 py-2 bg-dark-black rounded-md shadow-sm border-dark-500 !important;
+	}
 
-table.dataTable.no-footer {
-	border-bottom: 1px solid #e2e8f0 !important;
-	margin-top: 0.75em !important;
-	margin-bottom: 0.75em !important;
-}
+	.dataTables_wrapper select:focus,
+	.dataTables_wrapper .dataTables_filter input:focus {
+		@apply border-indigo-300 ring ring-indigo-200 ring-opacity-50 !important;
+	}
 
-table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
-table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
-	background-color: #667eea !important;
+	table.dataTable.no-footer {
+		@apply mt-3 mb-3 border-b border-solid border-indigo-500 !important;
+	}
+
+	table.dataTable>thead>tr {
+		@apply bg-light-100 !important;
+	}
+
+	.dark table.dataTable>thead>tr {
+		@apply bg-dark-700 !important;
+	}
+
+	table.dataTable>thead>tr>th {
+		@apply pt-2 pl-4 border-b border-solid border-indigo-500 !important;
+	}
+
+	table.dataTable tbody>tr {
+		@apply bg-light-white text-light-800 !important;
+	}
+
+	.dark table.dataTable tbody>tr {
+		@apply bg-dark-900 text-dark-50 !important;
+	}
+
+	table.dataTable tbody>tr:hover {
+		@apply bg-light-50 !important;
+	}
+
+	.dark table.dataTable tbody>tr:hover {
+		@apply bg-dark-800 !important;
+	}
+
+	.dataTables_wrapper .dataTables_paginate .paginate_button,
+	.dataTables_wrapper .dataTables_paginate .ellipsis {
+		@apply text-light-700 font-bold rounded border border-solid border-transparent !important;
+	}
+
+	.dark .dataTables_wrapper .dataTables_paginate .paginate_button,
+	.dark .dataTables_wrapper .dataTables_paginate .ellipsis {
+		@apply text-dark-100 font-bold rounded border border-solid border-transparent !important;
+	}
+
+	.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+		@apply text-white shadow-sm font-bold rounded border border-solid border-transparent !important;
+		background: theme('colors.indigo.500') !important;
+	}
+
+	.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+		@apply text-white bg-indigo-700 shadow-sm font-bold rounded border border-solid border-transparent !important;
+		background: theme('colors.indigo.700') !important;
+	}
+
+	table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
+	table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+		@apply bg-indigo-500 !important;
+	}
 }

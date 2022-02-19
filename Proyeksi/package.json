@@ -14,8 +14,8 @@
     "update": "pip install -r requirements.txt",
     "tailwind-watch": "tailwind -i resources/css/style.css -o static/css/app.css --watch",
     "tailwind-minify": "tailwind -i resources/css/style.css -o static/css/app.css --minify",
-    "webpack-watch": "webpack --watch",
-    "webpack-minify": "webpack --minify"
+    "webpack-watch": "webpack watch --mode development",
+    "webpack-minify": "webpack build"
   },
   "keywords": [],
   "author": "",

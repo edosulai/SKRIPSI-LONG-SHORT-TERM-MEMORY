@@ -1,5 +1,5 @@
 {% load static %}
 <button type="{{type}}"
-    class="{{color|default:"bg-gray-800"}} {{class|default:""}} inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
-    {{ slot }}
+  class="{{color|default:"text-white dark:text-dark-900 bg-light-800 dark:bg-dark-50 hover:bg-light-700 dark:hover:bg-dark-100 active:bg-light-900 dark:active:bg-dark-white  dark:focus:border-dark-white ring-light-300 dark:ring-dark-500"}} {{class|default:""}} inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring disabled:opacity-25 transition ease-in-out duration-150">
+  {{ slot }}
 </button>

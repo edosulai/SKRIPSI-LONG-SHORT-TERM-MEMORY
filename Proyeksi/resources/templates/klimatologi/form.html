@@ -2,11 +2,11 @@
 
 {% block header %}
 <div class="flex">
-  <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{title}}</h2>
+  <h2 class="font-semibold text-xl text-light-800 dark:text-dark-50 leading-tight">{{title}}</h2>
 
-  <div class="space-x-4 sm:-my-px sm:ml-10 sm:flex">
+  <div class="space-x-4 -my-px ml-10 flex">
     <a href="{% url "klimatologi" target="tambah" %}"
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Tambah
+      class="rounded block px-4 py-2 text-sm leading-5 text-light-700 dark:text-dark-100 hover:bg-light-100 dark:hover:bg-dark-700 focus:outline-none focus:bg-light-100 dark:focus:bg-dark-700 transition duration-150 ease-in-out">Tambah
       Data</a>
   </div>
 </div>
@@ -16,15 +16,15 @@
 
 <div class="py-12">
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="bg-light-white dark:bg-dark-900 overflow-hidden shadow-sm sm:rounded-lg">
 
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <div class="shadow overflow-hidden sm:rounded-lg">
 
-              <div class="container mx-auto p-10 bg-white dark:bg-gray-800 shadow-lg">
-                <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">{{subtitle}}</h3>
+              <div class="container mx-auto p-10 bg-light-white dark:bg-dark-900 shadow-lg">
+                <h3 class="text-light-700 dark:text-dark-100 text-2xl font-medium mb-10">{{subtitle}}</h3>
 
                 {% include "components/status.html" with status=status %}
                 {% include "components/errors.html" with errors=errors %}

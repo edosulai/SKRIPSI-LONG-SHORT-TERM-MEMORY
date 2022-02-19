@@ -2,7 +2,7 @@
 
 {% block header %}
 <div class="flex">
-  <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{title}}</h2>
+  <h2 class="font-semibold text-xl text-light-800 dark:text-dark-50 leading-tight">{{title}}</h2>
 </div>
 {% endblock header %}
 
@@ -10,28 +10,28 @@
 
 <div class="py-12">
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="bg-light-white dark:bg-dark-900 overflow-hidden shadow-sm sm:rounded-lg">
 
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <div class="shadow overflow-hidden sm:rounded-lg">
 
-              <div class="container mx-auto p-10 bg-white dark:bg-gray-800 shadow-lg">
+              <div class="container mx-auto p-10 bg-light-white dark:bg-dark-900 shadow-lg">
                 <div class="mb-16" id="prediction-result">
-                  <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Hasil Proyeksi Data</h3>
+                  <h3 class="text-light-700 dark:text-dark-100 text-2xl font-medium mb-10">Hasil Proyeksi Data</h3>
 
                   <div class="flex justify-between">
                     <div class="w-4/12 mr-5">
-                      <table class="text-sm min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                      <table class="text-sm min-w-full divide-y divide-light-200 dark:divide-dark-600">
+                        <thead class="bg-light-50 dark:bg-dark-800">
                           <tr>
                             <td scope="col"
-                              class="px-6 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              class="px-6 py-1 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               Opsi
                             </td>
                             <td scope="col"
-                              class="px-6 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              class="px-6 py-1 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               Value
                             </td>
                           </tr>
@@ -39,75 +39,75 @@
                         <tbody>
                           <tr>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">Learning Rate (ADAM)</div>
+                              <div class="text-sm text-light-900 dark:text-dark-white">Learning Rate (ADAM)</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300" id="learning_rate">{{learning_rate}}
+                              <div class="text-sm text-light-900 dark:text-dark-white" id="learning_rate">{{learning_rate}}
                               </div>
                             </td>
                           </tr>
                           <tr>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">Dropout</div>
+                              <div class="text-sm text-light-900 dark:text-dark-white">Dropout</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300" id="dropout">{{dropout}}</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">Panjang Sequence</div>
-                            </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300" id="sequence">{{sequence}}</div>
+                              <div class="text-sm text-light-900 dark:text-dark-white" id="dropout">{{dropout}}</div>
                             </td>
                           </tr>
                           <tr>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">Max Epoch</div>
+                              <div class="text-sm text-light-900 dark:text-dark-white">Panjang Sequence</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300" id="max_epoch">{{max_epoch}}</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">Ukuran Batch</div>
-                            </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300" id="batch_size">{{batch_size}}</div>
+                              <div class="text-sm text-light-900 dark:text-dark-white" id="sequence">{{sequence}}</div>
                             </td>
                           </tr>
                           <tr>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">Ukuran Hidden Units</div>
+                              <div class="text-sm text-light-900 dark:text-dark-white">Max Epoch</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300" id="hidden_units">{{hidden_units}}
+                              <div class="text-sm text-light-900 dark:text-dark-white" id="max_epoch">{{max_epoch}}</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-light-900 dark:text-dark-white">Ukuran Batch</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-light-900 dark:text-dark-white" id="batch_size">{{batch_size}}</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-light-900 dark:text-dark-white">Ukuran Hidden Units</div>
+                            </td>
+                            <td class="px-6 py-1 text-wrap">
+                              <div class="text-sm text-light-900 dark:text-dark-white" id="hidden_units">{{hidden_units}}
                               </div>
                             </td>
                           </tr>
                           <tr>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">Jumlah
+                              <div class="text-sm text-light-900 dark:text-dark-white">Jumlah
                                 Prediksi ke Depan</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300" id="much_predict"
+                              <div class="text-sm text-light-900 dark:text-dark-white" id="much_predict"
                                 value="{{much_predict}}">{{much_predict}}
                                 Hari</div>
                             </td>
                           </tr>
                           <tr>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300">Penanganan Data Kosong</div>
+                              <div class="text-sm text-light-900 dark:text-dark-white">Penanganan Data Kosong</div>
                             </td>
                             <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-gray-900 dark:text-gray-300" id="nan_handling"
+                              <div class="text-sm text-light-900 dark:text-dark-white" id="nan_handling"
                                 value="{{nan_handling}}">
-                                {% if nan_handling == 1 %}
+                                {% if nan_handling == "1" %}
                                 Drop NaN
-                                {% else %}
+                                {% elif nan_handling == "2" %}
                                 Interpolate NaN
                                 {% endif %}
                               </div>
@@ -117,40 +117,40 @@
                       </table>
                     </div>
                     <div class="w-8/12 ml-5">
-                      <h4 class="text-gray-700 dark:text-gray-300 font-medium mb-2">Training Model...</h4>
+                      <h4 class="text-light-700 dark:text-dark-100 font-medium mb-2">Training Model...</h4>
                       <pre class="overflow-auto h-56"><code class="language-html">[[terminal]]</code></pre>
                     </div>
                   </div>
                 </div>
 
                 <div class="mb-16">
-                  <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Grafik Hasil Proyeksi Data
+                  <h3 class="text-light-700 dark:text-dark-100 text-2xl font-medium mb-10">Grafik Hasil Proyeksi Data
                   </h3>
 
                   <canvas id="predict-chart" width="400" height="200"></canvas>
                 </div>
 
                 <div class="mb-16">
-                  <h3 class="text-gray-700 dark:text-gray-300 text-2xl font-medium mb-10">Tabel Keterangan Grafik Hasil
+                  <h3 class="text-light-700 dark:text-dark-100 text-2xl font-medium mb-10">Tabel Keterangan Grafik Hasil
                     Proyeksi Data
                   </h3>
 
                   <div class="flex">
                     <div class="w-4/12 mx-2">
-                      <table id="histori" class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                      <table id="histori" class="min-w-full divide-y divide-light-200 dark:divide-dark-600">
+                        <thead class="bg-light-50 dark:bg-dark-800">
                           <tr>
                             <td colspan="2" scope="col"
-                              class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                              class="px-6 py-3 text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider text-center">
                               Tabel Data Histori</td>
                           </tr>
                           <tr>
                             <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               tanggal
                             </th>
                             <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               rr
                             </th>
                           </tr>
@@ -160,20 +160,20 @@
                     </div>
 
                     <div class="w-4/12 mx-2">
-                      <table id="pelatihan" class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                      <table id="pelatihan" class="min-w-full divide-y divide-light-200 dark:divide-dark-600">
+                        <thead class="bg-light-50 dark:bg-dark-800">
                           <tr>
                             <td colspan="2" scope="col"
-                              class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                              class="px-6 py-3 text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider text-center">
                               Tabel Data Pelatihan</td>
                           </tr>
                           <tr>
                             <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               tanggal
                             </th>
                             <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               rr
                             </th>
                           </tr>
@@ -183,20 +183,20 @@
                     </div>
 
                     <div class="w-4/12 mx-2">
-                      <table id="proyeksi" class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                      <table id="proyeksi" class="min-w-full divide-y divide-light-200 dark:divide-dark-600">
+                        <thead class="bg-light-50 dark:bg-dark-800">
                           <tr>
                             <td colspan="2" scope="col"
-                              class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                              class="px-6 py-3 text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider text-center">
                               Tabel Data Prediksi</td>
                           </tr>
                           <tr>
                             <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               tanggal
                             </th>
                             <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               rr
                             </th>
                           </tr>

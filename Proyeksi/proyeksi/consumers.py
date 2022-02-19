@@ -59,9 +59,9 @@ class ProyeksiConsumer(WebsocketConsumer):
             dataset_train = pd.DataFrame(list(Klimatologi.objects.all().values(
             )), columns=usecols).replace(to_replace=[8888, 9999, 2555], value=np.nan)
 
-            if config.nan_handling == 1:
+            if config.nan_handling is 1:
                 dataset_train.dropna(inplace=True)
-            elif config.nan_handling == 2:
+            elif config.nan_handling is 2:
                 dataset_train.interpolate(inplace=True)
 
             datelist_train = list(dataset_train[config.time_col])
@@ -127,7 +127,7 @@ class ProyeksiConsumer(WebsocketConsumer):
             predictions_future = model.predict(x_train[-n_future:], verbose=0)
             
             self.send(text_data=json.dumps({
-                'message': f'PLotting Datasets...\n'
+                'message': f'Plotting Datasets...\n'
             }))
 
             START_DATE_FOR_PLOTTING = (

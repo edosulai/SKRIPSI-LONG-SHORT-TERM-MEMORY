@@ -1,5 +1,5 @@
 {% load static %}
-<nav class="bg-white border-b border-gray-100">
+<nav class="bg-light-white border-light-50 border-b dark:bg-dark-900 dark:border-dark-800">
 
   <div class="max-w-7xl mx-auto px-8">
     <div class="flex justify-between h-16">
@@ -7,37 +7,37 @@
 
         <div class="flex-shrink-0 flex items-center">
           <a href="{% url "home" %}">
-            {% include "components/logo.html" with classes="block h-10 w-auto fill-current text-gray-600" %}
+            {% include "components/logo.html" with classes="block h-10 w-auto fill-current text-light-800 dark:text-dark-100" %}
           </a>
         </div>
 
         <div class="space-x-8 -my-px ml-10 flex">
           {% url 'home' as home %}
-          <a href="{% url "home" %}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5focus:outline-none transition duration-150 ease-in-out 
+          <a href="{% url "home" %}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out 
             {% if home == request.path %}
-            border-indigo-400 text-gray-900 focus:border-indigo-700
+            border-indigo-400 text-light-900 dark:text-dark-white focus:border-indigo-700
             {% else %}
-            border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300
+            border-transparent text-light-400 dark:text-dark-400 hover:text-light-700 dark:hover:text-dark-100 hover:border-light-300 dark:hover:border-dark-500 focus:text-light-700 dark:focus:text-dark-100 focus:border-light-300 dark:focus:border-dark-500
             {% endif %}
             ">
             Home
           </a>
           {% url 'klimatologi' as klimatologi %}
-          <a href="{% url "klimatologi" %}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5focus:outline-none transition duration-150 ease-in-out 
+          <a href="{% url "klimatologi" %}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out 
             {% if klimatologi == request.path %}
-            border-indigo-400 text-gray-900 focus:border-indigo-700
+            border-indigo-400 text-light-900 dark:text-dark-white focus:border-indigo-700
             {% else %}
-            border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300
+            border-transparent text-light-400 dark:text-dark-400 hover:text-light-700 dark:hover:text-dark-100 hover:border-light-300 dark:hover:border-dark-500 focus:text-light-700 dark:focus:text-dark-100 focus:border-light-300 dark:focus:border-dark-500
             {% endif %}
             ">
             Data Klimatologi
           </a>
           {% url 'proyeksi' as proyeksi %}
-          <a href="{% url "proyeksi" %}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5focus:outline-none transition duration-150 ease-in-out 
+          <a href="{% url "proyeksi" %}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out 
             {% if proyeksi == request.path %}
-            border-indigo-400 text-gray-900 focus:border-indigo-700
+            border-indigo-400 text-light-900 dark:text-dark-white focus:border-indigo-700
             {% else %}
-            border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300
+            border-transparent text-light-400 dark:text-dark-400 hover:text-light-700 dark:hover:text-dark-100 hover:border-light-300 dark:hover:border-dark-500 focus:text-light-700 dark:focus:text-dark-100 focus:border-light-300 dark:focus:border-dark-500
             {% endif %}
             ">
             Proyeksi
@@ -45,38 +45,45 @@
         </div>
       </div>
 
+      <div class="flex ml-auto items-center">
+        {% include "components/switch_theme.html" %}
+      </div>
+
       <div class="flex items-center ml-6">
 
         <div class="relative dropdown-trigger">
           <div @click="open = !open" v-click-away="onClickAway">
-            <button
-              class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-              <div>{{request.user.username}}</div>
-
+            <button class="flex items-center text-sm font-medium text-light-400 dark:text-dark-400 hover:text-light-700 dark:hover:text-dark-100 hover:border-light-300 dark:hover:border-dark-500 focus:outline-none focus:text-light-700 dark:focus:text-dark-100 focus:border-light-300 dark:focus:border-dark-500 transition duration-150 ease-in-out">
+              <div>
+                {% if request.user.first_name and request.user.last_name %}
+                {{request.user.first_name}} {{request.user.last_name}}
+                {% else %}
+                {{request.user.username}}
+                {% endif %}
+              </div>
               <div class="ml-1">
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd" />
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
               </div>
             </button>
           </div>
 
-          <div v-show="open" class="absolute z-50 mt-2 w-48 rounded-md shadow-lg origin-top-right right-0"
-            style="display: none;">
-            <div class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white">
-              <a href="{% url "user" %}"
-                class="w-full block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Edit
-                Profil</a>
-              <form method="POST" action="{% url "auth" %}">
-                {% csrf_token %}
-                <input type="hidden" name="_method" value="delete">
+          <div v-show="open" class="absolute z-50 mt-2 w-48 rounded-md shadow-lg origin-top-right right-0" style="display: none;">
+            <div class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-light-white dark:bg-dark-900">
+              <div class="px-1">
+                <a href="{% url "user" %}" class="rounded-sm w-full block px-4 py-2 text-sm leading-5 text-light-700 dark:text-dark-100 hover:bg-light-100 dark:hover:bg-dark-700 focus:outline-none focus:bg-light-100 dark:focus:bg-dark-700 transition duration-150 ease-in-out">Edit
+                  Profil</a>
+              </div>
+              <div class="px-1">
+                <form method="POST" action="{% url "auth" %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="_method" value="delete">
 
-                <button type="submit"
-                  class="w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Log
-                  out</button>
-              </form>
+                  <button type="submit" class="rounded-sm w-full text-left px-4 py-2 text-sm leading-5 text-light-700 dark:text-dark-100 hover:bg-light-100 dark:hover:bg-dark-700 focus:outline-none focus:bg-light-100 dark:focus:bg-dark-700 transition duration-150 ease-in-out">Log
+                    out</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

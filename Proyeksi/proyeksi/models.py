@@ -23,17 +23,16 @@ ORDER_COLUMN_CHOICES = Choices(
 
 class Klimatologi(models.Model):
     tanggal = models.DateField()
-    tn = models.FloatField(blank=True)
-    tx = models.FloatField(blank=True)
-    tavg = models.FloatField(blank=True)
-    rh_avg = models.FloatField(blank=True)
-    rr = models.FloatField(blank=True)
-    ss = models.FloatField(blank=True)
-    ff_x = models.FloatField(blank=True)
-    ddd_x = models.FloatField(blank=True)
-    ff_avg = models.FloatField(blank=True)
-    ddd_car = models.CharField(
-        blank=True, max_length=2)
+    tn = models.FloatField(blank=True, null=True)
+    tx = models.FloatField(blank=True, null=True)
+    tavg = models.FloatField(blank=True, null=True)
+    rh_avg = models.FloatField(blank=True, null=True)
+    rr = models.FloatField(blank=True, null=True)
+    ss = models.FloatField(blank=True, null=True)
+    ff_x = models.FloatField(blank=True, null=True)
+    ddd_x = models.FloatField(blank=True, null=True)
+    ff_avg = models.FloatField(blank=True, null=True)
+    ddd_car = models.CharField(blank=True, null=True, max_length=2)
 
     def __str__(self) -> str:
         return "{}".format(self.tanggal)
