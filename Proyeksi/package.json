@@ -10,13 +10,15 @@
     "django": "run-script-os",
     "django:darwin:linux": "./manage.py runserver 80",
     "django:win32": ".\\manage.py runserver 80",
-    "freeze": "pip freeze > requirements.txt",
-    "update": "pip install -r requirements.txt",
     "tailwind-watch": "tailwind -i resources/css/style.css -o static/css/app.css --watch",
     "tailwind-minify": "tailwind -i resources/css/style.css -o static/css/app.css --minify",
     "webpack-watch": "webpack watch --mode development",
     "webpack-minify": "webpack build"
   },
+  "note": [
+    "pip freeze > requirements.txt",
+    "pip install -r requirements.txt"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
