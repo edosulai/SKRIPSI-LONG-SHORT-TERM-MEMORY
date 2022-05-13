@@ -13,11 +13,21 @@
     "tailwind-watch": "tailwind -i resources/css/style.css -o static/css/app.css --watch",
     "tailwind-minify": "tailwind -i resources/css/style.css -o static/css/app.css --minify",
     "webpack-watch": "webpack watch --mode development",
-    "webpack-minify": "webpack build"
+    "webpack-minify": "webpack build",
+    "seed": "run-script-os",
+    "seed:darwin:linux": "./manage.py shell -c 'exec(open(\"dumpdata.py\").read())'",
+    "seed:win32": ".\\manage.py shell -c 'exec(open(\"dumpdata.py\").read())'",
+    "env": "run-script-os",
+    "env:darwin:linux": "./env/Scripts/activate",
+    "env:win32": ".\\env\\Scripts\\activate.ps1"
   },
   "note": [
     "pip freeze > requirements.txt",
-    "pip install -r requirements.txt"
+    "pip install -r requirements.txt",
+    "py -m venv env",
+    "py manage.py createsuperuser",
+    "py manage.py makemigrations",
+    "py manage.py migrate"
   ],
   "keywords": [],
   "author": "",

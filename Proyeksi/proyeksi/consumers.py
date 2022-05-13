@@ -34,6 +34,7 @@ class ProyeksiConsumer(WebsocketConsumer):
     # Receive message from WebSocket
     def receive(self, text_data):
         try:
+            klimatologi_data = Klimatologi.objects.all()
             text_data_json = json.loads(text_data)
             columns_train = ['tavg', 'rh_avg', 'rr', 'ff_avg']
             config = set_config({
@@ -53,10 +54,11 @@ class ProyeksiConsumer(WebsocketConsumer):
                 'nan_handling': int(text_data_json['nan_handling']),
                 'validation_split': 0.1,
                 'suffle': False,
+                'data_length': klimatologi_data.count(),
             })
             usecols = [config.time_col] + columns_train
 
-            dataset_train = pd.DataFrame(list(Klimatologi.objects.all().values(
+            dataset_train = pd.DataFrame(list(klimatologi_data.values(
             )), columns=usecols).replace(to_replace=[8888, 9999, 2555], value=np.nan)
 
             if config.nan_handling is 1:

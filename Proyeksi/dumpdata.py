@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 
-"""
-    Script to import data from .csv file to Model Database DJango
-    To execute this script run: 
-                                1) manage.py shell
-                                2) exec(open('file_name.py').read())
-"""
-
 import csv
 from datetime import datetime
 from proyeksi.models import Klimatologi
@@ -31,5 +24,3 @@ with open(CSV_PATH, newline='') as csvfile:
             'ddd_car': row[10] if row[10] else None
         }) for row in spamreader]
     )
-
-# exec(open('dumpdata.py').read())
