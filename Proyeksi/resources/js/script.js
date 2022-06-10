@@ -98,7 +98,7 @@ const SwitchTheme = createApp({
   },
   methods: {
     switcher(event = null) {
-      localStorage.theme = typeof event == 'string' ? event : event.target.checked ? 'dark' : 'light'
+      localStorage.theme = typeof event == 'string' ? event : event != null && event.target.checked ? 'dark' : 'light'
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         this.isDark = true
         document.documentElement.classList.add('dark')
