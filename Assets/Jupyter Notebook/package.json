@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@tensorflow/tfjs": "^3.18.0",
+    "danfojs-node": "^1.1.1",
+    "numjs": "^0.16.1"
+  },
+  "type": "module"
+}
