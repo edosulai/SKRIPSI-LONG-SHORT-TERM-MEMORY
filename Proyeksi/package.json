@@ -25,6 +25,7 @@
     "pip freeze > requirements.txt",
     "pip install -r requirements.txt",
     "py -m venv env",
+    ".\\env\\Scripts\\Activate.ps1",
     "py manage.py createsuperuser",
     "py manage.py makemigrations",
     "py manage.py migrate"
