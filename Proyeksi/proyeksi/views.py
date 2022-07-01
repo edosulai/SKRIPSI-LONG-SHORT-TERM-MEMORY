@@ -4,7 +4,7 @@ from django.views.generic import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
-from proyeksi.models import Klimatologi
+from proyeksi.models import Klimatologi, Riwayat
 from proyeksi.forms import LoginForm, KlimatologiForm, UserForm, ProyeksiForm
 
 
@@ -218,19 +218,42 @@ class ProyeksiView(View):
             return self.delete(*args, **kwargs)
         return super(ProyeksiView, self).dispatch(*args, **kwargs)
 
-    def get(self, request):
-        return render(request, 'proyeksi/form.html', {
-            'title': 'Proyeksi',
-            'proyeksi_form': ProyeksiForm(initial={
-                'learning_rate': 0.01,
-                'dropout': 0.1,
-                'sequence': 14,
-                'max_epoch': 30,
-                'batch_size': 256,
-                'hidden_units': 64,
-                'much_predict': 10,
-                'nan_handling': 2
+    def get(self, request, target=None):
+        if target and target.isnumeric():
+            riwayat = get_object_or_404(Riwayat, id=target)
+            return render(request, 'proyeksi/result.html', {
+                'title': 'Hasil Proyeksi',
+                'learning_rate': riwayat.learning_rate,
+                'dropout': riwayat.dropout,
+                'sequence': riwayat.sequence,
+                'max_epoch': riwayat.max_epoch,
+                'batch_size': riwayat.batch_size,
+                'hidden_units': riwayat.hidden_units,
+                'much_predict': riwayat.much_predict,
+                'nan_handling': riwayat.nan_handling,
             })
+
+        elif target == 'baru':
+            first = Klimatologi.objects.first()
+            last = Klimatologi.objects.last()
+            return render(request, 'proyeksi/form.html', {
+                'title': 'Proyeksi',
+                'proyeksi_form': ProyeksiForm(initial={
+                    'timestep': 2,
+                    'max_epoch': 50,
+                    'max_batch_size': 1,
+                    'layer_size': 1,
+                    'unit_size': 1,
+                    'learning_rate': 0.1,
+                    'dropout': 0.0,
+                    'row_start': first.tanggal, #yyyy-mm-dd
+                    'row_end': last.tanggal,
+                    'num_predict': 5,
+                })
+            })
+        
+        return render(request, 'proyeksi/index.html', {
+            'title': 'Riwayat Proyeksi'
         })
 
     def post(self, request):
@@ -238,27 +261,33 @@ class ProyeksiView(View):
         if proyeksiform.is_valid():
             return render(request, 'proyeksi/result.html', {
                 'title': 'Hasil Proyeksi',
-                'learning_rate': proyeksiform.cleaned_data.get('learning_rate'),
-                'dropout': proyeksiform.cleaned_data.get('dropout'),
-                'sequence': proyeksiform.cleaned_data.get('sequence'),
-                'max_epoch': proyeksiform.cleaned_data.get('max_epoch'),
-                'batch_size': proyeksiform.cleaned_data.get('batch_size'),
-                'hidden_units': proyeksiform.cleaned_data.get('hidden_units'),
-                'much_predict': proyeksiform.cleaned_data.get('much_predict'),
-                'nan_handling': proyeksiform.cleaned_data.get('nan_handling')
+                'proyeksi_form': ProyeksiForm(initial={
+                    'timestep': proyeksiform.cleaned_data.get('timestep'),
+                    'max_epoch': proyeksiform.cleaned_data.get('max_epoch'),
+                    'max_batch_size': proyeksiform.cleaned_data.get('max_batch_size'),
+                    'layer_size': proyeksiform.cleaned_data.get('layer_size'),
+                    'unit_size': proyeksiform.cleaned_data.get('unit_size'),
+                    'learning_rate': proyeksiform.cleaned_data.get('learning_rate'),
+                    'dropout': proyeksiform.cleaned_data.get('dropout'),
+                    'row_start': proyeksiform.cleaned_data.get('row_start'),
+                    'row_end': proyeksiform.cleaned_data.get('row_end'),
+                    'num_predict': proyeksiform.cleaned_data.get('num_predict')
+                })
             })
 
         return render(request, 'proyeksi/form.html', {
-            'title': 'Tambah Data Klimatologi',
-            'klimatologi_form': ProyeksiForm(initial={
+            'title': 'Proyeksi',
+            'proyeksi_form': ProyeksiForm(initial={
+                'timestep': proyeksiform.cleaned_data.get('timestep'),
+                'max_epoch': proyeksiform.cleaned_data.get('max_epoch'),
+                'max_batch_size': proyeksiform.cleaned_data.get('max_batch_size'),
+                'layer_size': proyeksiform.cleaned_data.get('layer_size'),
+                'unit_size': proyeksiform.cleaned_data.get('unit_size'),
                 'learning_rate': proyeksiform.cleaned_data.get('learning_rate'),
                 'dropout': proyeksiform.cleaned_data.get('dropout'),
-                'sequence': proyeksiform.cleaned_data.get('sequence'),
-                'max_epoch': proyeksiform.cleaned_data.get('max_epoch'),
-                'batch_size': proyeksiform.cleaned_data.get('batch_size'),
-                'hidden_units': proyeksiform.cleaned_data.get('hidden_units'),
-                'much_predict': proyeksiform.cleaned_data.get('much_predict'),
-                'nan_handling': proyeksiform.cleaned_data.get('nan_handling')
+                'row_start': proyeksiform.cleaned_data.get('row_start'),
+                'row_end': proyeksiform.cleaned_data.get('row_end'),
+                'num_predict': proyeksiform.cleaned_data.get('num_predict')
             }),
             'errors': proyeksiform.errors
         })

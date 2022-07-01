@@ -3,6 +3,10 @@
 {% block header %}
 <div class="flex">
   <h2 class="font-semibold text-xl text-light-800 dark:text-dark-50 leading-tight">{{title}}</h2>
+
+  <div class="space-x-4 -my-px ml-10 flex">
+    <a href="{% url "proyeksi" target="baru" %}" class="rounded block px-4 py-2 text-sm leading-5 text-light-700 dark:text-dark-100 hover:bg-light-100 dark:hover:bg-dark-700 focus:outline-none focus:bg-light-100 dark:focus:bg-dark-700 transition duration-150 ease-in-out">Buat Proyeksi</a>
+  </div>
 </div>
 {% endblock header %}
 
@@ -26,98 +30,30 @@
                       <table class="text-sm min-w-full divide-y divide-light-200 dark:divide-dark-600">
                         <thead class="bg-light-50 dark:bg-dark-800">
                           <tr>
-                            <td scope="col"
-                              class="px-6 py-1 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
+                            <td scope="col" class="px-4 py-1 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               Opsi
                             </td>
-                            <td scope="col"
-                              class="px-6 py-1 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
+                            <td scope="col" class="px-4 py-1 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               Value
                             </td>
                           </tr>
                         </thead>
                         <tbody>
+                          {% for form in proyeksi_form %}
                           <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white">Learning Rate (ADAM)</div>
+                            <td class="px-4 py-1 text-wrap">
+                              <div class="text-sm text-light-900 dark:text-dark-white">{{form.label}}</div>
                             </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white" id="learning_rate">{{learning_rate}}
-                              </div>
+                            <td class="px-4 py-1 text-wrap">
+                              <div class="text-sm text-light-900 dark:text-dark-white proyeksi-form" id="{{form.id_for_label}}">{{form.value}}</div>
                             </td>
                           </tr>
-                          <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white">Dropout</div>
-                            </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white" id="dropout">{{dropout}}</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white">Panjang Sequence</div>
-                            </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white" id="sequence">{{sequence}}</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white">Max Epoch</div>
-                            </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white" id="max_epoch">{{max_epoch}}</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white">Ukuran Batch</div>
-                            </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white" id="batch_size">{{batch_size}}</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white">Ukuran Hidden Units</div>
-                            </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white" id="hidden_units">{{hidden_units}}
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white">Jumlah
-                                Prediksi ke Depan</div>
-                            </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white" id="much_predict"
-                                value="{{much_predict}}">{{much_predict}}
-                                Hari</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white">Penanganan Data Kosong</div>
-                            </td>
-                            <td class="px-6 py-1 text-wrap">
-                              <div class="text-sm text-light-900 dark:text-dark-white" id="nan_handling"
-                                value="{{nan_handling}}">
-                                {% if nan_handling == "1" %}
-                                Drop NaN
-                                {% elif nan_handling == "2" %}
-                                Interpolate NaN
-                                {% endif %}
-                              </div>
-                            </td>
-                          </tr>
+                          {% endfor %}
                         </tbody>
                       </table>
                     </div>
                     <div class="w-8/12 ml-5">
-                      <h4 class="text-light-700 dark:text-dark-100 font-medium mb-2">Training Model...</h4>
+                      <h4 class="text-light-700 dark:text-dark-100 font-medium mb-2">Mulai Proyeksi...</h4>
                       <pre class="overflow-auto h-56"><code class="language-html">[[terminal]]</code></pre>
                     </div>
                   </div>
@@ -140,17 +76,14 @@
                       <table id="histori" class="min-w-full divide-y divide-light-200 dark:divide-dark-600">
                         <thead class="bg-light-50 dark:bg-dark-800">
                           <tr>
-                            <td colspan="2" scope="col"
-                              class="px-6 py-3 text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider text-center">
+                            <td colspan="2" scope="col" class="px-6 py-3 text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider text-center">
                               Tabel Data Histori</td>
                           </tr>
                           <tr>
-                            <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               tanggal
                             </th>
-                            <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               rr
                             </th>
                           </tr>
@@ -163,17 +96,14 @@
                       <table id="pelatihan" class="min-w-full divide-y divide-light-200 dark:divide-dark-600">
                         <thead class="bg-light-50 dark:bg-dark-800">
                           <tr>
-                            <td colspan="2" scope="col"
-                              class="px-6 py-3 text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider text-center">
+                            <td colspan="2" scope="col" class="px-6 py-3 text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider text-center">
                               Tabel Data Pelatihan</td>
                           </tr>
                           <tr>
-                            <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               tanggal
                             </th>
-                            <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               rr
                             </th>
                           </tr>
@@ -186,17 +116,14 @@
                       <table id="proyeksi" class="min-w-full divide-y divide-light-200 dark:divide-dark-600">
                         <thead class="bg-light-50 dark:bg-dark-800">
                           <tr>
-                            <td colspan="2" scope="col"
-                              class="px-6 py-3 text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider text-center">
+                            <td colspan="2" scope="col" class="px-6 py-3 text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider text-center">
                               Tabel Data Prediksi</td>
                           </tr>
                           <tr>
-                            <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               tanggal
                             </th>
-                            <th scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               rr
                             </th>
                           </tr>

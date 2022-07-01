@@ -194,19 +194,21 @@ const Klimatologi = createApp({
         orderable: false,
         data: "id",
         render: function (id, type, row, meta) {
-          return (`<span class="flex">
-                      <button onclick="redirectToEdit(event, ${id})" class="edit-klimatologi flex items-center px-2 py-1 mx-1 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                              <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                              <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
-                          </svg>
-                      </button>
-                      <button onclick="modalVisible(event, ${id}, true)" class="flex items-center px-2 py-1 mx-1 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-500 focus:outline-none focus:bg-red-500">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg>
-                      </button>
-                  </span>`)
+          return (
+            `<span class="flex">
+                <button onclick="redirectToEdit(event, ${id})" class="edit-klimatologi flex items-center px-2 py-1 mx-1 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                        <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <button onclick="modalVisible(event, ${id}, true)" class="flex items-center px-2 py-1 mx-1 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-500 focus:outline-none focus:bg-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                      </svg>
+                </button>
+            </span>`
+          )
         }
       }],
       columns: [{
@@ -238,6 +240,114 @@ const Klimatologi = createApp({
   }
 }).use(VueClickAway)
 if (document.querySelector('#klimatologi')) Klimatologi.mount('#klimatologi')
+
+const Proyeksi = createApp({
+  delimiters: ['[[', ']]'],
+  data() {
+    return {
+      proyeksi: {},
+      modal_open: false,
+      id_to_delete: null,
+      prevent_close: false,
+    }
+  },
+  methods: {
+    onClickAway() {
+      if (this.modal_open && !this.prevent_close) {
+        this.modal_open = false
+        document.documentElement.style.overflow = 'auto'
+      }
+      this.prevent_close = false
+    },
+    modalVisible(event, id, prevent_close) {
+      this.modal_open = !this.modal_open
+      if (this.modal_open) {
+        document.documentElement.style.overflow = 'hidden'
+      } else {
+        document.documentElement.style.overflow = 'auto'
+      }
+      this.id_to_delete = id
+      this.prevent_close = prevent_close
+    },
+    redirectToEdit(event, id) {
+      window.location.replace(`/proyeksi/${id}/`)
+    },
+    deleteRow(id) {
+      fetch(`/api/proyeksi/${id}/`, {
+        method: 'DELETE',
+        headers: {
+          'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+      }).then(response => {
+        this.modal_open = false
+        document.documentElement.style.overflow = 'auto'
+        this.proyeksi.ajax.reload()
+      }).catch((jqXHR, textStatus, errorThrown) => console.log(errorThrown))
+    }
+  },
+  created() {
+    if (!window.redirectToEdit) window.redirectToEdit = this.redirectToEdit
+    if (!window.modalVisible) window.modalVisible = this.modalVisible
+  },
+  mounted() {
+    this.proyeksi = $('#proyeksi_table').DataTable({
+      processing: true,
+      serverSide: true,
+      language: {
+        processing: LOADING
+      },
+      ajax: {
+        url: "/api/proyeksi/",
+        type: "GET",
+      },
+      columnDefs: [{
+        targets: 11,
+        orderable: false,
+        data: "id",
+        render: function (id, type, row, meta) {
+          return (
+            `<span class="flex">
+                <button onclick="redirectToEdit(event, ${id})" class="edit-proyeksi flex items-center px-2 py-1 mx-1 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <button onclick="modalVisible(event, ${id}, true)" class="flex items-center px-2 py-1 mx-1 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-500 focus:outline-none focus:bg-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                      </svg>
+                </button>
+            </span>`
+          )
+        }
+      }],
+      columns: [{
+        data: "id"
+      }, {
+        data: "timestep"
+      }, {
+        data: "max_batch_size"
+      }, {
+        data: "max_epoch"
+      }, {
+        data: "layer_size"
+      }, {
+        data: "unit_size"
+      }, {
+        data: "dropout"
+      }, {
+        data: "learning_rate"
+      }, {
+        data: "row_start"
+      }, {
+        data: "row_end"
+      }, {
+        data: "num_predict"
+      }]
+    })
+  }
+}).use(VueClickAway)
+if (document.querySelector('#proyeksi')) Proyeksi.mount('#proyeksi')
 
 const PredictionResult = createApp({
   delimiters: ['[[', ']]'],
@@ -318,14 +428,11 @@ const PredictionResult = createApp({
   },
   mounted() {
 
-    this.learning_rate = document.getElementById('learning_rate').innerHTML
-    this.dropout = document.getElementById('dropout').innerHTML
-    this.sequence = document.getElementById('sequence').innerHTML
-    this.max_epoch = document.getElementById('max_epoch').innerHTML
-    this.batch_size = document.getElementById('batch_size').innerHTML
-    this.hidden_units = document.getElementById('hidden_units').innerHTML
-    this.much_predict = document.getElementById('much_predict').getAttribute('value')
-    this.nan_handling = document.getElementById('nan_handling').getAttribute('value')
+    this.hyperparameters = {}
+
+    for (const form of document.getElementsByClassName('proyeksi-form')) {
+      this.hyperparameters[form.id] = form.innerHTML
+    }
 
     this.waitForConnection = (callback, interval) => {
       if (this.connection.readyState === 1) {
@@ -361,81 +468,71 @@ const PredictionResult = createApp({
           terminalElem.scrollTop = terminalElem.scrollHeight
         }
       } else if (data.results) {
-        let future = data.results.future
-        let train = data.results.train
-        let histori = data.results.histori
+        // let future = data.results.future
+        // let train = data.results.train
+        // let histori = data.results.histori
 
-        future[0] = train[train.length - 1]
+        // future[0] = train[train.length - 1]
 
-        this.chart.data = {
-          labels: train.concat(future.slice(1, future.length)).map(x => x.tanggal),
-          datasets: [
-            {
-              label: 'Histori',
-              data: histori.map(x => x.rr),
-              borderColor: CHART_COLORS.blue,
-              backgroundColor: transparentize(CHART_COLORS.blue, 0.5),
-              fill: false,
-              cubicInterpolationMode: 'monotone',
-              tension: 0.4
-            },
-            {
-              label: 'Pelatihan',
-              data: train.map(x => x.rr),
-              borderColor: CHART_COLORS.orange,
-              backgroundColor: transparentize(CHART_COLORS.orange, 0.5),
-              fill: false,
-              cubicInterpolationMode: 'monotone',
-              tension: 0.4
-            },
-            {
-              label: 'Prediksi',
-              data: train.map(() => null).slice(0, train.length - 1).concat(future.map(x => x.rr)),
-              borderColor: CHART_COLORS.red,
-              backgroundColor: transparentize(CHART_COLORS.red, 0.5),
-              fill: false,
-              cubicInterpolationMode: 'monotone',
-              tension: 0.4
-            }
-          ]
-        }
+        // this.chart.data = {
+        //   labels: train.concat(future.slice(1, future.length)).map(x => x.tanggal),
+        //   datasets: [
+        //     {
+        //       label: 'Histori',
+        //       data: histori.map(x => x.rr),
+        //       borderColor: CHART_COLORS.blue,
+        //       backgroundColor: transparentize(CHART_COLORS.blue, 0.5),
+        //       fill: false,
+        //       cubicInterpolationMode: 'monotone',
+        //       tension: 0.4
+        //     },
+        //     {
+        //       label: 'Pelatihan',
+        //       data: train.map(x => x.rr),
+        //       borderColor: CHART_COLORS.orange,
+        //       backgroundColor: transparentize(CHART_COLORS.orange, 0.5),
+        //       fill: false,
+        //       cubicInterpolationMode: 'monotone',
+        //       tension: 0.4
+        //     },
+        //     {
+        //       label: 'Prediksi',
+        //       data: train.map(() => null).slice(0, train.length - 1).concat(future.map(x => x.rr)),
+        //       borderColor: CHART_COLORS.red,
+        //       backgroundColor: transparentize(CHART_COLORS.red, 0.5),
+        //       fill: false,
+        //       cubicInterpolationMode: 'monotone',
+        //       tension: 0.4
+        //     }
+        //   ]
+        // }
 
-        this.chart.update()
+        // this.chart.update()
 
-        this.tablehistori.rows.add(histori.map(x => {
-          return {
-            tanggal: x.tanggal,
-            rr: x.rr.toFixed(2)
-          }
-        })).draw()
+        // this.tablehistori.rows.add(histori.map(x => {
+        //   return {
+        //     tanggal: x.tanggal,
+        //     rr: x.rr.toFixed(2)
+        //   }
+        // })).draw()
 
-        this.tablepelatihan.rows.add(train.map(x => {
-          return {
-            tanggal: x.tanggal,
-            rr: x.rr.toFixed(2)
-          }
-        })).draw()
+        // this.tablepelatihan.rows.add(train.map(x => {
+        //   return {
+        //     tanggal: x.tanggal,
+        //     rr: x.rr.toFixed(2)
+        //   }
+        // })).draw()
 
-        this.tableproyeksi.rows.add(future.filter((value, index, arr) => index > 0).map(x => {
-          return {
-            tanggal: x.tanggal,
-            rr: x.rr.toFixed(2)
-          }
-        })).draw()
+        // this.tableproyeksi.rows.add(future.filter((value, index, arr) => index > 0).map(x => {
+        //   return {
+        //     tanggal: x.tanggal,
+        //     rr: x.rr.toFixed(2)
+        //   }
+        // })).draw()
       }
     }
 
-    this.sendMessage(JSON.stringify({
-      learning_rate: this.learning_rate,
-      dropout: this.dropout,
-      sequence: this.sequence,
-      max_epoch: this.max_epoch,
-      batch_size: this.batch_size,
-      hidden_units: this.hidden_units,
-      much_predict: this.much_predict,
-      nan_handling: this.nan_handling
-    }))
-
+    this.sendMessage(JSON.stringify(this.hyperparameters))
   }
 })
 if (document.querySelector('#prediction-result')) PredictionResult.mount('#prediction-result')

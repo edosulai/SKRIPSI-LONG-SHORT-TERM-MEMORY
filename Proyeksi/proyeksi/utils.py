@@ -1,9 +1,7 @@
 import json
 
 import numpy as np
-from keras import backend as K
-from keras.callbacks import Callback
-
+import tensorflow as tf
 
 class Config:
     def __init__(self):
@@ -16,19 +14,29 @@ def set_config(config_dict):
     return config
 
 
+def mean_squared_error(y_true, y_pred):
+    return tf.keras.backend.mean(tf.keras.backend.square(y_pred - y_true))
+
+
 def root_mean_squared_error(y_true, y_pred):
-    return K.sqrt(K.mean(K.square(y_pred - y_true)))
+    return tf.keras.backend.sqrt(mean_squared_error(y_pred, y_true))
 
 
 def progress_bar(iteration, total, prefix='', suffix='', decimals=1, length=100, fill='█', printEnd="\n"):
-    percent = ("{0:." + str(decimals) + "f}").format(100 *
-                                                     (iteration / float(total)))
+    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
     filledLength = int(length * iteration // total)
     bar = fill * filledLength + '-' * (length - filledLength)
     return f'\r{prefix} |{bar}| {percent}% {suffix} {printEnd if iteration == total else ""}'
 
+def train_test_split(dataset, time_step=1):
+    dataX, dataY = [], []
+    # for i in range(len(dataset)-time_step-1):
+    for i in range(len(dataset)-time_step):
+        dataX.append(dataset[i:(i+time_step), 0])
+        dataY.append(dataset[i+time_step, 0])
+    return np.array(dataX), np.array(dataY)
 
-class CustomCallback(Callback):
+class CustomCallback(tf.keras.callbacks.Callback):
     def __init__(self, websocket, config, batch_train_length, batch_test_length, dataset_train):
         self.websocket = websocket
         self.config = config

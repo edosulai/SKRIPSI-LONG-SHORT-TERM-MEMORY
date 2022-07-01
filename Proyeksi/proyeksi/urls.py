@@ -17,24 +17,22 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework import routers
 
-from proyeksi.api import KlimatologiViewSet
+from proyeksi.api import KlimatologiViewSet, RiwayatViewSet
 from proyeksi.views import index, AuthView, KlimatologiView, ProyeksiView, UserView
 from django.contrib.auth.decorators import login_required
 
 router = routers.DefaultRouter()
 router.register('klimatologi', KlimatologiViewSet, 'klimatologi')
+router.register('proyeksi', RiwayatViewSet, 'proyeksi')
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
 
-    path('klimatologi/', login_required(KlimatologiView.as_view(),
-         login_url='/auth/'), name="klimatologi"),
-    
-    path('klimatologi/<str:target>/', login_required(KlimatologiView.as_view(),
-         login_url='/auth/'), name="klimatologi"),
+    path('klimatologi/', login_required(KlimatologiView.as_view(), login_url='/auth/'), name="klimatologi"),
+    path('klimatologi/<str:target>/', login_required(KlimatologiView.as_view(), login_url='/auth/'), name="klimatologi"),
 
-    path('proyeksi/', login_required(ProyeksiView.as_view(),
-         login_url='/auth/'), name="proyeksi"),
+    path('proyeksi/', login_required(ProyeksiView.as_view(), login_url='/auth/'), name="proyeksi"),
+    path('proyeksi/<str:target>/', login_required(ProyeksiView.as_view(), login_url='/auth/'), name="proyeksi"),
 
     path('user/', login_required(UserView.as_view(), login_url='/auth/'), name="user"),
 

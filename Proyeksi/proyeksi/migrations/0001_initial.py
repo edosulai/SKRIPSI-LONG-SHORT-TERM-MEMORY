@@ -28,4 +28,23 @@ class Migration(migrations.Migration):
                 ('ddd_car', models.CharField(blank=True, max_length=2, null=True)),
             ],
         ),
+        
+        migrations.CreateModel(
+            name='Riwayat',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('timestep', models.IntegerField(blank=True, null=True)),
+                ('max_batch_size', models.IntegerField(blank=True, null=True)),
+                ('max_epoch', models.IntegerField(blank=True, null=True)),
+                ('layer_size', models.IntegerField(blank=True, null=True)),
+                ('unit_size', models.IntegerField(blank=True, null=True)),
+                ('dropout', models.FloatField(blank=True, null=True)),
+                ('learning_rate', models.FloatField(blank=True, null=True)),
+                ('row_start', models.IntegerField(blank=True, null=True)),
+                ('row_end', models.IntegerField(blank=True, null=True)),
+                ('num_predict', models.IntegerField(blank=True, null=True)),
+                ('logs', models.TextField(blank=True, null=True)),
+                ('hdf', models.BinaryField(blank=True, null=True)),
+            ],
+        ),
     ]

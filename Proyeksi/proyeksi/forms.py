@@ -263,26 +263,11 @@ class KlimatologiForm(forms.ModelForm):
 
 
 class ProyeksiForm(forms.Form):
-    learning_rate = forms.FloatField(
-        label='Nilai Learning Rate (ADAM)',
+    timestep = forms.IntegerField(
+        label='Panjang Timestep',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
-            }
-        )
-    )
-    dropout = forms.FloatField(
-        label='Nilai Dropout',
-        widget=forms.TextInput(
-            attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
-            }
-        )
-    )
-    sequence = forms.IntegerField(
-        label='Panjang Sequence',
-        widget=forms.TextInput(
-            attrs={
+                'id': 'timestep',
                 'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
@@ -291,43 +276,97 @@ class ProyeksiForm(forms.Form):
         label='Max Epoch',
         widget=forms.TextInput(
             attrs={
+                'id': 'max_epoch',
                 'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
-    batch_size = forms.IntegerField(
+    max_batch_size = forms.IntegerField(
         label='Ukuran Batch',
         widget=forms.TextInput(
             attrs={
+                'id': 'max_batch_size',
                 'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
-    hidden_units = forms.IntegerField(
-        label='Jumlah Hidden Units',
+    layer_size = forms.IntegerField(
+        label='Jumlah Hidden Layers',
         widget=forms.TextInput(
             attrs={
+                'id': 'layer_size',
                 'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
-    much_predict = forms.IntegerField(
+    unit_size = forms.IntegerField(
+        label='Jumlah Units',
+        widget=forms.TextInput(
+            attrs={
+                'id': 'unit_size',
+                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    learning_rate = forms.FloatField(
+        label='Nilai Learning Rate',
+        widget=forms.TextInput(
+            attrs={
+                'id': 'learning_rate',
+                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    dropout = forms.FloatField(
+        label='Nilai Dropout',
+        widget=forms.TextInput(
+            attrs={
+                'id': 'dropout',
+                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        )
+    )
+    row_start = forms.DateField(
+        label='Tanggal Mulai Training',
+        widget=forms.TextInput(
+            attrs={
+                'id': 'row_start',
+                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'type': 'date',
+            }
+        )
+    )
+    row_end = forms.DateField(
+        label='Tanggal Akhir Training',
+        widget=forms.TextInput(
+            attrs={
+                'id': 'row_end',
+                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'type': 'date',
+            }
+        )
+    )
+    num_predict = forms.IntegerField(
         label='Jumlah Prediksi ke Depan (Hari)',
         widget=forms.TextInput(
             attrs={
+                'id': 'num_predict',
                 'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
-    nan_handling = forms.ChoiceField(
-        label='Penanganan Data Kosong',
-        widget=forms.RadioSelect(
-            attrs={
-                'class': 'rounded rounded-md shadow-sm border-light-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 my-2',
-            }
-        ),
-        choices=(
-            (1, 'Drop NaN'),
-            (2, 'Interpolate NaN'),
-        )
-    )
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        first = Klimatologi.objects.first()
+        last = Klimatologi.objects.last()
+            
+        self.fields['row_start'].widget.attrs.update({
+            'min': first.tanggal,
+            'max': last.tanggal
+        })
+        
+        self.fields['row_end'].widget.attrs.update({
+            'min': first.tanggal,
+            'max': last.tanggal
+        })
