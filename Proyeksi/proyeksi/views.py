@@ -269,8 +269,8 @@ class ProyeksiView(View):
                     'unit_size': proyeksiform.cleaned_data.get('unit_size'),
                     'learning_rate': proyeksiform.cleaned_data.get('learning_rate'),
                     'dropout': proyeksiform.cleaned_data.get('dropout'),
-                    'row_start': proyeksiform.cleaned_data.get('row_start'),
-                    'row_end': proyeksiform.cleaned_data.get('row_end'),
+                    'row_start': proyeksiform.cleaned_data.get('row_start').strftime('%Y-%m-%d'),
+                    'row_end': proyeksiform.cleaned_data.get('row_end').strftime('%Y-%m-%d'),
                     'num_predict': proyeksiform.cleaned_data.get('num_predict')
                 })
             })

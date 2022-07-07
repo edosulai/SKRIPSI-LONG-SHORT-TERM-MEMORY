@@ -1,26 +1,18 @@
 from tkinter import E
 from channels.generic.websocket import WebsocketConsumer
 
-from proyeksi.models import Klimatologi
+from proyeksi.models import Klimatologi, Riwayat
 
 import json
 import math
-
 import numpy as np
 import pandas as pd
+import tensorflow as tf
+
 from sklearn.preprocessing import MinMaxScaler
-# from datetime import datetime, timedelta
+from datetime import datetime, timedelta
 
-# from keras.callbacks import EarlyStopping, ReduceLROnPlateau
-
-
-# from keras.models import Sequential
-# from keras.layers import Dense
-# from keras.layers import LSTM
-# from keras.layers import Dropout
-# from keras.optimizers import adam_v2
-
-from proyeksi.utils import set_config, mean_squared_error, root_mean_squared_error, train_test_split, CustomCallback
+from proyeksi.utils import set_config, mean_squared_error, root_mean_squared_error, train_test_split, proyeksi_split, progress_bar, CustomCallback
 
 # Create your consumers here.
 
@@ -52,11 +44,17 @@ class ProyeksiConsumer(WebsocketConsumer):
                 "feature": ['rr']
             })
 
-            dataset = pd.DataFrame(list(klimatologi_data.values())).replace(to_replace=[8888, 9999, 2555], value=np.nan)
-            dataset.interpolate(inplace=True)
+            DATASETS = pd.DataFrame(list(klimatologi_data.values())).replace(to_replace=[8888, 9999, 2555], value=np.nan)
+            DATASETS = DATASETS.loc[
+                (pd.to_datetime(DATASETS[config.time_col]) >= datetime.strptime(config.row_start.strip(), '%Y-%m-%d')) & 
+                (pd.to_datetime(DATASETS[config.time_col]) <= datetime.strptime(config.row_end.strip(), '%Y-%m-%d'))
+                # (pd.to_datetime(DATASETS[config.time_col]) <= (datetime.strptime(config.row_end.strip(), '%Y-%m-%d') + timedelta(days=1)))
+            ]
+            DATASETS.interpolate(inplace=True)
 
-            datelist = list(dataset[config.time_col])
-            featureset = dataset[config.feature]
+            datelist = np.array(DATASETS[config.time_col])
+            # datelist = np.array([datetime.strptime(date, '%Y-%m-%d').date() for date in list(DATASETS[config.time_col])])
+            featureset = DATASETS[config.feature]
             vector_featureset = featureset.values
 
             self.send(text_data=json.dumps({
@@ -68,96 +66,151 @@ class ProyeksiConsumer(WebsocketConsumer):
 
             train_size = int(vector_featureset_scaled.size * 0.9)
             trainset, testset = vector_featureset_scaled[0:train_size], vector_featureset_scaled[train_size:vector_featureset_scaled.size]
+            traindateset, testdateset = datelist[0:train_size], datelist[train_size:datelist.size]
 
             X_train, y_train = train_test_split(trainset, time_step=config.timestep)
-            X_test, y_test = train_test_split(testset, time_step=config.timestep)
-
             X_train = np.reshape(X_train, (X_train.shape[0], len(config.feature), X_train.shape[1]))
+            
+            X_test, y_test = train_test_split(testset, time_step=config.timestep)
             X_test = np.reshape(X_test, (X_test.shape[0], len(config.feature), X_test.shape[1]))
             
             self.send(text_data=json.dumps({
-                'message': f'Input (X) Train Shape : {X_train.shape}\nLabel (Y) Train Shape : {y_train.shape}\n'
+                'message': f'Input (X) Train Shape : {X_train.shape}\nLabel (Y) Train Shape : {y_train.shape}\n\n'
             }))
-
-            # model = Sequential()
-            # model.add(LSTM(units=config.hidden_size, return_sequences=True,
-            #           input_shape=(n_past, dataset_train.shape[1]-1)))
-            # model.add(LSTM(units=config.hidden_size, return_sequences=False))
-            # model.add(Dropout(config.dropout))
-            # model.add(Dense(units=config.output_size, activation='linear'))
-
-            # model.compile(optimizer=adam_v2.Adam(
-            #     learning_rate=config.learning_rate), loss=root_mean_squared_error)
-
-            # es = EarlyStopping(monitor='val_loss',
-            #                    min_delta=1e-10, patience=10, verbose=0)
-            # rlr = ReduceLROnPlateau(
-            #     monitor='val_loss', factor=0.5, patience=10, verbose=0)
-            # custom = CustomCallback(
-            #     websocket=self, config=config, batch_train_length=batch_train_length, batch_test_length=batch_test_length, dataset_train=dataset_train)
-
-            # model.fit(x_train, y_train, shuffle=config.suffle, epochs=config.max_epochs, callbacks=[es, rlr, custom], validation_split=config.validation_split, verbose=0, batch_size=config.batch_size)
-
-            # self.send(text_data=json.dumps({
-            #     'message': f'\nStart predicting...\n'
-            # }))
-            # predictions_train = model.predict(x_train[n_past:], verbose=0)
-            # predictions_future = model.predict(x_train[-n_future:], verbose=0)
             
-            # self.send(text_data=json.dumps({
-            #     'message': f'Plotting Datasets...\n'
-            # }))
+            model = tf.keras.models.Sequential()
 
-            # START_DATE_FOR_PLOTTING = (
-            #     datelist_train[-1] - timedelta(days=max((config.much_day_predict - 1) * 3, 90))).strftime("%Y-%m-%d")
+            for i in range(0, config.layer_size):
+                model.add(
+                    tf.keras.layers.LSTM(
+                        units=config.unit_size,
+                        return_sequences=False if i == config.layer_size - 1 else True,
+                        batch_input_shape=(config.max_batch_size, len(config.feature), config.timestep),
+                        go_backwards=True,
+                        dropout=config.dropout,
+                        # weights=[
+                        #     np.array([
+                        #         [0.5774, 0.5774, 0.5774, 0.5774],
+                        #         [0.5774, 0.5774, 0.5774, 0.5774]
+                        #     ]),
+                        #     np.array([
+                        #         [0.5774, 0.5774, 0.5774, 0.5774]
+                        #     ]),
+                        #     np.zeros([4])
+                        # ]
+                    )
+                )
+            else:
+                model.compile(
+                    optimizer=tf.keras.optimizers.SGD(learning_rate=config.learning_rate),
+                    loss=mean_squared_error,
+                    run_eagerly=True
+                )
+                model.summary(print_fn=lambda msg: self.send(text_data=json.dumps({
+                    'message': f'{msg}\n'
+                })))
 
-            # datelist_future = pd.date_range(
-            #     datelist_train[-1], periods=n_future, freq='1d')
+            model.fit(X_train, y_train,
+                shuffle=False,
+                epochs=config.max_epoch,
+                verbose=0,
+                batch_size=config.max_batch_size,
+                callbacks=[
+                    CustomCallback(
+                        websocket=self, 
+                        X_train=X_train,
+                        X_test=X_test,
+                        lr=config.learning_rate,
+                        sequence_len=config.timestep,
+                        feature_len=len(config.feature),
+                        max_epoch=config.max_epoch
+                    )
+                ]
+            )
 
-            # y_pred_future = sc_predict.inverse_transform(predictions_future)
-            # y_pred_train = sc_predict.inverse_transform(predictions_train)
-
-            # PREDICTIONS_FUTURE = pd.DataFrame(y_pred_future, columns=[
-            #     config.prediction_col]).set_index(pd.Series(datelist_future))
-            # PREDICTION_TRAIN = pd.DataFrame(y_pred_train, columns=[config.prediction_col]).set_index(
-            #     pd.Series(datelist_train[2 * n_past + n_future - 1:]))
-            # DATASET_TRAIN = pd.DataFrame(dataset_train, columns=columns_train).set_index(
-            #     pd.Series(datelist_train))
-
-            # PREDICTIONS_FUTURE.index = PREDICTIONS_FUTURE.index.to_series().apply(
-            #     lambda x: datetime.strptime(x.strftime('%Y-%m-%d'), '%Y-%m-%d'))
-            # PREDICTION_TRAIN.index = PREDICTION_TRAIN.index.to_series().apply(
-            #     lambda x: datetime.strptime(x.strftime('%Y-%m-%d'), '%Y-%m-%d'))
-            # DATASET_TRAIN.index = DATASET_TRAIN.index.to_series().apply(
-            #     lambda x: datetime.strptime(x.strftime('%Y-%m-%d'), '%Y-%m-%d'))
+            self.send(text_data=json.dumps({
+                'message': f'\nStart predicting...\n'
+            }))
             
-            # self.send(text_data=json.dumps({
-            #     'message': f'...\n'
-            # }))
+            testset_split = proyeksi_split(testset, time_step=config.timestep)
+            testset_split_reshape = np.reshape(testset_split, (testset_split.shape[0], len(config.feature), testset_split.shape[1]))
+            proyeksi = model.predict(testset_split_reshape, verbose=0)
+            for i in range(0, proyeksi.size):
+                testset[i + config.timestep - 1] = proyeksi[i]
 
-            # self.send(text_data=json.dumps({
-            #     'results': {
-            #         'future': pd.DataFrame({
-            #             "tanggal": [x.strftime('%d-%m-%Y') for x in PREDICTIONS_FUTURE.index],
-            #             config.prediction_col: [
-            #                 x for x in PREDICTIONS_FUTURE[config.prediction_col]]
-            #         }).to_dict('records'),
-            #         'train': pd.DataFrame({
-            #             "tanggal": [x.strftime('%d-%m-%Y') for x in PREDICTION_TRAIN.loc[START_DATE_FOR_PLOTTING:].index],
-            #             config.prediction_col: PREDICTION_TRAIN.loc[START_DATE_FOR_PLOTTING:][config.prediction_col].tolist(
-            #             )
-            #         }).to_dict('records'),
-            #         'histori': pd.DataFrame({
-            #             "tanggal": [x.strftime('%d-%m-%Y') for x in DATASET_TRAIN.loc[START_DATE_FOR_PLOTTING:].index],
-            #             config.prediction_col: DATASET_TRAIN.loc[START_DATE_FOR_PLOTTING:][config.prediction_col].tolist(
-            #             )
-            #         }).to_dict('records'),
-            #     }
-            # }))
+            for i in range(0, config.num_predict):
+                self.send(text_data=json.dumps({
+                    'message':
+                    progress_bar(
+                        i + 1,
+                        config.num_predict,
+                        prefix=
+                        f'Predict Day {str(i + 1)}/{str(config.num_predict)}',
+                        suffix=f'Complete',
+                        length=25)
+                }))
+                testset_split = proyeksi_split(testset, time_step=config.timestep)
+                testset_split_reshape = np.reshape(testset_split, (testset_split.shape[0], len(config.feature), testset_split.shape[1]))
+                proyeksi = model.predict(testset_split_reshape, verbose=0)
+                testset = np.concatenate((testset, np.array([proyeksi[-1]])), axis=0)
+                
+                
+            self.send(text_data=json.dumps({
+                'message': f'\nPlotting Datasets...\n'
+            }))
+            
+            testset = scaller.inverse_transform(testset)
+            
+            testdateset = np.concatenate((testdateset, pd.to_datetime(pd.date_range(datelist[-1] + timedelta(days=1), periods=config.num_predict, freq='1d')).date), axis=0)
+            
+            LABEL = np.concatenate((traindateset, testdateset), axis=0)
+            
+            PREDICTIONS = pd.DataFrame(testset, columns=[config.feature]).set_index(pd.Series(testdateset))
+            PREDICTIONS.index = PREDICTIONS.index.to_series().apply(lambda x: datetime.strptime(x.strftime('%Y-%m-%d'), '%Y-%m-%d'))
+            
+            HISTORY = pd.DataFrame(np.array(DATASETS[config.feature]), columns=[config.feature]).set_index(pd.Series(datelist))
+            HISTORY.index = HISTORY.index.to_series().apply(lambda x: datetime.strptime(x.strftime('%Y-%m-%d'), '%Y-%m-%d'))
+            
+            START_DATE_FOR_PLOTTING = (datelist[-1] - timedelta(days=max((config.num_predict) * 3, 90))).strftime("%Y-%m-%d")
+            
+            blank_index = (datelist[-(DATASETS.shape[0] - train_size + config.timestep - 1)]).strftime("%Y-%m-%d")
+
+            self.send(text_data=json.dumps({
+                'results': {
+                    'prediction':
+                    pd.DataFrame({
+                        "tanggal": [
+                            x.strftime('%d-%m-%Y')
+                            for x in PREDICTIONS.loc[START_DATE_FOR_PLOTTING:].index
+                        ],
+                        config.feature[0]: [
+                            x[0] for x in PREDICTIONS.loc[START_DATE_FOR_PLOTTING:][config.feature].values.tolist()
+                        ]
+                    }).to_dict('records'),
+                    'history':
+                    pd.DataFrame({
+                        "tanggal": [
+                            x.strftime('%d-%m-%Y')
+                            for x in HISTORY.loc[START_DATE_FOR_PLOTTING:].index
+                        ],
+                        config.feature[0]: [
+                            x[0] for x in HISTORY.loc[START_DATE_FOR_PLOTTING:][config.feature].values.tolist()
+                        ]
+                    }).to_dict('records'),
+                },
+                "labels": [x.strftime('%d-%m-%Y') for x in LABEL.tolist()],
+                "null": [
+                    0 for x in HISTORY.loc[START_DATE_FOR_PLOTTING:blank_index].index
+                ]
+            }))
+            
+            self.send(text_data=json.dumps({
+                'message': f'\nHyperparameter tersimpan dalam Database...\n'
+            }))
 
             self.close()
         except Exception as e:
             self.send(text_data=json.dumps({
-                'message': f'Error : {e}\n'
+                'message': f'\n\nError : {e}\n'
             }))
             self.close()

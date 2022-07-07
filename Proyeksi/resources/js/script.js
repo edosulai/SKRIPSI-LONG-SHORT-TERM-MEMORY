@@ -355,19 +355,7 @@ const PredictionResult = createApp({
     return {
       connection: new WebSocket('ws://' + window.location.host + '/ws/proyeksi/'),
       terminal: "...\n",
-      tablehistori: $('#histori').DataTable({
-        processing: true,
-        language: {
-          zeroRecords: LOADING
-        },
-        columns: [{
-          data: "tanggal"
-        }, {
-          data: "rr"
-        }],
-        searching: false,
-      }),
-      tablepelatihan: $('#pelatihan').DataTable({
+      tablehistory: $('#history').DataTable({
         processing: true,
         language: {
           zeroRecords: LOADING
@@ -468,67 +456,47 @@ const PredictionResult = createApp({
           terminalElem.scrollTop = terminalElem.scrollHeight
         }
       } else if (data.results) {
-        // let future = data.results.future
-        // let train = data.results.train
-        // let histori = data.results.histori
 
-        // future[0] = train[train.length - 1]
+        this.chart.data = {
+          labels: data.labels,
+          datasets: [
+            {
+              label: 'History',
+              data: data.results.history.map(x => x.rr),
+              borderColor: CHART_COLORS.blue,
+              backgroundColor: transparentize(CHART_COLORS.blue, 0.5),
+              fill: false,
+              cubicInterpolationMode: 'monotone',
+              tension: 0.4
+            },
+            {
+              label: 'Proyeksi',
+              data: data.results.prediction.map(x => x.rr),
+              data: data.null.map(() => null).concat(data.results.prediction.map(x => x.rr)),
+              borderColor: CHART_COLORS.orange,
+              backgroundColor: transparentize(CHART_COLORS.orange, 0.5),
+              fill: false,
+              cubicInterpolationMode: 'monotone',
+              tension: 0.4
+            }
+          ]
+        }
 
-        // this.chart.data = {
-        //   labels: train.concat(future.slice(1, future.length)).map(x => x.tanggal),
-        //   datasets: [
-        //     {
-        //       label: 'Histori',
-        //       data: histori.map(x => x.rr),
-        //       borderColor: CHART_COLORS.blue,
-        //       backgroundColor: transparentize(CHART_COLORS.blue, 0.5),
-        //       fill: false,
-        //       cubicInterpolationMode: 'monotone',
-        //       tension: 0.4
-        //     },
-        //     {
-        //       label: 'Pelatihan',
-        //       data: train.map(x => x.rr),
-        //       borderColor: CHART_COLORS.orange,
-        //       backgroundColor: transparentize(CHART_COLORS.orange, 0.5),
-        //       fill: false,
-        //       cubicInterpolationMode: 'monotone',
-        //       tension: 0.4
-        //     },
-        //     {
-        //       label: 'Prediksi',
-        //       data: train.map(() => null).slice(0, train.length - 1).concat(future.map(x => x.rr)),
-        //       borderColor: CHART_COLORS.red,
-        //       backgroundColor: transparentize(CHART_COLORS.red, 0.5),
-        //       fill: false,
-        //       cubicInterpolationMode: 'monotone',
-        //       tension: 0.4
-        //     }
-        //   ]
-        // }
+        this.chart.update()
 
-        // this.chart.update()
+        this.tablehistory.rows.add(data.results.history.map(x => {
+          return {
+            tanggal: x.tanggal,
+            rr: x.rr.toFixed(2)
+          }
+        })).draw()
 
-        // this.tablehistori.rows.add(histori.map(x => {
-        //   return {
-        //     tanggal: x.tanggal,
-        //     rr: x.rr.toFixed(2)
-        //   }
-        // })).draw()
-
-        // this.tablepelatihan.rows.add(train.map(x => {
-        //   return {
-        //     tanggal: x.tanggal,
-        //     rr: x.rr.toFixed(2)
-        //   }
-        // })).draw()
-
-        // this.tableproyeksi.rows.add(future.filter((value, index, arr) => index > 0).map(x => {
-        //   return {
-        //     tanggal: x.tanggal,
-        //     rr: x.rr.toFixed(2)
-        //   }
-        // })).draw()
+        this.tableproyeksi.rows.add(data.results.prediction.map(x => {
+          return {
+            tanggal: x.tanggal,
+            rr: x.rr.toFixed(2)
+          }
+        })).draw()
       }
     }
 
