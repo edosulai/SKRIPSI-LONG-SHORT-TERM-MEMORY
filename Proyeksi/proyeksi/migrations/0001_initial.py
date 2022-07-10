@@ -43,6 +43,7 @@ class Migration(migrations.Migration):
                 ('row_start', models.IntegerField(blank=True, null=True)),
                 ('row_end', models.IntegerField(blank=True, null=True)),
                 ('num_predict', models.IntegerField(blank=True, null=True)),
+                ('variables', models.JSONField(blank=True, null=True)),
                 ('logs', models.TextField(blank=True, null=True)),
                 ('hdf', models.BinaryField(blank=True, null=True)),
             ],

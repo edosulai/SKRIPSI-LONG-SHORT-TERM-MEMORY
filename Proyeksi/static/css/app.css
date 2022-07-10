@@ -1203,8 +1203,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataT
   height: 2.5rem;
 }
 
-.h-64 {
-  height: 16rem;
+.h-60 {
+  height: 15rem;
 }
 
 .h-3 {
@@ -1217,10 +1217,6 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataT
 
 .h-5 {
   height: 1.25rem;
-}
-
-.h-60 {
-  height: 15rem;
 }
 
 .min-h-screen {

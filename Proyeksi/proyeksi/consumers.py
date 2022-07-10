@@ -41,7 +41,8 @@ class ProyeksiConsumer(WebsocketConsumer):
                 'row_end': text_data_json['row_end'],
                 'num_predict': int(text_data_json['num_predict']),
                 "time_col": 'tanggal',
-                "feature": ['rr']
+                "feature": ['rr'],
+                "logs": []
             })
 
             DATASETS = pd.DataFrame(list(klimatologi_data.values())).replace(to_replace=[8888, 9999, 2555], value=np.nan)
@@ -57,8 +58,9 @@ class ProyeksiConsumer(WebsocketConsumer):
             featureset = DATASETS[config.feature]
             vector_featureset = featureset.values
 
+            config.logs.append(f'Dataset Shape : {featureset.shape}\nFeatured Selected: : {config.feature}\nPredict Selected: : {config.feature}\n')
             self.send(text_data=json.dumps({
-                'message': f'Dataset Shape : {featureset.shape}\nFeatured Selected: : {config.feature}\nPredict Selected: : {config.feature}\n'
+                'message': config.logs[-1]
             }))
 
             scaller = MinMaxScaler()
@@ -74,8 +76,9 @@ class ProyeksiConsumer(WebsocketConsumer):
             X_test, y_test = train_test_split(testset, time_step=config.timestep)
             X_test = np.reshape(X_test, (X_test.shape[0], len(config.feature), X_test.shape[1]))
             
+            config.logs.append(f'Input (X) Train Shape : {X_train.shape}\nLabel (Y) Train Shape : {y_train.shape}\n\n')
             self.send(text_data=json.dumps({
-                'message': f'Input (X) Train Shape : {X_train.shape}\nLabel (Y) Train Shape : {y_train.shape}\n\n'
+                'message': config.logs[-1]
             }))
             
             model = tf.keras.models.Sequential()
@@ -106,9 +109,14 @@ class ProyeksiConsumer(WebsocketConsumer):
                     loss=mean_squared_error,
                     run_eagerly=True
                 )
-                model.summary(print_fn=lambda msg: self.send(text_data=json.dumps({
-                    'message': f'{msg}\n'
-                })))
+                
+                def model_summary_callback(msg):
+                    config.logs.append(f'{msg}\n')
+                    self.send(text_data=json.dumps({
+                        'message': config.logs[-1] 
+                    }))
+                
+                model.summary(print_fn=model_summary_callback)
 
             model.fit(X_train, y_train,
                 shuffle=False,
@@ -117,19 +125,17 @@ class ProyeksiConsumer(WebsocketConsumer):
                 batch_size=config.max_batch_size,
                 callbacks=[
                     CustomCallback(
-                        websocket=self, 
+                        websocket=self,
                         X_train=X_train,
                         X_test=X_test,
-                        lr=config.learning_rate,
-                        sequence_len=config.timestep,
-                        feature_len=len(config.feature),
-                        max_epoch=config.max_epoch
+                        config=config
                     )
                 ]
             )
-
+            
+            config.logs.append(f'Start Predicting\n')
             self.send(text_data=json.dumps({
-                'message': f'\nStart predicting...\n'
+                'message': config.logs[-1]
             }))
             
             testset_split = proyeksi_split(testset, time_step=config.timestep)
@@ -139,28 +145,30 @@ class ProyeksiConsumer(WebsocketConsumer):
                 testset[i + config.timestep - 1] = proyeksi[i]
 
             for i in range(0, config.num_predict):
-                self.send(text_data=json.dumps({
-                    'message':
+                config.logs.append(
                     progress_bar(
                         i + 1,
                         config.num_predict,
                         prefix=
-                        f'Predict Day {str(i + 1)}/{str(config.num_predict)}',
-                        suffix=f'Complete',
-                        length=25)
+                        f'Predicting Days {str(i + 1)}/{str(config.num_predict)}',
+                        suffix=f'Completed',
+                        length=25
+                    )
+                )
+                self.send(text_data=json.dumps({
+                    'message': config.logs[-1] 
                 }))
                 testset_split = proyeksi_split(testset, time_step=config.timestep)
                 testset_split_reshape = np.reshape(testset_split, (testset_split.shape[0], len(config.feature), testset_split.shape[1]))
                 proyeksi = model.predict(testset_split_reshape, verbose=0)
                 testset = np.concatenate((testset, np.array([proyeksi[-1]])), axis=0)
                 
-                
+            config.logs.append(f'\nPlotting Datasets...\n')
             self.send(text_data=json.dumps({
-                'message': f'\nPlotting Datasets...\n'
+                'message': config.logs[-1]
             }))
             
             testset = scaller.inverse_transform(testset)
-            
             testdateset = np.concatenate((testdateset, pd.to_datetime(pd.date_range(datelist[-1] + timedelta(days=1), periods=config.num_predict, freq='1d')).date), axis=0)
             
             LABEL = np.concatenate((traindateset, testdateset), axis=0)
@@ -172,7 +180,6 @@ class ProyeksiConsumer(WebsocketConsumer):
             HISTORY.index = HISTORY.index.to_series().apply(lambda x: datetime.strptime(x.strftime('%Y-%m-%d'), '%Y-%m-%d'))
             
             START_DATE_FOR_PLOTTING = (datelist[-1] - timedelta(days=max((config.num_predict) * 3, 90))).strftime("%Y-%m-%d")
-            
             blank_index = (datelist[-(DATASETS.shape[0] - train_size + config.timestep - 1)]).strftime("%Y-%m-%d")
 
             self.send(text_data=json.dumps({
@@ -204,9 +211,25 @@ class ProyeksiConsumer(WebsocketConsumer):
                 ]
             }))
             
+            config.logs.append(f'\nHyperparameter tersimpan dalam Database...\n')
             self.send(text_data=json.dumps({
-                'message': f'\nHyperparameter tersimpan dalam Database...\n'
+                'message': config.logs[-1]
             }))
+            
+            # Riwayat.objects.create(
+            #     timestep = config.timestep,
+            #     max_batch_size = config.max_batch_size,
+            #     max_epoch = config.max_epoch,
+            #     layer_size = config.layer_size,
+            #     unit_size = config.unit_size,
+            #     dropout = config.dropout,
+            #     learning_rate = config.learning_rate,
+            #     row_start = config.row_start,
+            #     row_end = config.row_end,
+            #     num_predict = config.num_predict,
+            #     logs = config.timestep,
+            #     hdf = config.timestep
+            # )
 
             self.close()
         except Exception as e:

@@ -56,15 +56,15 @@ def proyeksi_split(dataset, time_step=1):
 
 class CustomCallback(tf.keras.callbacks.Callback):
 
-    def __init__(self, websocket, X_train, X_test, lr, sequence_len,
-                 feature_len, max_epoch):
+    def __init__(self, websocket, X_train, X_test, config):
         self.websocket = websocket
         self.X_train = X_train
         self.X_test = X_test
-        self.lr = lr
-        self.sequence_len = sequence_len
-        self.feature_len = feature_len
-        self.max_epoch = max_epoch
+        self.lr = config.learning_rate
+        self.sequence_len = config.timestep
+        self.feature_len = len(config.feature)
+        self.max_epoch = config.max_epoch
+        self.logs = config.logs
 
     def on_train_begin(self, logs=None):
         self.websocket.send(text_data=json.dumps({
@@ -74,16 +74,18 @@ class CustomCallback(tf.keras.callbacks.Callback):
 
     def on_train_end(self, logs=None):
         if self.max_epoch is not self.epoch:
-            self.websocket.send(text_data=json.dumps(
-                {'message': f'Epoch {str(self.epoch)}: early stopping\n'}))
+            self.websocket.send(text_data=json.dumps({
+                'message': f'Epoch {str(self.epoch)}: early stopping\n'
+            }))
         self.websocket.send(text_data=json.dumps({
             'message':
-            f'\nStop Training - loss: {round(logs["loss"], 5)}\n'
+            f'\nStop Training - loss: {round(logs["loss"], 5)}\n\n'
         }))
 
     def on_epoch_begin(self, epoch, logs=None):
-        self.websocket.send(text_data=json.dumps(
-            {'message': f'\nStart Epoch {epoch + 1}/{self.max_epoch}\n'}))
+        self.websocket.send(text_data=json.dumps({
+            'message': f'\nStart Epoch {epoch + 1}/{self.max_epoch}\n'
+        }))
 
     def on_epoch_end(self, epoch, logs=None):
         self.epoch = epoch + 1
@@ -100,8 +102,9 @@ class CustomCallback(tf.keras.callbacks.Callback):
                 self.X_train.shape[0],
                 prefix=
                 f'Training Batch {str(batch)}/{str(self.X_train.shape[0])}',
-                suffix=f'Complete - loss: {str(round(logs["loss"], 5))}',
-                length=25)
+                suffix=f'Completed - loss: {str(round(logs["loss"], 5))}',
+                length=25
+            )
         }))
 
     def on_test_batch_end(self, batch, logs=None):
@@ -112,6 +115,7 @@ class CustomCallback(tf.keras.callbacks.Callback):
                 self.X_test.shape[0],
                 prefix=
                 f'Evaluating Batch {str(batch)}/{str(self.X_test.shape[0])}',
-                suffix=f'Complete - loss: {str(round(logs["loss"], 5))}',
-                length=25)
+                suffix=f'Completed - loss: {str(round(logs["loss"], 5))}',
+                length=25
+            )
         }))
