@@ -32,10 +32,10 @@
     "Get-Content dumpdata.py | py manage.py shell",
     "py manage.py shell",
     "exec(open('dumpdata.py').read())",
+    "py manage.py migrate proyeksi zero",
     "py manage.py createsuperuser",
     "py manage.py makemigrations",
-    "py manage.py migrate",
-    "py manage.py migrate proyeksi zero"
+    "py manage.py migrate"
   ],
   "keywords": [],
   "author": "",

@@ -78,6 +78,18 @@
 		@apply text-dark-100 !important;
 	}
 
+	.svg-icon path,
+	.svg-icon polygon,
+	.svg-icon rect {
+		fill: theme('colors.light.700') !important;
+	}
+
+	.dark .svg-icon path,
+	.dark .svg-icon polygon,
+	.dark .svg-icon rect {
+		fill: theme('colors.dark.100') !important;
+	}
+
 	.dataTables_wrapper .dataTables_filter input {
 		@apply px-2 py-2 bg-light-100 rounded-md shadow-sm border-light-300 !important;
 	}
@@ -155,4 +167,8 @@
 	table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 		@apply bg-indigo-500 !important;
 	}
+}
+
+[v-cloak] {
+	display: none
 }

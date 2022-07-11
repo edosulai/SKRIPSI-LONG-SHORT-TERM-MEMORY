@@ -29,60 +29,59 @@
                 {% include "components/status.html" with status=status %}
                 {% include "components/errors.html" with errors=errors %}
 
-                {% if id %}
-                <form method="POST" action="{% url "klimatologi" target=id %}">
-                  {% else %}
-                  <form method="POST" action="{% url "klimatologi" %}">
-                    {% endif %}
-                    {% csrf_token %}
+                
+                <form method="POST" action="{% if id %}{% url "klimatologi" target=id %}{% else %}{% url "klimatologi" %}{% endif %}">
+                  {% csrf_token %}
 
-                    {% if id %}
-                    <input type="hidden" name="_method" value="put">
-                    {% endif %}
-                    <div class="flex mt-10">
-                      <div class="flex w-6/12">
-                        <div class="flex flex-col mr-5 border-r-2 pr-32 justify-around">
-                          {% include "components/label.html" with for=klimatologi_form.tanggal.auto_id slot=klimatologi_form.tanggal.label class="pt-2" %}
-                          {% include "components/label.html" with for=klimatologi_form.tn.auto_id slot=klimatologi_form.tn.label class="pt-2" %}
-                          {% include "components/label.html" with for=klimatologi_form.tx.auto_id slot=klimatologi_form.tx.label class="pt-2" %}
-                          {% include "components/label.html" with for=klimatologi_form.tavg.auto_id slot=klimatologi_form.tavg.label class="pt-2" %}
-                          {% include "components/label.html" with for=klimatologi_form.rh_avg.auto_id slot=klimatologi_form.rh_avg.label class="pt-2" %}
-                          {% include "components/label.html" with for=klimatologi_form.rr.auto_id slot=klimatologi_form.rr.label class="pt-2" %}
-                        </div>
-                        <div>
-                          {{klimatologi_form.tanggal}}
-                          {{klimatologi_form.tn}}
-                          {{klimatologi_form.tx}}
-                          {{klimatologi_form.tavg}}
-                          {{klimatologi_form.rh_avg}}
-                          {{klimatologi_form.rr}}
-                        </div>
+                  {% if id %}
+                  <input type="hidden" name="_method" value="put">
+                  {% endif %}
+
+                  <div class="flex mt-10">
+                    <div class="flex w-6/12 h-fit mr-10">
+                      <div class="flex flex-col mr-5 border-r-2 w-7/12">
+                        {% include "components/label.html" with for=klimatologi_form.tanggal.id_for_label slot=klimatologi_form.tanggal.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=klimatologi_form.tn.id_for_label slot=klimatologi_form.tn.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=klimatologi_form.tx.id_for_label slot=klimatologi_form.tx.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=klimatologi_form.tavg.id_for_label slot=klimatologi_form.tavg.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=klimatologi_form.rh_avg.id_for_label slot=klimatologi_form.rh_avg.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=klimatologi_form.rr.id_for_label slot=klimatologi_form.rr.label class="h-10 flex items-center my-1" %}
                       </div>
-                      <div class="flex w-6/12 h-fit">
-                        <div class="flex flex-col mr-5 border-r-2 pr-32 justify-around">
-                          {% include "components/label.html" with for=klimatologi_form.ss.auto_id slot=klimatologi_form.ss.label class="pt-2" %}
-                          {% include "components/label.html" with for=klimatologi_form.ff_x.auto_id slot=klimatologi_form.ff_x.label class="pt-2" %}
-                          {% include "components/label.html" with for=klimatologi_form.ddd_x.auto_id slot=klimatologi_form.ddd_x.label class="pt-2" %}
-                          {% include "components/label.html" with for=klimatologi_form.ff_avg.auto_id slot=klimatologi_form.ff_avg.label class="pt-2" %}
-                          {% include "components/label.html" with for=klimatologi_form.ddd_car.auto_id slot=klimatologi_form.ddd_car.label class="pt-2" %}
-                        </div>
-                        <div>
-                          {{klimatologi_form.ss}}
-                          {{klimatologi_form.ff_x}}
-                          {{klimatologi_form.ddd_x}}
-                          {{klimatologi_form.ff_avg}}
-                          {{klimatologi_form.ddd_car}}
-                        </div>
+                      <div class="flex flex-col w-5/12">
+                        {{klimatologi_form.tanggal}}
+                        {{klimatologi_form.tn}}
+                        {{klimatologi_form.tx}}
+                        {{klimatologi_form.tavg}}
+                        {{klimatologi_form.rh_avg}}
+                        {{klimatologi_form.rr}}
                       </div>
                     </div>
 
-                    <div class="flex mt-4 items-center justify-end">
-                      <div class="flex mr-8">
-                        {% include "components/button.html" with slot="Kirim" type="submit" class="w-full" %}
+                    <div class="flex w-6/12 h-fit mr-10">
+                      <div class="flex flex-col mr-5 border-r-2 w-7/12">
+                        {% include "components/label.html" with for=klimatologi_form.ss.id_for_label slot=klimatologi_form.ss.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=klimatologi_form.ff_x.id_for_label slot=klimatologi_form.ff_x.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=klimatologi_form.ddd_x.id_for_label slot=klimatologi_form.ddd_x.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=klimatologi_form.ff_avg.id_for_label slot=klimatologi_form.ff_avg.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=klimatologi_form.ddd_car.id_for_label slot=klimatologi_form.ddd_car.label class="h-10 flex items-center my-1" %}
+                      </div>
+                      <div class="flex flex-col w-5/12">
+                        {{klimatologi_form.ss}}
+                        {{klimatologi_form.ff_x}}
+                        {{klimatologi_form.ddd_x}}
+                        {{klimatologi_form.ff_avg}}
+                        {{klimatologi_form.ddd_car}}
                       </div>
                     </div>
+                  </div>
 
-                  </form>
+                  <div class="flex mt-4 items-center justify-end">
+                    <div class="flex mr-8">
+                      {% include "components/button.html" with slot="Kirim" type="submit" class="w-full" %}
+                    </div>
+                  </div>
+
+                </form>
               </div>
             </div>
           </div>

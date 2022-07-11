@@ -27,46 +27,105 @@
                 {% include "components/status.html" with status=status %}
                 {% include "components/errors.html" with errors=errors %}
 
-                <form method="POST" action="{% url "proyeksi" %}">
+                <form method="POST" action="{% url "proyeksi" %}" class="mb-28">
                   {% csrf_token %}
 
                   <div class="flex mt-10">
-
-                    <div class="flex flex-col w-6/12 h-fit mr-10">
-                      <div class="flex mb-8">
-                        <div class="flex flex-col mr-5 border-r-2 justify-around w-7/12">
-                          {% include "components/label.html" with for=proyeksi_form.timestep.auto_id slot=proyeksi_form.timestep.label class="pt-2" %}
-                          {% include "components/label.html" with for=proyeksi_form.max_epoch.auto_id slot=proyeksi_form.max_epoch.label class="pt-2" %}
-                          {% include "components/label.html" with for=proyeksi_form.max_batch_size.auto_id slot=proyeksi_form.max_batch_size.label class="pt-2" %}
-                          {% include "components/label.html" with for=proyeksi_form.layer_size.auto_id slot=proyeksi_form.layer_size.label class="pt-2" %}
-                          {% include "components/label.html" with for=proyeksi_form.unit_size.auto_id slot=proyeksi_form.unit_size.label class="pt-2" %}
-                        </div>
-                        <div class="w-5/12">
-                          {{proyeksi_form.timestep}}
-                          {{proyeksi_form.max_epoch}}
-                          {{proyeksi_form.max_batch_size}}
-                          {{proyeksi_form.layer_size}}
-                          {{proyeksi_form.unit_size}}
-                        </div>
+                    <div class="flex w-6/12 h-fit mr-10">
+                      <div class="flex flex-col mr-5 border-r-2 w-7/12">
+                        {% include "components/label.html" with for=proyeksi_form.timestep.id_for_label slot=proyeksi_form.timestep.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.max_epoch.id_for_label slot=proyeksi_form.max_epoch.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.max_batch_size.id_for_label slot=proyeksi_form.max_batch_size.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.layer_size.id_for_label slot=proyeksi_form.layer_size.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.unit_size.id_for_label slot=proyeksi_form.unit_size.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.learning_rate.id_for_label slot=proyeksi_form.learning_rate.label class="h-10 flex items-center my-1" %}
+                      </div>
+                      <div class="flex flex-col w-5/12">
+                        {{proyeksi_form.learning_rate}}
+                        {{proyeksi_form.timestep}}
+                        {{proyeksi_form.max_epoch}}
+                        {{proyeksi_form.max_batch_size}}
+                        {{proyeksi_form.layer_size}}
+                        {{proyeksi_form.unit_size}}
                       </div>
                     </div>
 
-                    <div class="flex flex-col w-6/12 h-fit ml-10">
-                      <div class="flex mb-8">
-                        <div class="flex flex-col mr-5 border-r-2 justify-around w-7/12">
-                          {% include "components/label.html" with for=proyeksi_form.learning_rate.auto_id slot=proyeksi_form.learning_rate.label class="pt-2" %}
-                          {% include "components/label.html" with for=proyeksi_form.dropout.auto_id slot=proyeksi_form.dropout.label class="pt-2" %}
-                          {% include "components/label.html" with for=proyeksi_form.row_start.auto_id slot=proyeksi_form.row_start.label class="pt-2" %}
-                          {% include "components/label.html" with for=proyeksi_form.row_end.auto_id slot=proyeksi_form.row_end.label class="pt-2" %}
-                          {% include "components/label.html" with for=proyeksi_form.num_predict.auto_id slot=proyeksi_form.num_predict.label class="pt-2" %}
+                    <div class="flex w-6/12 h-fit ml-10">
+                      <div class="flex flex-col mr-5 border-r-2 w-7/12">
+                        {% include "components/label.html" with for=proyeksi_form.dropout.id_for_label slot=proyeksi_form.dropout.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.row_start.id_for_label slot=proyeksi_form.row_start.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.row_end.id_for_label slot=proyeksi_form.row_end.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.num_predict.id_for_label slot=proyeksi_form.num_predict.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.feature_predict.id_for_label slot=proyeksi_form.feature_predict.label class="h-10 flex items-center my-1" %}
+                        {% include "components/label.html" with for=proyeksi_form.feature_training.id_for_label slot=proyeksi_form.feature_training.label class="h-10 flex items-center my-1" %}
+                      </div>
+                      <div class="flex flex-col w-5/12">
+                        {{proyeksi_form.dropout}}
+                        {{proyeksi_form.row_start}}
+                        {{proyeksi_form.row_end}}
+                        {{proyeksi_form.num_predict}}
+                        {{proyeksi_form.feature_predict}}
+                        <div class="select-multiple my-1">
+                          <div class=" flex flex-col items-center relative" v-click-away="onClickAway">
+                            <div v-cloak>
+                              {{proyeksi_form.feature_training}}
+                            </div>
+                            <div @click="show = true" class="w-full" >
+                              <div class="p-1 flex bg-light-100 dark:bg-dark-black w-full rounded-md border border-light-300 dark:border-dark-500">
+                                <div class="flex flex-auto flex-wrap">
+                                  <template v-for="(option,index) in selecteds" :key="options[option].value">
+                                    <div class="flex justify-center items-center m-1 font-medium py-1 px-1 bg-light-100 dark:bg-dark-black rounded-md border border-light-300 dark:border-dark-500">
+                                      <div class="text-xs font-normal leading-none max-w-full flex-initial" v-text="options[option].text"></div>
+                                      <div class="flex flex-auto flex-row-reverse">
+                                        <div @click.stop="removeSelected(index,option)">
+                                          <svg class="fill-current h-4 w-4 " role="button" viewBox="0 0 20 20">
+                                            <path d="M14.348,14.849c-0.469,0.469-1.229,0.469-1.697,0L10,11.819l-2.651,3.029c-0.469,0.469-1.229,0.469-1.697,0c-0.469-0.469-0.469-1.229,0-1.697l2.758-3.15L5.651,6.849c-0.469-0.469-0.469-1.228,0-1.697s1.228-0.469,1.697,0L10,8.183l2.651-3.031c0.469-0.469,1.228-0.469,1.697,0s0.469,1.229,0,1.697l-2.758,3.152l2.758,3.15C14.817,13.62,14.817,14.38,14.348,14.849z" />
+                                          </svg>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </template>
+                                  <div v-show="selecteds.length == 0" class="flex-1">
+                                    <input placeholder="Select a option" class="bg-transparent p-1 px-2 h-full w-full appearance-none outline-none block rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" v-bind:value="selectedValues()">
+                                  </div>
+                                </div>
+                                <div class="w-8 py-1 flex items-center border-light-300 dark:border-dark-500" @click.stop="show = !show">
+                                  <button type="button" v-show="show === false" class="cursor-pointer w-6 h-6 outline-none focus:outline-none ml-auto">
+                                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20">
+                                      <path d="M17.418,6.109c0.272-0.268,0.709-0.268,0.979,0s0.271,0.701,0,0.969l-7.908,7.83c-0.27,0.268-0.707,0.268-0.979,0l-7.908-7.83c-0.27-0.268-0.27-0.701,0-0.969c0.271-0.268,0.709-0.268,0.979,0L10,13.25L17.418,6.109z" />
+                                    </svg>
+                                  </button>
+                                  <button type="button" v-show="show === true" class="cursor-pointer w-6 h-6 outline-none focus:outline-none ml-auto">
+                                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20">
+                                      <path d="M2.582,13.891c-0.272,0.268-0.709,0.268-0.979,0s-0.271-0.701,0-0.969l7.908-7.83c0.27-0.268,0.707-0.268,0.979,0l7.908,7.83c0.27,0.268,0.27,0.701,0,0.969c-0.271,0.268-0.709,0.268-0.978,0L10,6.75L2.582,13.891z" />
+                                    </svg>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="w-full">
+                              <div v-show="show" class="absolute shadow top-100 bg-light-100 dark:bg-dark-black z-40 w-full left-0 rounded max-h-select">
+                                <div class="flex flex-col w-full overflow-y-auto h-40">
+                                  <template v-for="(option,index) in options" :key="option" class="overflow-auto">
+                                    <div v-show="option.selected === false" class="cursor-pointer w-full border-light-300 dark:border-dark-500 border-b hover:bg-gray-200 dark:hover:bg-dark-900" @click="setSelected(index,$event)">
+                                      <div class="flex w-full items-center p-2 pl-2 border-transparent border-l-2 relative">
+                                        <div class="w-full items-center flex justify-between">
+                                          <div class="mx-2 leading-6" v-text="option.text"></div>
+                                          <div v-show="option.selected">
+                                            <svg class="svg-icon w-5 h-5" viewBox="0 0 20 20">
+                                              <path fill="none" d="M7.197,16.963H7.195c-0.204,0-0.399-0.083-0.544-0.227l-6.039-6.082c-0.3-0.302-0.297-0.788,0.003-1.087C0.919,9.266,1.404,9.269,1.702,9.57l5.495,5.536L18.221,4.083c0.301-0.301,0.787-0.301,1.087,0c0.301,0.3,0.301,0.787,0,1.087L7.741,16.738C7.596,16.882,7.401,16.963,7.197,16.963z"></path>
+                                            </svg>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </template>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div class="w-5/12">
-                          {{proyeksi_form.learning_rate}}
-                          {{proyeksi_form.dropout}}
-                          {{proyeksi_form.row_start}}
-                          {{proyeksi_form.row_end}}
-                          {{proyeksi_form.num_predict}}
-                        </div>
+
                       </div>
                     </div>
                   </div>

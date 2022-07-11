@@ -18,17 +18,17 @@
             {% csrf_token %}
 
             <div>
-                {% include "components/label.html" with for=login_form.username.auto_id slot=login_form.username.label %}
+                {% include "components/label.html" with for=login_form.username.id_for_label slot=login_form.username.label %}
                 {{login_form.username}}
             </div>
 
             <div class="mt-4">
-                {% include "components/label.html" with for=login_form.password.auto_id slot=login_form.password.label %}
+                {% include "components/label.html" with for=login_form.password.id_for_label slot=login_form.password.label %}
                 {{login_form.password}}
             </div>
 
             <div class="block mt-4">
-                {% include "components/bool_input.html" with for=login_form.remember_me.auto_id slot=login_form.remember_me label=login_form.remember_me.label %}
+                {% include "components/bool_input.html" with for=login_form.remember_me.id_for_label slot=login_form.remember_me label=login_form.remember_me.label %}
             </div>
 
             <div class="flex items-center justify-end mt-4">

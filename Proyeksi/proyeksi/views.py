@@ -4,6 +4,8 @@ from django.views.generic import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
+from datetime import datetime, timedelta
+
 from proyeksi.models import Klimatologi, Riwayat
 from proyeksi.forms import LoginForm, KlimatologiForm, UserForm, ProyeksiForm
 
@@ -246,10 +248,14 @@ class ProyeksiView(View):
                     'unit_size': 1,
                     'learning_rate': 0.1,
                     'dropout': 0.0,
-                    'row_start': first.tanggal, #yyyy-mm-dd
-                    'row_end': last.tanggal,
+                    # 'row_start': first.tanggal, #yyyy-mm-dd
+                    # 'row_end': last.tanggal,
+                    'row_start': datetime(year=2004, month=10, day=16).strftime('%Y-%m-%d'),
+                    'row_end': datetime(year=2004, month=12, day=14).strftime('%Y-%m-%d'),
                     'num_predict': 5,
-                })
+                    'feature_training': ('rr'),
+                    'feature_predict': ('rr'),
+                }),
             })
         
         return render(request, 'proyeksi/index.html', {
@@ -271,13 +277,15 @@ class ProyeksiView(View):
                     'dropout': proyeksiform.cleaned_data.get('dropout'),
                     'row_start': proyeksiform.cleaned_data.get('row_start').strftime('%Y-%m-%d'),
                     'row_end': proyeksiform.cleaned_data.get('row_end').strftime('%Y-%m-%d'),
+                    'feature_training': ",".join(proyeksiform.cleaned_data.get('feature_training')),
+                    'feature_predict': proyeksiform.cleaned_data.get('feature_predict'),
                     'num_predict': proyeksiform.cleaned_data.get('num_predict')
                 })
             })
 
         return render(request, 'proyeksi/form.html', {
             'title': 'Proyeksi',
-            'proyeksi_form': ProyeksiForm(initial={
+            'proyeksi_form': ProyeksiForm(initial={               
                 'timestep': proyeksiform.cleaned_data.get('timestep'),
                 'max_epoch': proyeksiform.cleaned_data.get('max_epoch'),
                 'max_batch_size': proyeksiform.cleaned_data.get('max_batch_size'),
@@ -285,8 +293,10 @@ class ProyeksiView(View):
                 'unit_size': proyeksiform.cleaned_data.get('unit_size'),
                 'learning_rate': proyeksiform.cleaned_data.get('learning_rate'),
                 'dropout': proyeksiform.cleaned_data.get('dropout'),
-                'row_start': proyeksiform.cleaned_data.get('row_start'),
-                'row_end': proyeksiform.cleaned_data.get('row_end'),
+                'row_start': proyeksiform.cleaned_data.get('row_start').strftime('%Y-%m-%d'),
+                'row_end': proyeksiform.cleaned_data.get('row_end').strftime('%Y-%m-%d'),
+                'feature_training': proyeksiform.cleaned_data.get('feature_training'),
+                'feature_predict': proyeksiform.cleaned_data.get('feature_predict'),
                 'num_predict': proyeksiform.cleaned_data.get('num_predict')
             }),
             'errors': proyeksiform.errors

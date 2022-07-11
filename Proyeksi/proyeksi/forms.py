@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
 
+from datetime import datetime, timedelta
+
 from proyeksi.models import Klimatologi
 
 
@@ -18,7 +20,7 @@ class LoginForm(forms.Form):
         label='Username',
         widget=forms.TextInput(
             attrs={
-              'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+              'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
               'autofocus': 'autofocus',
               'placeholder': 'Masukkan Username'
             }
@@ -28,7 +30,7 @@ class LoginForm(forms.Form):
         label='Password',
         widget=forms.PasswordInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'Masukkan Password'
             }
         ),
@@ -60,7 +62,7 @@ class UserForm(FormContextMixin, forms.Form):
         label='Nama Lengkap',
         widget=forms.TextInput(
             attrs={
-              'class': 'bg-light-100 dark:bg-dark-black block mt-1 mr-3 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+              'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 mr-3 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
               'placeholder': 'Nama Depan'
             }
         )
@@ -71,7 +73,7 @@ class UserForm(FormContextMixin, forms.Form):
         label='Nama Lengkap',
         widget=forms.TextInput(
             attrs={
-              'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+              'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
               'placeholder': 'Nama Belakang'
             }
         )
@@ -81,7 +83,7 @@ class UserForm(FormContextMixin, forms.Form):
         label='Nama Pengguna',
         widget=forms.TextInput(
             attrs={
-              'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+              'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
               'placeholder': 'Nama Pengguna'
             }
         )
@@ -91,7 +93,7 @@ class UserForm(FormContextMixin, forms.Form):
         label='Email',
         widget=forms.TextInput(
             attrs={
-              'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+              'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
               'placeholder': 'user@domain.com'
             }
         )
@@ -100,7 +102,7 @@ class UserForm(FormContextMixin, forms.Form):
         label='Password',
         widget=forms.PasswordInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
 
                 'placeholder': 'Password'
             }
@@ -111,7 +113,7 @@ class UserForm(FormContextMixin, forms.Form):
         label='Rubah Password',
         widget=forms.PasswordInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 mr-3 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 mr-3 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'Password Baru'
             }
         ),
@@ -121,7 +123,7 @@ class UserForm(FormContextMixin, forms.Form):
         label='Rubah Password',
         widget=forms.PasswordInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'Ulangi Password'
             }
         ),
@@ -150,7 +152,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Tanggal',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'type': 'date',
             }
         )
@@ -160,7 +162,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Temperatur Min.',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'Tn.'
             }
         )
@@ -170,7 +172,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Temperatur Max.',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'Tx.'
             }
         )
@@ -180,7 +182,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Temperatur Rata-Rata',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'Tavg.'
             }
         )
@@ -190,7 +192,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Kelembapan Rata-Rata',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'RH_avg.'
             }
         )
@@ -200,7 +202,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Curah Hujan',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'RR.'
             }
         )
@@ -210,7 +212,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Lama Sinar Matahari',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'ss.'
             }
         )
@@ -220,7 +222,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Kecepatan Angin Max',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'ff_x.'
             }
         )
@@ -230,7 +232,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Arah Angin Max',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'ddd_x.'
             }
         )
@@ -240,7 +242,7 @@ class KlimatologiForm(forms.ModelForm):
         label='Kecepatan Angin Rata-Rata',
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'ff_avg.'
             }
         )
@@ -251,7 +253,7 @@ class KlimatologiForm(forms.ModelForm):
         max_length=2,
         widget=forms.TextInput(
             attrs={
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'placeholder': 'ddd_car.'
             }
         )
@@ -268,7 +270,7 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'timestep',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
@@ -277,7 +279,7 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'max_epoch',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
@@ -286,7 +288,7 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'max_batch_size',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
@@ -295,7 +297,7 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'layer_size',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
@@ -304,7 +306,7 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'unit_size',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
@@ -313,7 +315,7 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'learning_rate',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
@@ -322,7 +324,7 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'dropout',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
         )
     )
@@ -331,7 +333,7 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'row_start',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'type': 'date',
             }
         )
@@ -341,7 +343,7 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'row_end',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
                 'type': 'date',
             }
         )
@@ -351,8 +353,50 @@ class ProyeksiForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'num_predict',
-                'class': 'bg-light-100 dark:bg-dark-black block mt-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
             }
+        )
+    )
+    feature_training = forms.MultipleChoiceField(
+        label='Feature Training',
+        widget=forms.SelectMultiple(
+            attrs={
+                'id': 'feature_training',
+                'class': 'hidden',
+            },
+        ),
+        choices=(
+            ('tn', '(Tn) Temperatur minimum'),
+            ('tx', '(Tx) Temperatur maksimum'),
+            ('tavg', '(Tavg) Rata-rata temperatur'),
+            ('rh_avg', '(RH_avg) Rata-rata kelembapan'),
+            ('rr', '(RR) Curah hujan'),
+            ('ss', '(ss) Lamanya penyinaran matahari'),
+            ('ff_x', '(ff_x) Kecepatan angin maksimum'),
+            ('ddd_x', '(ddd_x) Arah angin saat kecepatan maksimum'),
+            ('ff_avg', '(ff_avg) Kecepatan angin rata-rata'),
+            ('ddd_car', '(ddd_car) Arah angin terbanyak'),
+        )
+    )
+    feature_predict = forms.ChoiceField(
+        label='Feature Prediction',
+        widget=forms.Select(
+            attrs={
+                'id': 'feature_predict',
+                'class': 'bg-light-100 dark:bg-dark-black block h-10 my-1 w-full rounded-md shadow-sm border-light-300 dark:border-dark-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+            }
+        ),
+        choices=(
+            ('tn', '(Tn) Temperatur minimum'),
+            ('tx', '(Tx) Temperatur maksimum'),
+            ('tavg', '(Tavg) Rata-rata temperatur'),
+            ('rh_avg', '(RH_avg) Rata-rata kelembapan'),
+            ('rr', '(RR) Curah hujan'),
+            ('ss', '(ss) Lamanya penyinaran matahari'),
+            ('ff_x', '(ff_x) Kecepatan angin maksimum'),
+            ('ddd_x', '(ddd_x) Arah angin saat kecepatan maksimum'),
+            ('ff_avg', '(ff_avg) Kecepatan angin rata-rata'),
+            ('ddd_car', '(ddd_car) Arah angin terbanyak'),
         )
     )
     
@@ -370,3 +414,5 @@ class ProyeksiForm(forms.Form):
             'min': first.tanggal,
             'max': last.tanggal
         })
+        
+        self.fields['feature_training'].initial = ('rr')
