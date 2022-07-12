@@ -329,7 +329,7 @@ class ProyeksiForm(forms.Form):
         )
     )
     row_start = forms.DateField(
-        label='Tanggal Mulai Training',
+        label='Batas Tanggal Mulai',
         widget=forms.TextInput(
             attrs={
                 'id': 'row_start',
@@ -339,7 +339,7 @@ class ProyeksiForm(forms.Form):
         )
     )
     row_end = forms.DateField(
-        label='Tanggal Akhir Training',
+        label='Batas Tanggal Akhir',
         widget=forms.TextInput(
             attrs={
                 'id': 'row_end',

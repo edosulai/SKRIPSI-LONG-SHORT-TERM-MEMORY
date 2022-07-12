@@ -86,11 +86,12 @@ class Riwayat(models.Model):
     unit_size = models.IntegerField(blank=True, null=True)
     dropout = models.FloatField(blank=True, null=True)
     learning_rate = models.FloatField(blank=True, null=True)
-    row_start = models.IntegerField(blank=True, null=True)
-    row_end = models.IntegerField(blank=True, null=True)
+    row_start = models.CharField(blank=True, null=True, max_length=32)
+    row_end = models.CharField(blank=True, null=True, max_length=32)
     num_predict = models.IntegerField(blank=True, null=True)
+    valueset = models.JSONField(blank=True, null=True)
     logs = models.TextField(blank=True, null=True)
-    hdf = models.BinaryField(blank=True, null=True)
+    hdf = models.CharField(blank=True, null=True, max_length=128)
 
     def __str__(self) -> str:
         return "{}".format(self.tanggal)

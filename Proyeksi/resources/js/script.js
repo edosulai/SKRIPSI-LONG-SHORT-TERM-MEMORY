@@ -58,16 +58,6 @@ Chart.register(
   SubTitle
 )
 
-const CHART_COLORS = {
-  red: 'rgb(255, 99, 132)',
-  orange: 'rgb(255, 159, 64)',
-  yellow: 'rgb(255, 205, 86)',
-  green: 'rgb(75, 192, 192)',
-  blue: 'rgb(54, 162, 235)',
-  purple: 'rgb(153, 102, 255)',
-  grey: 'rgb(201, 203, 207)'
-}
-
 const LOADING = `
   <div class="flex w-20 justify-between mx-auto">
     <span class="flex h-3 w-3 relative">
@@ -320,7 +310,7 @@ const Proyeksi = createApp({
       this.id_to_delete = id
       this.prevent_close = prevent_close
     },
-    redirectToEdit(event, id) {
+    redirectToDetail(event, id) {
       window.location.replace(`/proyeksi/${id}/`)
     },
     deleteRow(id) {
@@ -337,7 +327,7 @@ const Proyeksi = createApp({
     }
   },
   created() {
-    if (!window.redirectToEdit) window.redirectToEdit = this.redirectToEdit
+    if (!window.redirectToDetail) window.redirectToDetail = this.redirectToDetail
     if (!window.modalVisible) window.modalVisible = this.modalVisible
   },
   mounted() {
@@ -358,9 +348,10 @@ const Proyeksi = createApp({
         render: function (id, type, row, meta) {
           return (`
             <span class="flex">
-              <button onclick="redirectToEdit(event, ${id})" class="edit-proyeksi flex items-center px-2 py-1 mx-1 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+              <button onclick="redirectToDetail(event, ${id})" class="edit-proyeksi flex items-center px-2 py-1 mx-1 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd" />
+                  <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2h-1.528A6 6 0 004 9.528V4z" />
+                  <path fill-rule="evenodd" d="M8 10a4 4 0 00-3.446 6.032l-1.261 1.26a1 1 0 101.414 1.415l1.261-1.261A4 4 0 108 10zm-2 4a2 2 0 114 0 2 2 0 01-4 0z" clip-rule="evenodd" />
                 </svg>
               </button>
               <button onclick="modalVisible(event, ${id}, true)" class="flex items-center px-2 py-1 mx-1 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-500 focus:outline-none focus:bg-red-500">
@@ -406,41 +397,18 @@ const PredictionResult = createApp({
     return {
       connection: new WebSocket('ws://' + window.location.host + '/ws/proyeksi/'),
       terminal: "...\n",
-      tablehistory: $('#history').DataTable({
-        processing: true,
-        language: {
-          zeroRecords: LOADING
-        },
-        columns: [{
-          data: "tanggal"
-        }, {
-          data: "rr"
-        }],
-        searching: false,
-      }),
-      tableproyeksi: $('#proyeksi').DataTable({
-        processing: true,
-        language: {
-          zeroRecords: LOADING
-        },
-        columns: [{
-          data: "tanggal"
-        }, {
-          data: "rr"
-        }],
-        searching: false,
-      })
+      hyperparameters: {}
     }
   },
   created() {
-    this.chart = new Chart(document.getElementById('predict-chart'), {
+    this.predictChart = new Chart(document.getElementById('predict-chart'), {
       type: 'line',
       options: {
         responsive: true,
         plugins: {
           title: {
             display: true,
-            text: 'Prediksi dan Histori Curah Hujan'
+            text: 'Prediksi dan Histori Data'
           },
         },
         interaction: {
@@ -458,7 +426,39 @@ const PredictionResult = createApp({
             display: true,
             title: {
               display: true,
-              text: 'Tingkat Curah Hujan'
+              text: 'Tingkat Nilai Data'
+            },
+          }
+        },
+      },
+    })
+    
+    this.errorChart = new Chart(document.getElementById('error-chart'), {
+      type: 'line',
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Error Tiap Epoch'
+          },
+        },
+        interaction: {
+          intersect: false,
+        },
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Epoch'
+            }
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Tingkat Nilai Error'
             },
           }
         },
@@ -467,11 +467,35 @@ const PredictionResult = createApp({
   },
   mounted() {
 
-    this.hyperparameters = {}
-
     for (const form of document.getElementsByClassName('proyeksi-form')) {
       this.hyperparameters[form.id] = form.innerHTML
     }
+
+    $.fn.dataTable.moment('DD/MM/YY');
+
+    this.tablehistory = $('#history').DataTable({
+      processing: true,
+      language: {
+        zeroRecords: LOADING
+      },
+      columns: [{
+        data: "tanggal"
+      }, ...this.hyperparameters['feature_training'].split(",").map(x => ({ data: x }))],
+      searching: false,
+    })
+
+    this.tableproyeksi = $('#proyeksi').DataTable({
+      processing: true,
+      language: {
+        zeroRecords: LOADING
+      },
+      columns: [{
+        data: "tanggal"
+      }, {
+        data: this.hyperparameters['feature_predict']
+      }],
+      searching: false,
+    })
 
     this.waitForConnection = (callback, interval) => {
       if (this.connection.readyState === 1) {
@@ -493,6 +517,7 @@ const PredictionResult = createApp({
     }
 
     this.connection.onmessage = (event) => {
+
       let data = JSON.parse(event.data)
       if (data.message) {
         let terminalElem = document.querySelector("pre")
@@ -506,26 +531,44 @@ const PredictionResult = createApp({
           this.terminal = newstring
           terminalElem.scrollTop = terminalElem.scrollHeight
         }
-      } else if (data.results) {
+      }
 
-        this.chart.data = {
+      const CHART_COLORS = [
+        'rgb(54, 162, 235)', //blue
+        'rgb(153, 102, 255)',//purple
+        'rgb(75, 192, 192)', //green
+        'rgb(255, 159, 64)', //orange
+        'rgb(255, 205, 86)', //yellow
+        'rgb(255, 99, 132)', //red
+        'rgb(201, 203, 207)',//grey
+        'rgb(255, 29, 194)', //violet
+        'rgb(10, 205, 222)', //cyan
+        'rgb(47, 130, 255)', //sea
+        'rgb(125, 125, 125)',//middle
+      ]
+
+      if (data.results) {
+
+        this.predictChart.data = {
           labels: data.labels,
           datasets: [
+            ...data.results.history.map((history, i) => {
+              // const color = `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`
+              return {
+                label: `History - ${history.nama}`,
+                data: history.hasil.map(x => x.nilai),
+                borderColor: CHART_COLORS[i],
+                backgroundColor: transparentize(CHART_COLORS[i], 0.5),
+                fill: false,
+                cubicInterpolationMode: 'monotone',
+                tension: 0.3
+              }
+            }),
             {
-              label: 'History',
-              data: data.results.history.map(x => x.rr),
-              borderColor: CHART_COLORS.blue,
-              backgroundColor: transparentize(CHART_COLORS.blue, 0.5),
-              fill: false,
-              cubicInterpolationMode: 'monotone',
-              tension: 0.4
-            },
-            {
-              label: 'Proyeksi',
-              data: data.results.prediction.map(x => x.rr),
-              data: data.null.map(() => null).concat(data.results.prediction.map(x => x.rr)),
-              borderColor: CHART_COLORS.orange,
-              backgroundColor: transparentize(CHART_COLORS.orange, 0.5),
+              label: `Proyeksi - ${data.results.prediction.nama}`,
+              data: data.historylabels.map(() => null).concat(data.results.prediction.hasil.map(x => x.nilai)),
+              borderColor: CHART_COLORS[CHART_COLORS.length - 1],
+              backgroundColor: transparentize(CHART_COLORS[CHART_COLORS.length - 1], 0.5),
               fill: false,
               cubicInterpolationMode: 'monotone',
               tension: 0.4
@@ -533,22 +576,50 @@ const PredictionResult = createApp({
           ]
         }
 
-        this.chart.update()
+        this.predictChart.update()
 
-        this.tablehistory.rows.add(data.results.history.map(x => {
-          return {
-            tanggal: x.tanggal,
-            rr: x.rr.toFixed(2)
+        this.tablehistory.rows.add(data.historylabels.map((label) => {
+          let tabeldata = {
+            tanggal: label
           }
+
+          for (const feature of this.hyperparameters['feature_training'].split(",")) {
+            let eachHistory = data.results.history.filter(x => x.nama == feature)[0]
+            let nilai = eachHistory.hasil.filter(x => x.tanggal == label)[0].nilai
+            tabeldata[feature] = typeof nilai != 'string' ? nilai.toFixed(2) : nilai
+          }
+
+          return tabeldata
         })).draw()
 
-        this.tableproyeksi.rows.add(data.results.prediction.map(x => {
-          return {
-            tanggal: x.tanggal,
-            rr: x.rr.toFixed(2)
+        this.tableproyeksi.rows.add(data.results.prediction.hasil.map(x => {
+          let tabeldata = {
+            tanggal: x.tanggal
           }
+
+          tabeldata[data.results.prediction.nama] = typeof x.nilai != 'string' ? x.nilai.toFixed(2) : x.nilai
+
+          return tabeldata
         })).draw()
+
+        this.errorChart.data = {
+          labels: data.epochs.map((x, i) => i + 1),
+          datasets: [
+            {
+              label: `Error`,
+              data: data.epochs,
+              borderColor: CHART_COLORS[5],
+              backgroundColor: transparentize(CHART_COLORS[5], 0.5),
+              fill: false,
+              cubicInterpolationMode: 'monotone',
+              tension: 0.4
+            }
+          ]
+        }
+
+        this.errorChart.update()
       }
+
     }
 
     this.sendMessage(JSON.stringify(this.hyperparameters))

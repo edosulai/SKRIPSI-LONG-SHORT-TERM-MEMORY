@@ -222,17 +222,23 @@ class ProyeksiView(View):
 
     def get(self, request, target=None):
         if target and target.isnumeric():
-            riwayat = get_object_or_404(Riwayat, id=target)
+            riwayat = get_object_or_404(Riwayat, id=target)            
             return render(request, 'proyeksi/result.html', {
                 'title': 'Hasil Proyeksi',
-                'learning_rate': riwayat.learning_rate,
-                'dropout': riwayat.dropout,
-                'sequence': riwayat.sequence,
-                'max_epoch': riwayat.max_epoch,
-                'batch_size': riwayat.batch_size,
-                'hidden_units': riwayat.hidden_units,
-                'much_predict': riwayat.much_predict,
-                'nan_handling': riwayat.nan_handling,
+                'proyeksi_form': ProyeksiForm(initial={
+                    'timestep': riwayat.timestep,
+                    'max_epoch': riwayat.max_epoch,
+                    'max_batch_size': riwayat.max_batch_size,
+                    'layer_size': riwayat.layer_size,
+                    'unit_size': riwayat.unit_size,
+                    'learning_rate': riwayat.learning_rate,
+                    'dropout': riwayat.dropout,
+                    'row_start': riwayat.row_start,
+                    'row_end': riwayat.row_end,
+                    'feature_training': ",".join(proyeksiform.cleaned_data.get('feature_training')),
+                    'feature_predict': riwayat.feature_predict,
+                    'num_predict': riwayat.num_predict
+                })
             })
 
         elif target == 'baru':
@@ -295,7 +301,7 @@ class ProyeksiView(View):
                 'dropout': proyeksiform.cleaned_data.get('dropout'),
                 'row_start': proyeksiform.cleaned_data.get('row_start').strftime('%Y-%m-%d'),
                 'row_end': proyeksiform.cleaned_data.get('row_end').strftime('%Y-%m-%d'),
-                'feature_training': proyeksiform.cleaned_data.get('feature_training'),
+                'feature_training': ",".join(proyeksiform.cleaned_data.get('feature_training')),
                 'feature_predict': proyeksiform.cleaned_data.get('feature_predict'),
                 'num_predict': proyeksiform.cleaned_data.get('num_predict')
             }),
