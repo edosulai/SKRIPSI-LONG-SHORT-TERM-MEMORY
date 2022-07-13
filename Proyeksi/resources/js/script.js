@@ -342,7 +342,7 @@ const Proyeksi = createApp({
         type: "GET",
       },
       columnDefs: [{
-        targets: 11,
+        targets: 13,
         orderable: false,
         data: "id",
         render: function (id, type, row, meta) {
@@ -361,6 +361,11 @@ const Proyeksi = createApp({
               </button>
             </span>
           `)
+        }
+      }, {
+        targets: 12,
+        render: function (data, type, row) {
+          return data.toFixed(2)
         }
       }],
       columns: [{
@@ -384,7 +389,11 @@ const Proyeksi = createApp({
       }, {
         data: "row_end"
       }, {
-        data: "num_predict"
+        data: "feature_training"
+      }, {
+        data: "feature_predict"
+      }, {
+        data: "rmse"
       }]
     })
   }
@@ -432,7 +441,7 @@ const PredictionResult = createApp({
         },
       },
     })
-    
+
     this.errorChart = new Chart(document.getElementById('error-chart'), {
       type: 'line',
       options: {
@@ -464,6 +473,38 @@ const PredictionResult = createApp({
         },
       },
     })
+
+    this.evaChart = new Chart(document.getElementById('eva-chart'), {
+      type: 'line',
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Error Tiap Iterasi Testing'
+          },
+        },
+        interaction: {
+          intersect: false,
+        },
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Iterasi'
+            }
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Tingkat Nilai Error'
+            },
+          }
+        },
+      },
+    })
   },
   mounted() {
 
@@ -471,7 +512,7 @@ const PredictionResult = createApp({
       this.hyperparameters[form.id] = form.innerHTML
     }
 
-    $.fn.dataTable.moment('DD/MM/YY');
+    $.fn.dataTable.moment('DD/MM/YY')
 
     this.tablehistory = $('#history').DataTable({
       processing: true,
@@ -603,11 +644,11 @@ const PredictionResult = createApp({
         })).draw()
 
         this.errorChart.data = {
-          labels: data.epochs.map((x, i) => i + 1),
+          labels: data.loss_trains.map((x, i) => `Epoch ${i + 1}`),
           datasets: [
             {
               label: `Error`,
-              data: data.epochs,
+              data: data.loss_trains,
               borderColor: CHART_COLORS[5],
               backgroundColor: transparentize(CHART_COLORS[5], 0.5),
               fill: false,
@@ -618,6 +659,32 @@ const PredictionResult = createApp({
         }
 
         this.errorChart.update()
+
+        this.evaChart.data = {
+          labels: data.loss_tests.map((x, i) => `Iterasi ${i + 1}`),
+          datasets: [
+            {
+              label: `Error`,
+              data: data.loss_tests,
+              borderColor: CHART_COLORS[5],
+              backgroundColor: transparentize(CHART_COLORS[5], 0.5),
+              fill: false,
+              cubicInterpolationMode: 'monotone',
+              tension: 0.4
+            }
+          ]
+        }
+
+        this.evaChart.update()
+
+        document.getElementById('penegas').innerHTML = `
+          <p>
+            Dari Hasil nilai error di atas di dapat nilai RMSE (Root Mean Square Error) sebesar <b>${data.eva_error.toFixed(4)}</b>.
+          </p>
+          <p>
+            Nilai tersebut memiliki arti bahwa proyeksi feature <b>(${data.results.prediction.nama})</b> pada saat testing memiliki tingkat ketidakakuratan lebih kurang sebesar <b>${data.eva_error.toFixed(4)}</b> dalam memproyeksi feature <b>(${data.results.prediction.nama})</b>.
+          </p>
+        `
       }
 
     }

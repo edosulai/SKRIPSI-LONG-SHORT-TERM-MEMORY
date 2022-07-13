@@ -1743,6 +1743,11 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataT
   padding-right: 0.5rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .pl-2 {
   padding-left: 0.5rem;
 }
@@ -1826,6 +1831,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataT
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .ordinal {

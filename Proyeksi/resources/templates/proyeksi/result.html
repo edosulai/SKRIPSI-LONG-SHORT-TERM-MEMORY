@@ -50,6 +50,9 @@
                             </td>
                           </tr>
                           {% endfor %}
+                          {% if id_riwayat %}
+                            <div class="hidden proyeksi-form" id="id_riwayat">{{id_riwayat}}</div>
+                          {% endif %}
                         </tbody>
                       </table>
                     </div>
@@ -84,11 +87,11 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 capitalize tracking-wider">
                               tanggal
                             </th>
-                              {% for training in feature_training %}
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 capitalize tracking-wider">
-                                  {{training}}
-                                </th>
-                              {% endfor %}
+                            {% for training in feature_training %}
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
+                                {{training}}
+                              </th>
+                            {% endfor %}
                             </tr>
                           </thead>
                           <tbody></tbody>
@@ -107,7 +110,7 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 capitalize tracking-wider">
                               tanggal
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 capitalize tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-light-500 dark:text-dark-300 uppercase tracking-wider">
                               {{proyeksi_form.feature_predict.value}}
                             </th>
                           </tr>
@@ -119,13 +122,28 @@
 
                 </div>
 
-                <div class="mb-16">
-                  <h3 class="text-light-700 dark:text-dark-100 text-2xl font-medium mb-10">Grafik Nilai Error Setiap Epoch</h3>
+                
 
-                  <canvas id="error-chart" width="400" height="150"></canvas>
+                <div class="mb-16 flex w-full">
+                  <div class="w-6/12 mr-5">
+                    <h4 class="text-light-700 dark:text-dark-100 text-2xl font-medium mb-10">Grafik Nilai Error Setiap Epoch</h4>
+                    <canvas id="error-chart" width="200" height="100"></canvas>
+                  </div>
+                  <div class="w-6/12 ml-5">
+                    <h4 class="text-light-700 dark:text-dark-100 text-2xl font-medium mb-10">Grafik Nilai Error Evaluasi Test</h4>
+                    <canvas id="eva-chart" width="200" height="100"></canvas>
+                  </div>
                 </div>
 
-                
+                <div id="penegas" class="px-10 text-center italic">
+                  <p>
+                    ......
+                  </p>
+                  <p>
+                    ......
+                  </p>
+                </div>
+
               </div>
             </div>
           </div>

@@ -235,10 +235,11 @@ class ProyeksiView(View):
                     'dropout': riwayat.dropout,
                     'row_start': riwayat.row_start,
                     'row_end': riwayat.row_end,
-                    'feature_training': ",".join(proyeksiform.cleaned_data.get('feature_training')),
+                    'feature_training': riwayat.feature_training,
                     'feature_predict': riwayat.feature_predict,
                     'num_predict': riwayat.num_predict
-                })
+                }),
+                'id_riwayat': riwayat.id
             })
 
         elif target == 'baru':

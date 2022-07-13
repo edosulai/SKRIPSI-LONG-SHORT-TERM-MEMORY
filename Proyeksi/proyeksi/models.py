@@ -89,8 +89,10 @@ class Riwayat(models.Model):
     row_start = models.CharField(blank=True, null=True, max_length=32)
     row_end = models.CharField(blank=True, null=True, max_length=32)
     num_predict = models.IntegerField(blank=True, null=True)
+    feature_training = models.CharField(blank=True, null=True, max_length=64)
+    feature_predict = models.CharField(blank=True, null=True, max_length=8)
+    rmse = models.FloatField(blank=True, null=True)
     valueset = models.JSONField(blank=True, null=True)
-    logs = models.TextField(blank=True, null=True)
     hdf = models.CharField(blank=True, null=True, max_length=128)
 
     def __str__(self) -> str:
@@ -119,7 +121,9 @@ class Riwayat(models.Model):
                                 (7, 'learning_rate'), 
                                 (8, 'row_start'), 
                                 (9, 'row_end'),
-                                (10, 'num_predict'))[order_column]
+                                (10, 'feature_training'),
+                                (11, 'feature_predict'),
+                                (12, 'rmse'))[order_column]
 
         if order == 'desc':
             order_column = '-' + order_column
@@ -139,7 +143,9 @@ class Riwayat(models.Model):
                 | Q(learning_rate__icontains=search_value)
                 | Q(row_start__icontains=search_value)
                 | Q(row_end__icontains=search_value)
-                | Q(num_predict__icontains=search_value))
+                | Q(feature_training__icontains=search_value)
+                | Q(feature_predict__icontains=search_value)
+                | Q(rmse__icontains=search_value))
 
         count = queryset.count()
         queryset = queryset.order_by(order_column)[start:start + length]
