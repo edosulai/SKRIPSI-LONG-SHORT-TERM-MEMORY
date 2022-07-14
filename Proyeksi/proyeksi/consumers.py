@@ -85,8 +85,8 @@ class ProyeksiConsumer(WebsocketConsumer):
                     'message': config.valueset['logs'][-1]
                 }))
 
-                scaller = MinMaxScaler()
-                featuresets_scaled = scaller.fit_transform(featuresets)
+                featurescaller = MinMaxScaler()
+                featuresets_scaled = featurescaller.fit_transform(featuresets)
 
                 train_size = int(featuresets_scaled.shape[0] * 0.9)
                 trainset, testset = featuresets_scaled[0:train_size], featuresets_scaled[train_size:featuresets_scaled.shape[0]]
@@ -114,23 +114,19 @@ class ProyeksiConsumer(WebsocketConsumer):
                         batch_input_shape=(config.max_batch_size, len(config.feature), config.timestep),
                         go_backwards=True,
                         dropout=config.dropout,
-                        # weights=[
-                        #     np.array([
-                        #         [0.5774, 0.5774, 0.5774, 0.5774],
-                        #         [0.5774, 0.5774, 0.5774, 0.5774]
-                        #     ]),
-                        #     np.array([
-                        #         [0.5774, 0.5774, 0.5774, 0.5774]
-                        #     ]),
-                        #     np.zeros([4])
-                        # ]
+                        weights=[
+                            np.repeat([[0.5774, 0.5774, 0.5774, 0.5774]], repeats=config.timestep, axis=0),
+                            np.repeat([[0.5774, 0.5774, 0.5774, 0.5774]], repeats=len(config.feature), axis=0),
+                            np.zeros([4])
+                        ]
                     ))
                 else:
-                    model.add(tf.keras.layers.Dense(units=1, activation='linear'))
+                    if config.unit_size > 1 :
+                        model.add(tf.keras.layers.Dense(units=1, activation='linear'))
                     model.compile(
                         optimizer=tf.keras.optimizers.SGD(learning_rate=config.learning_rate),
-                        # loss=mean_squared_error,
-                        loss=root_mean_squared_error,
+                        loss=mean_squared_error,
+                        # loss=root_mean_squared_error,
                         run_eagerly=True
                     )
                     
@@ -150,6 +146,8 @@ class ProyeksiConsumer(WebsocketConsumer):
                     }))   
 
                 def on_train_end(logs=None):
+                    # logs["loss"] = featurescaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0]
+                    
                     config.valueset['logs'].append(f'\nStop Training - loss: {round(logs["loss"], 5)}\n\n')
                     self.send(text_data=json.dumps({
                         'message': config.valueset['logs'][-1]
@@ -162,24 +160,38 @@ class ProyeksiConsumer(WebsocketConsumer):
                     }))
 
                 def on_epoch_end(epoch, logs=None):
-                    # config.valueset['loss_trains'].append(logs["loss"])
-                    config.valueset['loss_trains'].append(scaller.inverse_transform(np.reshape(math.sqrt(logs["loss"]), (1, 1)))[0][0])
+                    # logs["loss"] = featurescaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0]
+                    
+                    config.valueset['loss_trains'].append(logs["loss"])
                     config.valueset['logs'].append(f'End Epoch {epoch + 1}/{config.max_epoch} of training - loss: {round(logs["loss"], 5)}\n')
                     self.send(text_data=json.dumps({
                         'message': config.valueset['logs'][-1]
                     }))
 
                 def on_batch_end(batch, logs=None):
-                    config.valueset['logs'].append(progress_bar(
-                            batch + 1,
-                            X_train.shape[0],
-                            prefix=f'Training Batch {str(batch + 1)}/{str(X_train.shape[0])}',
-                            suffix=f'Completed - loss: {str(round(logs["loss"], 5))}',
-                            length=25
-                        ))
-                    self.send(text_data=json.dumps({
-                        'message': config.valueset['logs'][-1]
-                    }))
+                    # logs["loss"] = featurescaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0]
+                    
+                    if batch == X_train.shape[0] - 1:
+                        config.valueset['logs'].append(progress_bar(
+                                batch + 1,
+                                X_train.shape[0],
+                                prefix=f'Training Batch {str(batch + 1)}/{str(X_train.shape[0])}',
+                                suffix=f'Completed - loss: {str(round(logs["loss"], 5))}',
+                                length=25
+                            ))
+                        self.send(text_data=json.dumps({
+                            'message': config.valueset['logs'][-1]
+                        }))
+                    else:
+                        self.send(text_data=json.dumps({
+                            'message': progress_bar(
+                                batch + 1,
+                                X_train.shape[0],
+                                prefix=f'Training Batch {str(batch + 1)}/{str(X_train.shape[0])}',
+                                suffix=f'Completed - loss: {str(round(logs["loss"], 5))}',
+                                length=25
+                            )
+                        }))
 
                 model.fit(X_train, y_train,
                     shuffle=False,
@@ -200,7 +212,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                 class CustomCallback(tf.keras.callbacks.Callback):
                     def on_test_batch_end(self, batch, logs=None):
                         # config.valueset['loss_tests'].append(logs["loss"])
-                        config.valueset['loss_tests'].append(scaller.inverse_transform(np.reshape(math.sqrt(logs["loss"]), (1, 1)))[0][0])
+                        config.valueset['loss_tests'].append(featurescaller.inverse_transform(np.reshape(math.sqrt(logs["loss"]), (1, 1)))[0][0])
                 
                 config.valueset['eva_error'] = model.evaluate(
                     X_test,
@@ -210,7 +222,8 @@ class ProyeksiConsumer(WebsocketConsumer):
                     callbacks=[CustomCallback()]
                 )
                 
-                config.valueset['eva_error'] = scaller.inverse_transform(np.reshape(math.sqrt(config.valueset['eva_error']), (1, 1)))[0][0]
+                config.valueset['eva_error'] = featurescaller.inverse_transform(np.reshape(math.sqrt(config.valueset['eva_error']), (1, 1)))[0][0]
+                # config.valueset['eva_error'] = featurescaller.inverse_transform(np.reshape(config.valueset['eva_error'], (1, 1)))[0][0]
                 
                 config.valueset['logs'].append(f'Start Predicting\n')
                 self.send(text_data=json.dumps({
@@ -245,7 +258,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                     'message': config.valueset['logs'][-1]
                 }))
                 
-                testset = scaller.inverse_transform(testset)
+                testset = featurescaller.inverse_transform(testset)
                 testdateset = np.concatenate((testdateset, pd.to_datetime(pd.date_range(DATELIST[-1] + timedelta(days=1), periods=config.num_predict, freq='1d')).date), axis=0)
 
                 LABEL = np.concatenate((traindateset, testdateset), axis=0)
@@ -301,7 +314,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                 
                 self.send(text_data=json.dumps(config.valueset))
                 
-                model.save(f'media/{config.model_name}.h5')
+                # model.save(f'media/{config.model_name}.h5')
                 Riwayat.objects.create(
                     timestep = config.timestep,
                     max_batch_size = config.max_batch_size,
@@ -323,12 +336,12 @@ class ProyeksiConsumer(WebsocketConsumer):
             else:
                 riwayat = Riwayat.objects.get(id=text_data_json['id_riwayat'])
                 valueset = json.loads(riwayat.valueset)
+                self.send(text_data=json.dumps(valueset))
                 for log in valueset['logs']:
                     self.send(text_data=json.dumps({'message': log}))
-                self.send(text_data=json.dumps(valueset))
 
             self.close()
-        except Exception as e:
+        except Exception as e:  
             self.send(text_data=json.dumps({
                 'message': f'\n\nError : {e}\n'
             }))
