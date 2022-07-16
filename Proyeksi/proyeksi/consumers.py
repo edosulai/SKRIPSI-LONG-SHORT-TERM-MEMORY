@@ -13,7 +13,7 @@ import tensorflow as tf
 from sklearn.preprocessing import MinMaxScaler
 from datetime import datetime, timedelta
 
-from proyeksi.utils import set_config, mean_squared_error, root_mean_squared_error, train_test_split, proyeksi_split, progress_bar
+from proyeksi.utils import set_config, mean_absolute_error, mean_squared_error, root_mean_squared_error, train_test_split, proyeksi_split, progress_bar
 
 # Create your consumers here.
 
@@ -87,6 +87,9 @@ class ProyeksiConsumer(WebsocketConsumer):
 
                 featurescaller = MinMaxScaler()
                 featuresets_scaled = featurescaller.fit_transform(featuresets)
+                
+                predictscaller = MinMaxScaler()
+                predictscaller.fit_transform(featuresets[[config.prediction]])
 
                 train_size = int(featuresets_scaled.shape[0] * 0.9)
                 trainset, testset = featuresets_scaled[0:train_size], featuresets_scaled[train_size:featuresets_scaled.shape[0]]
@@ -125,6 +128,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                         model.add(tf.keras.layers.Dense(units=1, activation='linear'))
                     model.compile(
                         optimizer=tf.keras.optimizers.SGD(learning_rate=config.learning_rate),
+                        # loss=mean_absolute_error,
                         loss=mean_squared_error,
                         # loss=root_mean_squared_error,
                         run_eagerly=True
@@ -146,7 +150,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                     }))   
 
                 def on_train_end(logs=None):
-                    # logs["loss"] = featurescaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0]
+                    # logs["loss"] = predictscaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0]
                     
                     config.valueset['logs'].append(f'\nStop Training - loss: {round(logs["loss"], 5)}\n\n')
                     self.send(text_data=json.dumps({
@@ -160,7 +164,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                     }))
 
                 def on_epoch_end(epoch, logs=None):
-                    # logs["loss"] = featurescaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0]
+                    # logs["loss"] = predictscaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0]
                     
                     config.valueset['loss_trains'].append(logs["loss"])
                     config.valueset['logs'].append(f'End Epoch {epoch + 1}/{config.max_epoch} of training - loss: {round(logs["loss"], 5)}\n')
@@ -169,7 +173,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                     }))
 
                 def on_batch_end(batch, logs=None):
-                    # logs["loss"] = featurescaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0]
+                    # logs["loss"] = predictscaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0]
                     
                     if batch == X_train.shape[0] - 1:
                         config.valueset['logs'].append(progress_bar(
@@ -211,8 +215,9 @@ class ProyeksiConsumer(WebsocketConsumer):
                 )
                 class CustomCallback(tf.keras.callbacks.Callback):
                     def on_test_batch_end(self, batch, logs=None):
-                        # config.valueset['loss_tests'].append(logs["loss"])
-                        config.valueset['loss_tests'].append(featurescaller.inverse_transform(np.reshape(math.sqrt(logs["loss"]), (1, 1)))[0][0])
+                        config.valueset['loss_tests'].append(logs["loss"])
+                        # config.valueset['loss_tests'].append(predictscaller.inverse_transform(np.reshape(logs["loss"], (1, 1)))[0][0])
+                        # config.valueset['loss_tests'].append(predictscaller.inverse_transform(np.reshape(math.sqrt(logs["loss"]), (1, 1)))[0][0])
                 
                 config.valueset['eva_error'] = model.evaluate(
                     X_test,
@@ -221,9 +226,8 @@ class ProyeksiConsumer(WebsocketConsumer):
                     batch_size=config.max_batch_size,
                     callbacks=[CustomCallback()]
                 )
-                
-                config.valueset['eva_error'] = featurescaller.inverse_transform(np.reshape(math.sqrt(config.valueset['eva_error']), (1, 1)))[0][0]
-                # config.valueset['eva_error'] = featurescaller.inverse_transform(np.reshape(config.valueset['eva_error'], (1, 1)))[0][0]
+                # config.valueset['eva_error'] = predictscaller.inverse_transform(np.reshape(config.valueset['eva_error'], (1, 1)))[0][0]
+                # config.valueset['eva_error'] = predictscaller.inverse_transform(np.reshape(math.sqrt(config.valueset['eva_error']), (1, 1)))[0][0]
                 
                 config.valueset['logs'].append(f'Start Predicting\n')
                 self.send(text_data=json.dumps({
@@ -266,6 +270,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                 PREDICTIONS = pd.DataFrame(testset, columns=[config.feature]).set_index(pd.Series(testdateset))
                 PREDICTIONS.index = PREDICTIONS.index.to_series().apply(lambda x: datetime.strptime(x.strftime('%Y-%m-%d'), '%Y-%m-%d'))
 
+                # HISTORY = pd.DataFrame(np.array(featurescaller.fit_transform(DATASETS[config.feature])), columns=[config.feature]).set_index(pd.Series(DATELIST))
                 HISTORY = pd.DataFrame(np.array(DATASETS[config.feature]), columns=[config.feature]).set_index(pd.Series(DATELIST))
                 HISTORY.index = HISTORY.index.to_series().apply(lambda x: datetime.strptime(x.strftime('%Y-%m-%d'), '%Y-%m-%d'))
 
@@ -328,7 +333,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                     num_predict = config.num_predict,
                     feature_training = text_data_json['feature_training'],
                     feature_predict = config.prediction,
-                    rmse = config.valueset['eva_error'],
+                    loss = config.valueset['eva_error'],
                     valueset = json.dumps(config.valueset),
                     hdf = config.model_name
                 )

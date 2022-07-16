@@ -91,7 +91,7 @@ class Riwayat(models.Model):
     num_predict = models.IntegerField(blank=True, null=True)
     feature_training = models.CharField(blank=True, null=True, max_length=64)
     feature_predict = models.CharField(blank=True, null=True, max_length=8)
-    rmse = models.FloatField(blank=True, null=True)
+    loss = models.FloatField(blank=True, null=True)
     valueset = models.JSONField(blank=True, null=True)
     hdf = models.CharField(blank=True, null=True, max_length=128)
 
@@ -123,7 +123,7 @@ class Riwayat(models.Model):
                                 (9, 'row_end'),
                                 (10, 'feature_training'),
                                 (11, 'feature_predict'),
-                                (12, 'rmse'))[order_column]
+                                (12, 'loss'))[order_column]
 
         if order == 'desc':
             order_column = '-' + order_column
@@ -145,7 +145,7 @@ class Riwayat(models.Model):
                 | Q(row_end__icontains=search_value)
                 | Q(feature_training__icontains=search_value)
                 | Q(feature_predict__icontains=search_value)
-                | Q(rmse__icontains=search_value))
+                | Q(loss__icontains=search_value))
 
         count = queryset.count()
         queryset = queryset.order_by(order_column)[start:start + length]

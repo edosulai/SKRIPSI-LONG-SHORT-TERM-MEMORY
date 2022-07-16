@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
                 ('num_predict', models.IntegerField(blank=True, null=True)),
                 ('feature_training', models.CharField(blank=True, null=True, max_length=64)),
                 ('feature_predict', models.CharField(blank=True, null=True, max_length=8)),
-                ('rmse', models.FloatField(blank=True, null=True)),
+                ('loss', models.FloatField(blank=True, null=True)),
                 ('valueset', models.JSONField(blank=True, null=True)),
                 ('hdf', models.CharField(blank=True, null=True, max_length=64)),
             ],

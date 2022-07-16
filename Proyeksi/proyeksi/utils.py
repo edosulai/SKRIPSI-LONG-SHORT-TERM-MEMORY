@@ -16,6 +16,10 @@ def set_config(config_dict):
     return config
 
 
+def mean_absolute_error(y_true, y_pred):
+    return tf.keras.backend.mean(tf.keras.backend.abs(y_pred - y_true))
+
+
 def mean_squared_error(y_true, y_pred):
     return tf.keras.backend.mean(tf.keras.backend.square(y_pred - y_true))
 

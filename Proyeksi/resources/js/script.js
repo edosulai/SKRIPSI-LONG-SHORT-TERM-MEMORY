@@ -393,7 +393,7 @@ const Proyeksi = createApp({
       }, {
         data: "feature_predict"
       }, {
-        data: "rmse"
+        data: "mse"
       }]
     })
   }
@@ -679,7 +679,7 @@ const PredictionResult = createApp({
 
         document.getElementById('penegas').innerHTML = `
           <p>
-            Dari Hasil nilai error di atas di dapat nilai RMSE (Root Mean Square Error) sebesar <b>${data.eva_error.toFixed(4)}</b>.
+            Dari Hasil nilai error di atas di dapat nilai rata-rata dari seluruh MSE (Mean Square Error) sebesar <b>${data.eva_error.toFixed(4)}</b>.
           </p>
           <p>
             Nilai tersebut memiliki arti bahwa proyeksi feature <b>(${data.results.prediction.nama})</b> pada saat testing memiliki tingkat ketidakakuratan lebih kurang sebesar <b>${data.eva_error.toFixed(4)}</b> dalam memproyeksi feature <b>(${data.results.prediction.nama})</b>.
