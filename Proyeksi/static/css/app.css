@@ -2091,6 +2091,11 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataT
   background-color: rgb(234 238 242 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-light-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(208 215 222 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -2135,6 +2140,11 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataT
 .focus\:bg-light-100:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(234 238 242 / var(--tw-bg-opacity));
+}
+
+.focus\:bg-light-200:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(208 215 222 / var(--tw-bg-opacity));
 }
 
 .focus\:bg-blue-500:focus {

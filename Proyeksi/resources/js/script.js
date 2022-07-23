@@ -393,7 +393,7 @@ const Proyeksi = createApp({
       }, {
         data: "feature_predict"
       }, {
-        data: "mse"
+        data: "loss"
       }]
     })
   }

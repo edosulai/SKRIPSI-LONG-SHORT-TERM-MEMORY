@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "concurrently \"npm:django\" \"npm:tailwind-minify\" \"npm:webpack-minify\"",
+    "prod": "concurrently \"npm:django\" \"npm:tailwind-minify\" \"npm:webpack-minify\"",
     "dev": "concurrently \"npm:django\" \"npm:tailwind-watch\" \"npm:webpack-watch\"",
     "django": "cross-os django-run",
     "django-run": {

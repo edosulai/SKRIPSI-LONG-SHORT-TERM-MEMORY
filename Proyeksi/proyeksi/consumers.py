@@ -119,7 +119,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                         dropout=config.dropout,
                         weights=[
                             np.repeat([[0.5774, 0.5774, 0.5774, 0.5774]], repeats=config.timestep, axis=0),
-                            np.repeat([[0.5774, 0.5774, 0.5774, 0.5774]], repeats=len(config.feature), axis=0),
+                            np.repeat([[0.5774, 0.5774, 0.5774, 0.5774]], repeats=1, axis=0),
                             np.zeros([4])
                         ]
                     ))
@@ -261,6 +261,8 @@ class ProyeksiConsumer(WebsocketConsumer):
                 self.send(text_data=json.dumps({
                     'message': config.valueset['logs'][-1]
                 }))
+                
+                print(testset)
                 
                 testset = featurescaller.inverse_transform(testset)
                 testdateset = np.concatenate((testdateset, pd.to_datetime(pd.date_range(DATELIST[-1] + timedelta(days=1), periods=config.num_predict, freq='1d')).date), axis=0)
