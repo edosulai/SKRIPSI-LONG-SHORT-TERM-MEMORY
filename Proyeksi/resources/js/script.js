@@ -534,6 +534,8 @@ const PredictionResult = createApp({
         data: "tanggal"
       }, {
         data: this.hyperparameters['feature_predict']
+      },{
+        data: 'intensitas'
       }],
       searching: false,
     })
@@ -639,6 +641,7 @@ const PredictionResult = createApp({
           }
 
           tabeldata[data.results.prediction.nama] = typeof x.nilai != 'string' ? x.nilai.toFixed(2) : x.nilai
+          // tabeldata['intensitas'] = x.nilai <= 0 ?  
 
           return tabeldata
         })).draw()

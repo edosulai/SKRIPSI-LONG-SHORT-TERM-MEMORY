@@ -262,7 +262,7 @@ class ProyeksiConsumer(WebsocketConsumer):
                     'message': config.valueset['logs'][-1]
                 }))
                 
-                print(testset)
+                # print(testset)
                 
                 testset = featurescaller.inverse_transform(testset)
                 testdateset = np.concatenate((testdateset, pd.to_datetime(pd.date_range(DATELIST[-1] + timedelta(days=1), periods=config.num_predict, freq='1d')).date), axis=0)
