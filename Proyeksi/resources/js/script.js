@@ -534,7 +534,7 @@ const PredictionResult = createApp({
         data: "tanggal"
       }, {
         data: this.hyperparameters['feature_predict']
-      },{
+      }, {
         data: 'intensitas'
       }],
       searching: false,
@@ -641,7 +641,15 @@ const PredictionResult = createApp({
           }
 
           tabeldata[data.results.prediction.nama] = typeof x.nilai != 'string' ? x.nilai.toFixed(2) : x.nilai
-          // tabeldata['intensitas'] = x.nilai <= 0 ?  
+
+          if (data.results.prediction.nama == 'rr') {
+            tabeldata['intensitas'] =
+              x.nilai == 0 ? 'Berawan' :
+                x.nilai >= 0.5 && x.nilai <= 20 ? 'Hujan ringan' :
+                  x.nilai >= 20 && x.nilai <= 50 ? 'Hujan sedang' :
+                    x.nilai >= 50 && x.nilai <= 100 ? 'Hujan lebat' :
+                      x.nilai >= 100 && x.nilai <= 150 ? 'Hujan sangat lebat' : 'Hujan ekstrem'
+          }
 
           return tabeldata
         })).draw()

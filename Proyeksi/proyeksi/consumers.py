@@ -109,6 +109,8 @@ class ProyeksiConsumer(WebsocketConsumer):
                 }))
                 
                 model = tf.keras.models.Sequential()
+                
+                xavier_init = 1 / math.sqrt(len(config.feature) + config.unit_size)
 
                 for i in range(0, config.layer_size):
                     model.add(tf.keras.layers.LSTM(
@@ -118,19 +120,18 @@ class ProyeksiConsumer(WebsocketConsumer):
                         go_backwards=True,
                         dropout=config.dropout,
                         weights=[
-                            np.repeat([[0.5774, 0.5774, 0.5774, 0.5774]], repeats=config.timestep, axis=0),
-                            np.repeat([[0.5774, 0.5774, 0.5774, 0.5774]], repeats=1, axis=0),
+                            np.repeat([[xavier_init, xavier_init, xavier_init, xavier_init]], repeats=config.timestep, axis=0),
+                            np.repeat([[xavier_init, xavier_init, xavier_init, xavier_init]], repeats=1, axis=0),
                             np.zeros([4])
                         ]
                     ))
                 else:
                     if config.unit_size > 1 :
                         model.add(tf.keras.layers.Dense(units=1, activation='linear'))
+                    
                     model.compile(
                         optimizer=tf.keras.optimizers.SGD(learning_rate=config.learning_rate),
-                        # loss=mean_absolute_error,
                         loss=mean_squared_error,
-                        # loss=root_mean_squared_error,
                         run_eagerly=True
                     )
                     
