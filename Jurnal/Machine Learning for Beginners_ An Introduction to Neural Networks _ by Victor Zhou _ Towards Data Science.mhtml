@@ -1,0 +1,2053 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://towardsdatascience.com/machine-learning-for-beginners-an-introduction-to-neural-networks-d49f22d238f9
+Subject: Machine Learning for Beginners: An Introduction to Neural Networks | by Victor Zhou | Towards Data Science
+Date: Sun, 19 Dec 2021 05:12:47 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----"
+
+
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/html
+Content-ID: <frame-C9366634DB2519F221ADDD6F22E84949@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://towardsdatascience.com/machine-learning-for-beginners-an-introduction-to-neural-networks-d49f22d238f9
+
+<!DOCTYPE html><html lang=3D"en" data-rh=3D"lang"><head><meta http-equiv=3D=
+"Content-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"styleshe=
+et" type=3D"text/css" href=3D"cid:css-8632e18c-7592-48f8-9f38-74674138e902@=
+mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-3=
+12cdea4-bc8e-4058-a9ff-7c965bbb2977@mhtml.blink" /><link rel=3D"stylesheet"=
+ type=3D"text/css" href=3D"cid:css-5a4d67a8-f1f2-4674-9957-b06de4f52ae4@mht=
+ml.blink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-8df6=
+c995-f487-4b30-b475-ab09e474df32@mhtml.blink" /><link rel=3D"stylesheet" ty=
+pe=3D"text/css" href=3D"cid:css-0a0e234e-5bb5-411f-8583-b922e31c329a@mhtml.=
+blink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-842c73a=
+a-570e-41fc-b1a9-52d2c51fc4c8@mhtml.blink" /><link rel=3D"stylesheet" type=
+=3D"text/css" href=3D"cid:css-9cd63ec9-26dd-4a23-8ed7-9f749f22eccd@mhtml.bl=
+ink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-f8ff6c7d-=
+e64c-487b-ab5d-10c48f94acc1@mhtml.blink" /><link rel=3D"stylesheet" type=3D=
+"text/css" href=3D"cid:css-a3cc5f7f-93db-4ee2-83c1-8648ddc8bc8e@mhtml.blink=
+" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-30bebd4b-987=
+e-4cfc-b157-fc2472495b77@mhtml.blink" /><link rel=3D"stylesheet" type=3D"te=
+xt/css" href=3D"cid:css-bd014177-68c4-4fec-82c1-c580b90daa1f@mhtml.blink" /=
+><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-deff57f9-166a-4=
+804-afef-2601b9b0e15a@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-9f54df14-ed44-482c-bd65-24a72ca0d643@mhtml.blink" /><t=
+itle>Machine Learning for Beginners: An Introduction to Neural Networks | b=
+y Victor Zhou | Towards Data Science</title><meta data-rh=3D"true" name=3D"=
+viewport" content=3D"width=3Ddevice-width,minimum-scale=3D1,initial-scale=
+=3D1,maximum-scale=3D1"><meta data-rh=3D"true" name=3D"theme-color" content=
+=3D"#000000"><meta data-rh=3D"true" name=3D"twitter:app:name:iphone" conten=
+t=3D"Medium"><meta data-rh=3D"true" name=3D"twitter:app:id:iphone" content=
+=3D"828256236"><meta data-rh=3D"true" property=3D"al:ios:app_name" content=
+=3D"Medium"><meta data-rh=3D"true" property=3D"al:ios:app_store_id" content=
+=3D"828256236"><meta data-rh=3D"true" property=3D"al:android:package" conte=
+nt=3D"com.medium.reader"><meta data-rh=3D"true" property=3D"fb:app_id" cont=
+ent=3D"542599432471018"><meta data-rh=3D"true" property=3D"og:site_name" co=
+ntent=3D"Medium"><meta data-rh=3D"true" property=3D"og:type" content=3D"art=
+icle"><meta data-rh=3D"true" property=3D"article:published_time" content=3D=
+"2019-12-20T05:58:13.149Z"><meta data-rh=3D"true" name=3D"title" content=3D=
+"Machine Learning for Beginners: An Introduction to Neural Networks | by Vi=
+ctor Zhou | Towards Data Science"><meta data-rh=3D"true" property=3D"og:tit=
+le" content=3D"Machine Learning for Beginners: An Introduction to Neural Ne=
+tworks"><meta data-rh=3D"true" property=3D"twitter:title" content=3D"Machin=
+e Learning for Beginners: An Introduction to Neural Networks"><meta data-rh=
+=3D"true" name=3D"twitter:site" content=3D"@TDataScience"><meta data-rh=3D"=
+true" name=3D"twitter:app:url:iphone" content=3D"medium://p/d49f22d238f9"><=
+meta data-rh=3D"true" property=3D"al:android:url" content=3D"medium://p/d49=
+f22d238f9"><meta data-rh=3D"true" property=3D"al:ios:url" content=3D"medium=
+://p/d49f22d238f9"><meta data-rh=3D"true" property=3D"al:android:app_name" =
+content=3D"Medium"><meta data-rh=3D"true" name=3D"description" content=3D"H=
+ere=E2=80=99s something that might surprise you: neural networks aren=E2=80=
+=99t that complicated! The term =E2=80=9Cneural network=E2=80=9D gets used =
+as a buzzword a lot, but in reality they=E2=80=99re often much simpler than=
+ people=E2=80=A6"><meta data-rh=3D"true" property=3D"og:description" conten=
+t=3D"A simple explanation of how they work and how to implement one from sc=
+ratch in Python."><meta data-rh=3D"true" property=3D"twitter:description" c=
+ontent=3D"A simple explanation of how they work and how to implement one fr=
+om scratch in Python."><meta data-rh=3D"true" property=3D"og:url" content=
+=3D"https://towardsdatascience.com/machine-learning-for-beginners-an-introd=
+uction-to-neural-networks-d49f22d238f9"><meta data-rh=3D"true" property=3D"=
+al:web:url" content=3D"https://towardsdatascience.com/machine-learning-for-=
+beginners-an-introduction-to-neural-networks-d49f22d238f9"><meta data-rh=3D=
+"true" property=3D"og:image" content=3D"https://miro.medium.com/max/550/1*J=
+uCFYUaqd7WTX8PKHkfuQw.png"><meta data-rh=3D"true" name=3D"twitter:image:src=
+" content=3D"https://miro.medium.com/max/550/1*JuCFYUaqd7WTX8PKHkfuQw.png">=
+<meta data-rh=3D"true" name=3D"twitter:card" content=3D"summary_large_image=
+"><meta data-rh=3D"true" property=3D"article:author" content=3D"https://vic=
+torczhou.medium.com"><meta data-rh=3D"true" name=3D"twitter:creator" conten=
+t=3D"@victorczhou"><meta data-rh=3D"true" name=3D"author" content=3D"Victor=
+ Zhou"><meta data-rh=3D"true" name=3D"robots" content=3D"index,follow,max-i=
+mage-preview:large"><meta data-rh=3D"true" name=3D"referrer" content=3D"uns=
+afe-url"><meta data-rh=3D"true" name=3D"twitter:label1" content=3D"Reading =
+time"><meta data-rh=3D"true" name=3D"twitter:data1" content=3D"9 min read">=
+<link data-rh=3D"true" rel=3D"search" type=3D"application/opensearchdescrip=
+tion+xml" title=3D"Medium" href=3D"https://towardsdatascience.com/osd.xml">=
+<link data-rh=3D"true" rel=3D"apple-touch-icon" sizes=3D"152x152" href=3D"h=
+ttps://miro.medium.com/fit/c/152/152/1*sHhtYhaCe2Uc3IU0IgKwIQ.png"><link da=
+ta-rh=3D"true" rel=3D"apple-touch-icon" sizes=3D"120x120" href=3D"https://m=
+iro.medium.com/fit/c/120/120/1*sHhtYhaCe2Uc3IU0IgKwIQ.png"><link data-rh=3D=
+"true" rel=3D"apple-touch-icon" sizes=3D"76x76" href=3D"https://miro.medium=
+.com/fit/c/76/76/1*sHhtYhaCe2Uc3IU0IgKwIQ.png"><link data-rh=3D"true" rel=
+=3D"apple-touch-icon" sizes=3D"60x60" href=3D"https://miro.medium.com/fit/c=
+/60/60/1*sHhtYhaCe2Uc3IU0IgKwIQ.png"><link data-rh=3D"true" rel=3D"mask-ico=
+n" href=3D"https://cdn-static-1.medium.com/_/fp/icons/Medium-Avatar-500x500=
+.svg" color=3D"#171717"><link data-rh=3D"true" rel=3D"preconnect" href=3D"h=
+ttps://glyph.medium.com/" crossorigin=3D""><link data-rh=3D"true" rel=3D"pr=
+econnect" href=3D"https://logx.optimizely.com/"><link data-rh=3D"true" id=
+=3D"glyph_preload_link" rel=3D"preload" as=3D"style" type=3D"text/css" href=
+=3D"https://glyph.medium.com/css/unbound.css"><link data-rh=3D"true" id=3D"=
+glyph_link" rel=3D"stylesheet" type=3D"text/css" href=3D"https://glyph.medi=
+um.com/css/unbound.css"><link data-rh=3D"true" rel=3D"author" href=3D"https=
+://victorczhou.medium.com/"><link data-rh=3D"true" rel=3D"canonical" href=
+=3D"https://victorzhou.com/blog/intro-to-neural-networks/"><link data-rh=3D=
+"true" rel=3D"alternate" href=3D"android-app://com.medium.reader/https/medi=
+um.com/p/d49f22d238f9"><link rel=3D"preload" href=3D"https://cdn.optimizely=
+.com/js/16180790160.js" as=3D"script"><link rel=3D"icon" href=3D"https://mi=
+ro.medium.com/fit/c/128/128/1*ChFMdf--f5jbm-AYv6VdYA@2x.png" data-rh=3D"tru=
+e"></head><body><div id=3D"root"><div class=3D"a b c"><div class=3D"d e f g=
+ h i j k"></div><div></div><div class=3D"s"><div class=3D"t s u"><div class=
+=3D"ak al s am an"><div class=3D"n ao ap"><div class=3D"aq ar"><div class=
+=3D"as s at ac"><div class=3D"n p"><div class=3D"au av aw ax ay az ba v"><d=
+iv class=3D"bb n o"><div class=3D"n o bc bd"><div class=3D"ag"><div class=
+=3D"lg" id=3D"li-ShowPostUnderCollection-navbar-open-in-app-button"><div cl=
+ass=3D"cc aq ar"><span class=3D"bf b bg bh cd"><a class=3D"bi bl ce cf cg c=
+h ci cj ck bq bn bo cl jv jw" href=3D"https://rsci.app.link/?%24canonical_u=
+rl=3Dhttps%3A%2F%2Fmedium.com%2Fp%2Fd49f22d238f9&amp;%7Efeature=3DLiOpenInA=
+ppButton&amp;%7Echannel=3DShowPostUnderCollection&amp;%7Estage=3DmobileNavB=
+ar&amp;source=3Dpost_page-----d49f22d238f9---------------------------------=
+--" rel=3D"noopener follow">Open in app</a></span></div></div></div></div><=
+a aria-label=3D"Homepage" href=3D"https://medium.com/?source=3Dpost_page---=
+--d49f22d238f9-----------------------------------" rel=3D"noopener follow">=
+<svg viewBox=3D"0 0 1043.63 592.71" class=3D"q bl"><g data-name=3D"Layer 2"=
+><g data-name=3D"Layer 1"><path d=3D"M588.67 296.36c0 163.67-131.78 296.35-=
+294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M=
+911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88=
+-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-5=
+1.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.=
+9 51.76 249.94"></path></g></g></svg></a></div></div></div></div></div><div=
+ class=3D"n p"><div class=3D"au av aw ax ay az ba v"><div class=3D"co n o b=
+c cp cq cr cs ct cu"><div class=3D"v n cv cp"><div class=3D"n v"><div class=
+=3D"cw cx v n o bc cy cz da cr cs ct"><div class=3D"db dc s dd"><a aria-lab=
+el=3D"Publication Homepage" rel=3D"noopener follow" href=3D"https://towards=
+datascience.com/?source=3Dpost_page-----d49f22d238f9-----------------------=
+------------"><div class=3D"de df s"><img alt=3D"Towards Data Science" clas=
+s=3D"" src=3D"https://miro.medium.com/max/112/1*AGyTPCaRzVqL77kFwUwHKg.png"=
+ width=3D"112" height=3D"35"></div></a></div></div></div><div class=3D"w x =
+y k h z ab o ac lg"><div class=3D"dy lh li n o"><div class=3D"lj lk"><div c=
+lass=3D"n" aria-hidden=3D"false" aria-describedby=3D"publisherMenu" aria-la=
+belledby=3D"publisherMenu"><button aria-expanded=3D"false" aria-label=3D"Pu=
+blisher Menu" class=3D"ea ky ce cf cg ch ci cj ck bq"><div class=3D"lm s" a=
+ria-hidden=3D"true"><svg class=3D"ll bo" width=3D"25" height=3D"25"><path d=
+=3D"M5 12.5c0 .55.2 1.02.59 1.41.39.4.86.59 1.41.59.55 0 1.02-.2 1.41-.59.4=
+-.39.59-.86.59-1.41 0-.55-.2-1.02-.59-1.41A1.93 1.93 0 0 0 7 10.5c-.55 0-1.=
+02.2-1.41.59-.4.39-.59.86-.59 1.41zm5.62 0c0 .55.2 1.02.58 1.41.4.4.87.59 1=
+.42.59.55 0 1.02-.2 1.41-.59.4-.39.59-.86.59-1.41 0-.55-.2-1.02-.59-1.41a1.=
+93 1.93 0 0 0-1.41-.59c-.55 0-1.03.2-1.42.59-.39.39-.58.86-.58 1.41zm5.6 0c=
+0 .55.2 1.02.58 1.41.4.4.87.59 1.43.59.56 0 1.03-.2 1.42-.59.39-.39.58-.86.=
+58-1.41 0-.55-.2-1.02-.58-1.41a1.93 1.93 0 0 0-1.42-.59c-.56 0-1.04.2-1.43.=
+59-.39.39-.58.86-.58 1.41z" fill-rule=3D"evenodd"></path></svg></div></butt=
+on></div></div><div class=3D"ih ln s"><div class=3D"lj lk"><div class=3D"ca=
+" aria-hidden=3D"false" aria-describedby=3D"searchResults" aria-labelledby=
+=3D"searchResults"><div class=3D"n"><button class=3D"ea eb ce cf cg ch ci c=
+j ck bq lv lw cl lx ly" aria-label=3D"Search"><span class=3D"lm s"><svg wid=
+th=3D"25" height=3D"25" viewBox=3D"0 0 25 25" class=3D"ll"><path d=3D"M20.0=
+7 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a=
+4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path></svg></span></button>=
+<input role=3D"combobox" aria-controls=3D"searchResults" aria-expanded=3D"f=
+alse" aria-hidden=3D"true" aria-label=3D"search" tabindex=3D"-1" class=3D"l=
+o lp lq dn bh es lr bi ls at em lt lu" placeholder=3D"Search" value=3D""></=
+div></div></div></div><div class=3D"lg" id=3D"li-post-page-navbar-upsell-bu=
+tton"><div class=3D"dy s g"><div><a class=3D"bf b bg bh bi lz bl bk bm bn b=
+o bp bq br bs bt bu bv bw bx by bz ca cb" href=3D"https://medium.com/plans?=
+source=3Dupgrade_membership---nav_full-------------------------------------=
+" rel=3D"noopener follow">Upgrade</a></div></div></div></div><a aria-label=
+=3D"Homepage" href=3D"https://medium.com/?source=3Dpost_page-----d49f22d238=
+f9-----------------------------------" rel=3D"noopener follow"><svg viewBox=
+=3D"0 0 1043.63 592.71" class=3D"q dj"><g data-name=3D"Layer 2"><g data-nam=
+e=3D"Layer 1"><path d=3D"M588.67 296.36c0 163.67-131.78 296.35-294.33 296.3=
+5S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.3=
+6c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-=
+279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s=
+-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.=
+94"></path></g></g></svg></a></div></div></div></div></div></div><div class=
+=3D"s"><div class=3D"n p"><div class=3D"au av aw ax ay az ba v"><div class=
+=3D"af ag ah ai aj"><div class=3D"dk dl n o"><div class=3D"s dm"><span clas=
+s=3D"bf b dn do dp dq dr ds dt du dv dw dx"><div class=3D"n o"><div class=
+=3D"ma s"><div class=3D"mb mc s"><div class=3D"ca" aria-hidden=3D"false" ar=
+ia-describedby=3D"collectionFollowPopover" aria-labelledby=3D"collectionFol=
+lowPopover"><button class=3D"bf b bg bh md bj me mf ff mg fi bq br bs mh fl=
+ bw bx by bz ca cb" aria-controls=3D"collectionFollowPopover" aria-expanded=
+=3D"false"><div class=3D"n bc">Follow</div></button></div></div></div><div =
+class=3D"dy dz ao"><span class=3D"bf b dn do dx"><a class=3D"ea eb ce cf cg=
+ ch ci cj ck bq ec ed cl ee ef" rel=3D"noopener follow" href=3D"https://tow=
+ardsdatascience.com/followers?source=3Dpost_page-----d49f22d238f9----------=
+-------------------------">606K Followers</a></span></div><div class=3D"eg =
+s g">=C2=B7</div><div class=3D"eg s g"><nav class=3D"n o"><span class=3D"eh=
+ n ao"><a class=3D"ea eb ce cf cg ch ci cj ck bq ec ed cl ee ef" rel=3D"noo=
+pener follow" href=3D"https://towardsdatascience.com/tagged/editors-pick?so=
+urce=3Dpost_page-----d49f22d238f9-----------------------------------">Edito=
+rs' Picks</a></span><span class=3D"eh n ao"><a class=3D"ea eb ce cf cg ch c=
+i cj ck bq ec ed cl ee ef" rel=3D"noopener follow" href=3D"https://towardsd=
+atascience.com/tagged/tds-features?source=3Dpost_page-----d49f22d238f9-----=
+------------------------------">Features</a></span><span class=3D"eh n ao">=
+<a class=3D"ea eb ce cf cg ch ci cj ck bq ec ed cl ee ef" rel=3D"noopener f=
+ollow" href=3D"https://towardsdatascience.com/tagged/deep-dives?source=3Dpo=
+st_page-----d49f22d238f9-----------------------------------">Deep Dives</a>=
+</span><span class=3D"eh n ao"><a class=3D"ea eb ce cf cg ch ci cj ck bq ec=
+ ed cl ee ef" rel=3D"noopener follow" href=3D"https://towardsdatascience.co=
+m/how-to-get-the-most-out-of-towards-data-science-3bf37f75a345?source=3Dpos=
+t_page-----d49f22d238f9-----------------------------------">Grow</a></span>=
+<span class=3D"eh n ao"><a class=3D"ea eb ce cf cg ch ci cj ck bq ec ed cl =
+ee ef" rel=3D"noopener follow" href=3D"https://towardsdatascience.com/quest=
+ions-96667b06af5?source=3Dpost_page-----d49f22d238f9-----------------------=
+------------">Contribute</a></span></nav></div><div class=3D"s h"></div><di=
+v class=3D"eg n ao g"><a class=3D"ea eb ce cf cg ch ci cj ck bq ec ed cl ee=
+ ef" rel=3D"noopener follow" href=3D"https://towardsdatascience.com/about?s=
+ource=3Dpost_page-----d49f22d238f9-----------------------------------">Abou=
+t</a></div></div></span></div><div class=3D"aq ei ej ar"><button class=3D"n=
+ o p ek el em en" aria-label=3D"Expand navbar"><svg width=3D"14" height=3D"=
+14" class=3D"eo"><path d=3D"M0 .5h14M0 7h14M0 13.5h14"></path></svg></butto=
+n></div></div></div></div></div></div></div><div class=3D"ep eq c er es et =
+eu ev lg ac ew"><div class=3D"n p"><div class=3D"au av aw ax ay az ba v"><d=
+iv class=3D"ex v ey ez j i d ev ac"><div class=3D"fa n o"><div class=3D"aq =
+cr fb fc"><div class=3D"lg" id=3D"li-ShowPostUnderCollection-navbar-open-in=
+-app-button"><div class=3D"cc aq ar"><span class=3D"bf b bg bh dx"><a class=
+=3D"fd fe ce cf cg ch ci cj ck bq fg fh cl jv jw" href=3D"https://rsci.app.=
+link/?%24canonical_url=3Dhttps%3A%2F%2Fmedium.com%2Fp%2Fd49f22d238f9&amp;%7=
+Efeature=3DLiOpenInAppButton&amp;%7Echannel=3DShowPostUnderCollection&amp;%=
+7Estage=3DmobileNavBar&amp;source=3Dpost_page-----d49f22d238f9-------------=
+----------------------" rel=3D"noopener follow">Open in app</a></span></div=
+></div></div><a aria-label=3D"Homepage" href=3D"https://medium.com/?source=
+=3Dpost_page-----d49f22d238f9-----------------------------------" rel=3D"no=
+opener follow"><svg viewBox=3D"0 0 1043.63 592.71" class=3D"q r"><g data-na=
+me=3D"Layer 2"><g data-name=3D"Layer 1"><path d=3D"M588.67 296.36c0 163.67-=
+131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 =
+294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-14=
+7.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-=
+23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249=
+.94 51.76 111.9 51.76 249.94"></path></g></g></svg></a></div></div></div></=
+div></div></div><div class=3D"iv" role=3D"dialog" aria-modal=3D"true" tabin=
+dex=3D"-1"><div class=3D"jy jz v fa et ka kb en es ge kc" aria-hidden=3D"tr=
+ue" role=3D"presentation"></div><div class=3D"kd et ke kf kg jy fa bz kh ki=
+ kj kk kl km ae kn ko kp kq kr ks" aria-hidden=3D"true"><div class=3D"kt ku=
+ n o bc cp"><div class=3D"n bc"><h2 class=3D"bf kv kw do gl hj">Responses (=
+13)</h2></div><div class=3D"n bc"><div><div class=3D"ca" role=3D"tooltip" a=
+ria-hidden=3D"false" aria-describedby=3D"4" aria-labelledby=3D"4"><a class=
+=3D"ii ed" href=3D"https://policy.medium.com/medium-rules-30e5502c4eb4?sour=
+ce=3Dresponses-----d49f22d238f9-----------------------------------" rel=3D"=
+noopener follow" target=3D"_blank"><svg width=3D"25" height=3D"25" viewBox=
+=3D"0 0 25 25"><path fill-rule=3D"evenodd" clip-rule=3D"evenodd" d=3D"M11.9=
+9 5.04c.26-.21.64-.22.91-.01.97.72 1.77 1.21 2.6 1.54.83.32 1.72.48 2.89.5.=
+41.01.74.35.74.76-.02 3.62-.43 6.26-1.45 8.21-1.03 1.98-2.66 3.21-4.97 4.08=
+a.75.75 0 0 1-.53 0c-2.25-.87-3.86-2.1-4.9-4.07-1.02-1.95-1.46-4.59-1.48-8.=
+22 0-.41.33-.75.75-.76 1.19-.02 2.1-.18 2.92-.5.82-.32 1.6-.81 2.52-1.53zm.=
+46.9c-.9.69-1.71 1.21-2.62 1.56a8.9 8.9 0 0 1-3.02.57c.03 3.45.46 5.82 1.36=
+ 7.51.88 1.69 2.25 2.77 4.28 3.57 2.1-.8 3.47-1.89 4.34-3.57.89-1.7 1.3-4.0=
+7 1.34-7.51a8.8 8.8 0 0 1-3-.57 11.8 11.8 0 0 1-2.68-1.56zm0 9.15a2.67 2.67=
+ 0 1 0 0-5.34 2.67 2.67 0 0 0 0 5.34zm0 1a3.67 3.67 0 1 0 0-7.34 3.67 3.67 =
+0 0 0 0 7.34zm-1.82-3.77l.53-.53.91.92 1.63-1.63.52.53-2.15 2.15-1.44-1.44z=
+"></path></svg></a></div></div><div class=3D"s at kx"><div class=3D"s at ev=
+ eu"><button class=3D"ea eb ce cf cg ch ci cj ck bq ec ed cl ee ef" data-te=
+stid=3D"close-button" aria-label=3D"close"><svg width=3D"25" height=3D"25" =
+viewBox=3D"0 0 25 25" class=3D"ky"><path d=3D"M18.13 6.11l-5.61 5.61-5.6-5.=
+61-.81.8 5.61 5.61-5.61 5.61.8.8 5.61-5.6 5.61 5.6.8-.8-5.6-5.6 5.6-5.62"><=
+/path></svg></button></div></div></div></div><div class=3D"kz la n ao p o l=
+b lc"><p class=3D"bf b dn do dx">There are currently no responses for this =
+story.</p><p class=3D"bf b dn do dx">Be the first to respond.</p></div></di=
+v></div><article class=3D"meteredContent"><section class=3D"fn fo fp fq fr =
+fs ft v fu bz s"><div class=3D"ml mm mn"></div></section><span class=3D"s">=
+</span><div><div><div class=3D"ei er jx gc gd ge"></div><section class=3D"g=
+f gg gh du gi"><div class=3D"n p"><div class=3D"au av aw ax ay gj ba v"><di=
+v class=3D""><h1 id=3D"a21c" class=3D"gk gl gm bf gn go gp gq gr gs gt gu g=
+v gw gx gy gz ha hb hc hd he hf hg hh hi hj" data-selectable-paragraph=3D""=
+>Machine Learning for Beginners: An Introduction to Neural Networks</h1></d=
+iv><div class=3D""><h2 id=3D"ac8e" class=3D"hk gl gm bf b hl hm hn ho hp hq=
+ hr hs ht hu hv hw hx hy hz ia dx" data-selectable-paragraph=3D"">A simple =
+explanation of how they work and how to implement one from scratch in Pytho=
+n.</h2><div class=3D"db"><div class=3D"n cp ib ic id"><div class=3D"o n"><d=
+iv><a href=3D"https://victorczhou.medium.com/?source=3Dpost_page-----d49f22=
+d238f9-----------------------------------" rel=3D"noopener follow"><img alt=
+=3D"Victor Zhou" class=3D"s ie if ig" src=3D"https://miro.medium.com/fit/c/=
+56/56/1*UFkZ6xqWWTW1UWHKZwfxHQ.png" width=3D"28" height=3D"28"></a></div><d=
+iv class=3D"ih v n cy"><div class=3D"n"><div style=3D"flex:1"><span class=
+=3D"bf b bg bh hj"><div><div class=3D"ca" role=3D"tooltip" aria-hidden=3D"f=
+alse" aria-describedby=3D"2" aria-labelledby=3D"2"><a class=3D"" href=3D"ht=
+tps://victorczhou.medium.com/?source=3Dpost_page-----d49f22d238f9----------=
+-------------------------" rel=3D"noopener follow"><p class=3D"bf b bg bh f=
+d">Victor Zhou</p></a></div></div></span></div></div><span class=3D"bf b bg=
+ bh dx"><a class=3D"" rel=3D"noopener follow" href=3D"https://towardsdatasc=
+ience.com/machine-learning-for-beginners-an-introduction-to-neural-networks=
+-d49f22d238f9?source=3Dpost_page-----d49f22d238f9--------------------------=
+---------"><p class=3D"bf b bg bh dx"><span class=3D"il"></span><span>Mar 6=
+, 2019</span><span class=3D"im">=C2=B7</span>9 min read<svg class=3D"ii ij =
+ik" width=3D"15" height=3D"15" viewBox=3D"0 0 15 15" aria-label=3D"Member o=
+nly content"><path d=3D"M7.44 2.32c.03-.1.09-.1.12 0l1.2 3.53a.29.29 0 0 0 =
+.26.2h3.88c.11 0 .13.04.04.1L9.8 8.33a.27.27 0 0 0-.1.29l1.2 3.53c.03.1-.01=
+.13-.1.07l-3.14-2.18a.3.3 0 0 0-.32 0L4.2 12.22c-.1.06-.14.03-.1-.07l1.2-3.=
+53a.27.27 0 0 0-.1-.3L2.06 6.16c-.1-.06-.07-.12.03-.12h3.89a.29.29 0 0 0 .2=
+6-.19l1.2-3.52z"></path></svg></p></a></span></div></div><div class=3D"n in=
+ io ip iq ir is it iu iv"><div class=3D"n o"><div class=3D"mj s z"><div><di=
+v class=3D"ca" role=3D"tooltip" aria-hidden=3D"false" aria-describedby=3D"3=
+7" aria-labelledby=3D"37"><button class=3D"ea eb ce cf cg ch ci cj ck bq ec=
+ ed cl ee ef" aria-label=3D"Share on twitter"><svg width=3D"30" height=3D"3=
+0" viewBox=3D"0 0 30 30" fill=3D"none" class=3D"ky mk"><path fill-rule=3D"e=
+venodd" clip-rule=3D"evenodd" d=3D"M15 27a12 12 0 1 0 0-24 12 12 0 0 0 0 24=
+zm4.95-16.17a2.67 2.67 0 0 0-4.6 1.84c0 .2.03.41.05.62a7.6 7.6 0 0 1-5.49-2=
+.82 3 3 0 0 0-.38 1.34c.02.94.49 1.76 1.2 2.23a2.53 2.53 0 0 1-1.2-.33v.04c=
+0 1.28.92 2.36 2.14 2.62-.23.05-.46.08-.71.1l-.21-.02-.27-.03a2.68 2.68 0 0=
+ 0 2.48 1.86A5.64 5.64 0 0 1 9 19.38a7.62 7.62 0 0 0 4.1 1.19c4.9 0 7.58-4.=
+07 7.57-7.58v-.39c.52-.36.97-.83 1.33-1.38-.48.23-1 .37-1.53.43.56-.33.96-.=
+86 1.15-1.48-.5.31-1.07.53-1.67.66z" fill=3D"#292929"></path></svg></button=
+></div></div></div><div class=3D"mj s z"><div><div class=3D"ca" role=3D"too=
+ltip" aria-hidden=3D"false" aria-describedby=3D"38" aria-labelledby=3D"38">=
+<button class=3D"ea eb ce cf cg ch ci cj ck bq ec ed cl ee ef" aria-label=
+=3D"Share on facebook"><svg width=3D"30" height=3D"30" viewBox=3D"0 0 30 30=
+" fill=3D"none" class=3D"ky mk"><path fill-rule=3D"evenodd" clip-rule=3D"ev=
+enodd" d=3D"M15 27a12 12 0 1 0 0-24 12 12 0 0 0 0 24zm-1.23-6.03V15.6H12v-2=
+.15h1.77v-1.6C13.77 10 14.85 9 16.42 9c.75 0 1.4.06 1.58.08v1.93h-1.09c-.85=
+ 0-1.02.43-1.02 1.05v1.38h2.04l-.27 2.15H15.9V21l-2.13-.03z" fill=3D"#29292=
+9"></path></svg></button></div></div></div><div class=3D"mj s z"><div><div =
+class=3D"ca" role=3D"tooltip" aria-hidden=3D"false" aria-describedby=3D"39"=
+ aria-labelledby=3D"39"><button class=3D"ea eb ce cf cg ch ci cj ck bq ec e=
+d cl ee ef" aria-label=3D"Share on linkedin"><svg width=3D"30" height=3D"30=
+" viewBox=3D"0 0 30 30" fill=3D"none" class=3D"ky mk"><path fill-rule=3D"ev=
+enodd" clip-rule=3D"evenodd" d=3D"M27 15a12 12 0 1 1-24 0 12 12 0 0 1 24 0z=
+m-14.61 5v-7.42h-2.26V20h2.26zm-1.13-8.44c.79 0 1.28-.57 1.28-1.28-.02-.73-=
+.5-1.28-1.26-1.28-.78 0-1.28.55-1.28 1.28 0 .71.49 1.28 1.25 1.28h.01zM15.8=
+8 20h-2.5s.04-6.5 0-7.17h2.5v1.02l-.02.02h.02v-.02a2.5 2.5 0 0 1 2.25-1.18c=
+1.64 0 2.87 1.02 2.87 3.22V20h-2.5v-3.83c0-.97-.36-1.62-1.26-1.62-.69 0-1.1=
+.44-1.28.87-.06.15-.08.36-.08.58v4z" fill=3D"#292929"></path></svg></button=
+></div></div></div><div class=3D"s z"><div><div class=3D"ca" role=3D"toolti=
+p" aria-hidden=3D"false" aria-describedby=3D"40" aria-labelledby=3D"40"><bu=
+tton class=3D"ea eb ce cf cg ch ci cj ck bq ec ed cl ee ef"><svg width=3D"3=
+0" height=3D"30" viewBox=3D"0 0 30 30" fill=3D"none" class=3D"ky mk"><path =
+fill-rule=3D"evenodd" clip-rule=3D"evenodd" d=3D"M15 27a12 12 0 1 0 0-24 12=
+ 12 0 0 0 0 24zM9.29 16.28c-.2.36-.29.75-.29 1.17a2.57 2.57 0 0 0 .78 1.84l=
+1.01.96c.53.5 1.17.75 1.92.75s1.38-.25 1.9-.75l1.2-1.15.75-.71.51-.5a2.51 2=
+.51 0 0 0 .72-2.34.7.7 0 0 0-.03-.18 2.74 2.74 0 0 0-.23-.5v-.02l-.08-.14-.=
+02-.03-.02-.01a.33.33 0 0 0-.07-.1c0-.02-.01-.03-.03-.05a.2.2 0 0 0-.03-.03=
+l-.03-.04v-.01l-.02-.03-.04-.03a.85.85 0 0 1-.13-.13l-.43-.42-.06.06-.9.84-=
+.05.09a.26.26 0 0 0-.03.1l.37.38c.04.03.08.07.1.11l.01.01.01.03.02.01.04.1.=
+03.04.06.1v.02l.01.02c.03.1.05.2.05.33a1 1 0 0 1-.12.49c-.07.13-.15.22-.22.=
+29l-.88.85-.61.57-.95.92c-.22.2-.5.3-.82.3-.31 0-.58-.1-.8-.3l-.98-.96a1.15=
+ 1.15 0 0 1-.3-.42 1.4 1.4 0 0 1-.04-.35c0-.1.01-.2.04-.3a1 1 0 0 1 .3-.49l=
+1.5-1.46v-.24c0-.21 0-.42.04-.6a3.5 3.5 0 0 1 .92-1.72c-.41.1-.78.32-1.11.6=
+2l-.01.02-.01.01-2.46 2.33c-.2.21-.35.4-.44.6h-.02c0 .02 0 .02-.02.02v.02l-=
+.01.01zm3.92-1.8a1.83 1.83 0 0 0 .02.97c0 .06 0 .13.02.19.06.17.14.34.22.5v=
+.02l.06.12.02.03.01.02.08.1c0 .02.02.03.04.05l.08.1h.01c0 .01 0 .03.02.03l.=
+14.14.43.41.08-.06.88-.84.05-.09.03-.1-.36-.37a.4.4 0 0 1-.12-.13v-.02l-.02=
+-.02-.05-.09-.04-.04-.04-.1v-.02l-.02-.02a1.16 1.16 0 0 1 .06-.82c.09-.14.1=
+6-.24.23-.3l.9-.85.6-.58.93-.92c.23-.2.5-.3.82-.3a1.2 1.2 0 0 1 .82.3l1 .96=
+c.13.15.23.29.28.42a1.43 1.43 0 0 1 0 .66c-.03.17-.12.33-.26.48l-1.54 1.45.=
+02.25a3.28 3.28 0 0 1-.96 2.32 2.5 2.5 0 0 0 1.1-.62l.01-.01 2.46-2.34c.19-=
+.2.35-.4.46-.6l.02-.02v-.02h.01a2.45 2.45 0 0 0 .21-1.82 2.53 2.53 0 0 0-.7=
+-1.19l-1-.96a2.68 2.68 0 0 0-1.91-.75c-.75 0-1.38.25-1.9.76l-1.2 1.14-.76.7=
+2-.5.49c-.4.37-.64.83-.74 1.37z" fill=3D"#292929"></path></svg></button></d=
+iv></div></div><div class=3D"iw s"><div><div class=3D"ca" role=3D"tooltip" =
+aria-hidden=3D"false" aria-describedby=3D"25" aria-labelledby=3D"25"><div><=
+div class=3D"ca" role=3D"tooltip" aria-hidden=3D"false" aria-describedby=3D=
+"26" aria-labelledby=3D"26"><div class=3D"ca v" aria-hidden=3D"false"><butt=
+on aria-controls=3D"addToCatalogBookmarkButton" aria-expanded=3D"false" ari=
+a-label=3D"Add to list bookmark button" class=3D"ea ky ce cf cg ch ci cj ck=
+ bq"><svg width=3D"25" height=3D"25" viewBox=3D"0 0 25 25" fill=3D"none" cl=
+ass=3D"mi"><path d=3D"M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5=
+.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0=
+ 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8=
+.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z" fill=3D"#292929"><=
+/path></svg></button></div></div></div></div></div></div><div class=3D"s"><=
+div class=3D"ca" aria-hidden=3D"false"><button class=3D"ea eb ce cf cg ch c=
+i cj ck bq ec ed cl ee ef" aria-label=3D"More options"><svg class=3D"overfl=
+ow-dots-filled-25px_svg__svgIcon-use" width=3D"25" height=3D"25"><path d=3D=
+"M5 12.5c0 .55.2 1.02.59 1.41.39.4.86.59 1.41.59.55 0 1.02-.2 1.41-.59.4-.3=
+9.59-.86.59-1.41 0-.55-.2-1.02-.59-1.41A1.93 1.93 0 0 0 7 10.5c-.55 0-1.02.=
+2-1.41.59-.4.39-.59.86-.59 1.41zm5.62 0c0 .55.2 1.02.58 1.41.4.4.87.59 1.42=
+.59.55 0 1.02-.2 1.41-.59.4-.39.59-.86.59-1.41 0-.55-.2-1.02-.59-1.41a1.93 =
+1.93 0 0 0-1.41-.59c-.55 0-1.03.2-1.42.59-.39.39-.58.86-.58 1.41zm5.6 0c0 .=
+55.2 1.02.58 1.41.4.4.87.59 1.43.59.56 0 1.03-.2 1.42-.59.39-.39.58-.86.58-=
+1.41 0-.55-.2-1.02-.58-1.41a1.93 1.93 0 0 0-1.42-.59c-.56 0-1.04.2-1.43.59-=
+.39.39-.58.86-.58 1.41z" fill-rule=3D"evenodd"></path></svg></button></div>=
+</div></div></div></div></div></div><p id=3D"c8cb" class=3D"ix iy gm iz b h=
+l ja jb ho jc jd je jf jg jh ji jj jk jl jm jn jo gf hj" data-selectable-pa=
+ragraph=3D"">Here=E2=80=99s something that might surprise you: <strong clas=
+s=3D"iz gn">neural networks aren=E2=80=99t that complicated!</strong> The t=
+erm =E2=80=9Cneural network=E2=80=9D gets used as a buzzword a lot, but in =
+reality they=E2=80=99re often much simpler than people imagine.</p><p id=3D=
+"d151" class=3D"ix iy gm iz b hl jp ja jb ho jq jc jd je jr jf jg jh js ji =
+jj jk jt jl jm jo gf hj" data-selectable-paragraph=3D""><strong class=3D"iz=
+ gn">This post is intended for complete beginners and assumes ZERO prior kn=
+owledge of machine learning</strong>. We=E2=80=99ll understand how neural n=
+etworks work while=E2=80=A6</p></div></div></section></div></div></article>=
+<div class=3D"nu nv v s at nw"></div><div class=3D"s c"><div class=3D"nx ny=
+ s nz"><div class=3D"lg" id=3D"paywall-background-color"><div class=3D"n p =
+la ct"><div class=3D"oa n ao ob oc"><div class=3D"lg" id=3D"paywall-fewerCl=
+icksHeading"><h2 class=3D"od b oe ja of og jc oh oi jf oj ok ji ol om jl on=
+ oo op"><div class=3D"s oq or oc">How to read this story from Victor Zhou =
+=E2=80=94 and everything else on Medium.</div></h2></div><div class=3D"bf b=
+ os ot ou ov ow ox oy oz pa pb hj"><div class=3D"lg" id=3D"paywall-second-h=
+eader-fewer-clicks"><div class=3D"pc pd s oq pe oc">You=E2=80=99ve read all=
+ your free member-only stories, become a member to get unlimited access. Yo=
+ur membership fee supports the voices you want to hear more from.</div></di=
+v><div class=3D"n"><div><div class=3D"ca la"><div class=3D"lg" id=3D"paywal=
+l-upsell-button-upgrade"><a class=3D"bf b bg bh md bj me mf ff mg fi bq br =
+bs mh fl bw pf bx by bz ca cb" href=3D"https://medium.com/plans?subscribeTo=
+UserId=3Ddd190d205cab&amp;susiEntry=3Dpost_paywall&amp;source=3Dupgrade_mem=
+bership---post_limit--d49f22d238f9-----------------------------------" rel=
+=3D"noopener follow">Upgrade</a></div></div></div></div><div class=3D"lg" i=
+d=3D"paywall-subtitle-copy-fewer-clicks"><div class=3D"pg ph pc pd s pe"><d=
+iv class=3D"s oq"></div></div></div></div></div></div></div></div></div><di=
+v class=3D"mo s mp mq"><div class=3D"n p"><div class=3D"au av aw ax ay az b=
+a v"><div class=3D"n ao"><div class=3D"n mr ms mt mu mv mw mx my mz na cp">=
+<a class=3D"ea eb ce cf cg ch ci cj ck bq nb nc cl nd ne" aria-label=3D"Go =
+to homepage" href=3D"https://medium.com/?source=3Dpost_page-----d49f22d238f=
+9-----------------------------------" rel=3D"noopener follow"><svg viewBox=
+=3D"0 0 3940 610" class=3D"me nf"><path d=3D"M594.79 308.2c0 163.76-131.85 =
+296.52-294.5 296.52S5.8 472 5.8 308.2 137.65 11.69 300.29 11.69s294.5 132.7=
+5 294.5 296.51M917.86 308.2c0 154.16-65.93 279.12-147.25 279.12s-147.25-125=
+-147.25-279.12S689.29 29.08 770.61 29.08s147.25 125 147.25 279.12M1050 308.=
+2c0 138.12-23.19 250.08-51.79 250.08s-51.79-112-51.79-250.08 23.19-250.08 5=
+1.8-250.08S1050 170.09 1050 308.2M1862.77 37.4l.82-.18v-6.35h-167.48l-155.5=
+1 365.5-155.51-365.5h-180.48v6.35l.81.18c30.57 6.9 46.09 17.19 46.09 54.3v4=
+34.45c0 37.11-15.58 47.4-46.15 54.3l-.81.18V587H1327v-6.35l-.81-.18c-30.57-=
+6.9-46.09-17.19-46.09-54.3V116.9L1479.87 587h11.33l205.59-483.21V536.9c-2.6=
+2 29.31-18 38.36-45.68 44.61l-.82.19v6.3h213.3v-6.3l-.82-.19c-27.71-6.25-43=
+.46-15.3-46.08-44.61l-.14-445.2h.14c0-37.11 15.52-47.4 46.08-54.3m97.43 287=
+.8c3.49-78.06 31.52-134.4 78.56-135.37 14.51.24 26.68 5 36.14 14.16 20.1 19=
+.51 29.55 60.28 28.09 121.21zm-2.11 22h250v-1.05c-.71-59.69-18-106.12-51.34=
+-138-28.82-27.55-71.49-42.71-116.31-42.71h-1c-23.26 0-51.79 5.64-72.09 15.8=
+6-23.11 10.7-43.49 26.7-60.45 47.7-27.3 33.83-43.84 79.55-47.86 130.93-.13 =
+1.54-.24 3.08-.35 4.62s-.18 2.92-.25 4.39a332.64 332.64 0 0 0-.36 21.69C186=
+0.79 507 1923.65 600 2035.3 600c98 0 155.07-71.64 169.3-167.8l-7.19-2.53c-2=
+5 51.68-69.9 83-121 79.18-69.76-5.22-123.2-75.95-118.35-161.63m532.69 157.6=
+8c-8.2 19.45-25.31 30.15-48.24 30.15s-43.89-15.74-58.78-44.34c-16-30.7-24.4=
+2-74.1-24.42-125.51 0-107 33.28-176.21 84.79-176.21 21.57 0 38.55 10.7 46.6=
+5 29.37zm165.84 76.28c-30.57-7.23-46.09-18-46.09-57V5.28L2424.77 60v6.7l1.1=
+4-.09c25.62-2.07 43 1.47 53.09 10.79 7.9 7.3 11.75 18.5 11.75 34.26v71.14c-=
+18.31-11.69-40.09-17.38-66.52-17.38-53.6 0-102.59 22.57-137.92 63.56-36.83 =
+42.72-56.3 101.1-56.3 168.81C2230 518.72 2289.53 600 2378.13 600c51.83 0 93=
+.53-28.4 112.62-76.3V588h166.65v-6.66zm159.29-505.33c0-37.76-28.47-66.24-66=
+.24-66.24-37.59 0-67 29.1-67 66.24s29.44 66.24 67 66.24c37.77 0 66.24-28.48=
+ 66.24-66.24m43.84 505.33c-30.57-7.23-46.09-18-46.09-57h-.13V166.65l-166.66=
+ 47.85v6.5l1 .09c36.06 3.21 45.93 15.63 45.93 57.77V588h166.8v-6.66zm427.05=
+ 0c-30.57-7.23-46.09-18-46.09-57V166.65L3082 212.92v6.52l.94.1c29.48 3.1 38=
+ 16.23 38 58.56v226c-9.83 19.45-28.27 31-50.61 31.78-36.23 0-56.18-24.47-56=
+.18-68.9V166.66l-166.66 47.85V221l1 .09c36.06 3.2 45.94 15.62 45.94 57.77v1=
+91.27a214.48 214.48 0 0 0 3.47 39.82l3 13.05c14.11 50.56 51.08 77 109 77 49=
+.06 0 92.06-30.37 111-77.89v66h166.66v-6.66zM3934.2 588v-6.67l-.81-.19c-33.=
+17-7.65-46.09-22.07-46.09-51.43v-243.2c0-75.83-42.59-121.09-113.93-121.09-5=
+2 0-95.85 30.05-112.73 76.86-13.41-49.6-52-76.86-109.06-76.86-50.12 0-89.4 =
+26.45-106.25 71.13v-69.87l-166.66 45.89v6.54l1 .09c35.63 3.16 45.93 15.94 4=
+5.93 57V588h155.5v-6.66l-.82-.2c-26.46-6.22-35-17.56-35-46.66V255.72c7-16.3=
+5 21.11-35.72 49-35.72 34.64 0 52.2 24 52.2 71.28V588h155.54v-6.66l-.82-.2c=
+-26.46-6.22-35-17.56-35-46.66v-248a160.45 160.45 0 0 0-2.2-27.68c7.42-17.77=
+ 22.34-38.8 51.37-38.8 35.13 0 52.2 23.31 52.2 71.28V588z"></path></svg></a=
+><div class=3D"ng nh ni nj nk nl n cp"><p class=3D"bf b dn do nm"><a class=
+=3D"ea eb ce cf cg ch ci cj ck bq nn cl nd ne" href=3D"https://medium.com/a=
+bout?autoplay=3D1&amp;source=3Dpost_page-----d49f22d238f9------------------=
+-----------------" rel=3D"noopener follow">About</a></p><p class=3D"bf b dn=
+ do nm"><a class=3D"ea eb ce cf cg ch ci cj ck bq nn cl nd ne" href=3D"http=
+s://medium.com/new-story?source=3Dpost_page-----d49f22d238f9---------------=
+--------------------" rel=3D"noopener follow">Write</a></p><p class=3D"bf b=
+ dn do nm"><a class=3D"ea eb ce cf cg ch ci cj ck bq nn cl nd ne" href=3D"h=
+ttps://help.medium.com/hc/en-us?source=3Dpost_page-----d49f22d238f9--------=
+---------------------------" rel=3D"noopener follow">Help</a></p><p class=
+=3D"bf b dn do nm"><a class=3D"ea eb ce cf cg ch ci cj ck bq nn cl nd ne" h=
+ref=3D"https://policy.medium.com/medium-terms-of-service-9db0094a1e0f?sourc=
+e=3Dpost_page-----d49f22d238f9-----------------------------------" rel=3D"n=
+oopener follow">Legal</a></p></div></div><div class=3D"aq no np nq cr"><p c=
+lass=3D"bf b dn do nr">Get the Medium app</p></div><div class=3D"aq ns ko c=
+r nt"><div class=3D"be s"><a class=3D"ea eb ce cf cg ch ci cj ck bq nb nc c=
+l nd ne" href=3D"https://itunes.apple.com/app/medium-everyones-stories/id82=
+8256236?pt=3D698524&amp;mt=3D8&amp;ct=3Dpost_page&amp;source=3Dpost_page---=
+--d49f22d238f9-----------------------------------" rel=3D"noopener follow">=
+<img alt=3D"A button that says 'Download on the App Store', and if clicked =
+it will lead you to the iOS App store" class=3D"" src=3D"https://miro.mediu=
+m.com/max/135/1*Crl55Tm6yDNMoucPo1tvDg.png" width=3D"135" height=3D"41"></a=
+></div><div class=3D"s"><a class=3D"ea eb ce cf cg ch ci cj ck bq nb nc cl =
+nd ne" href=3D"https://play.google.com/store/apps/details?id=3Dcom.medium.r=
+eader&amp;source=3Dpost_page-----d49f22d238f9------------------------------=
+-----" rel=3D"noopener follow"><img alt=3D"A button that says 'Get it on, G=
+oogle Play', and if clicked it will lead you to the Google Play store" clas=
+s=3D"" src=3D"https://miro.medium.com/max/135/1*W_RAPQ62h0em559zluJLdQ.png"=
+ width=3D"135" height=3D"41"></a></div></div></div></div></div></div></div>=
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-8632e18c-7592-48f8-9f38-74674138e902@mhtml.blink
+
+@charset "utf-8";
+
+html { box-sizing: border-box; }
+
+*, ::before, ::after { box-sizing: inherit; }
+
+body { margin: 0px; padding: 0px; text-rendering: optimizelegibility; -webk=
+it-font-smoothing: antialiased; color: rgba(0, 0, 0, 0.8); position: relati=
+ve; min-height: 100vh; }
+
+h1, h2, h3, h4, h5, h6, dl, dd, ol, ul, menu, figure, blockquote, p, pre, f=
+orm { margin: 0px; }
+
+menu, ol, ul { padding: 0px; list-style: none none; }
+
+main { display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+a, button, input { -webkit-tap-highlight-color: transparent; }
+
+img, svg { vertical-align: middle; }
+
+button { background: transparent; overflow: visible; }
+
+button, input, optgroup, select, textarea { margin: 0px; }
+
+:root { --reach-tabs:1; --reach-menu-button:1; }
+
+#speechify-root { font-family: Sohne, sans-serif; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-312cdea4-bc8e-4058-a9ff-7c965bbb2977@mhtml.blink
+
+@charset "utf-8";
+
+@-webkit-keyframes k1 {=20
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes k1 {=20
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@-webkit-keyframes k2 {=20
+  0% { opacity: 0; transform: translateY(-60px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+@keyframes k2 {=20
+  0% { opacity: 0; transform: translateY(-60px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+@-webkit-keyframes k3 {=20
+  0% { opacity: 1; transform: translateY(0px); }
+  100% { opacity: 0; transform: translateY(-60px); }
+}
+
+@keyframes k3 {=20
+  0% { opacity: 1; transform: translateY(0px); }
+  100% { opacity: 0; transform: translateY(-60px); }
+}
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-5a4d67a8-f1f2-4674-9957-b06de4f52ae4@mhtml.blink
+
+@charset "utf-8";
+
+.a { font-family: medium-content-sans-serif-font, -apple-system, BlinkMacSy=
+stemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helv=
+etica Neue", sans-serif; }
+
+.b { font-weight: 400; }
+
+.c { background-color: rgb(255, 255, 255); }
+
+.l { height: 100vh; }
+
+.m { width: 100vw; }
+
+.n { display: flex; }
+
+.o { align-items: center; }
+
+.p { justify-content: center; }
+
+.q { height: 25px; }
+
+.r { fill: rgb(41, 41, 41); }
+
+.s { display: block; }
+
+.t { margin-bottom: 36px; }
+
+.v { width: 100%; }
+
+.z { flex: 0 0 auto; }
+
+.ab { justify-self: flex-end; }
+
+.ac { z-index: 500; }
+
+.ae { visibility: hidden; }
+
+.af { overflow-x: scroll; }
+
+.ag { white-space: nowrap; }
+
+.ah { }
+
+.ai { }
+
+.aj::-webkit-scrollbar { display: none; }
+
+.ak { box-shadow: rgb(230, 230, 230) 0px -1px 0px inset; }
+
+.al { min-height: 184px; }
+
+.ao { flex-direction: column; }
+
+.ap { background-color: rgb(53, 88, 118); }
+
+.aq { display: none; }
+
+.as { border-bottom: none; }
+
+.at { position: relative; }
+
+.az { max-width: 1192px; }
+
+.ba { min-width: 0px; }
+
+.bb { height: 62px; }
+
+.bc { flex-direction: row; }
+
+.bd { flex: 1 0 auto; }
+
+.be { margin-right: 16px; }
+
+.bf { font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.bg { font-size: 14px; }
+
+.bh { line-height: 20px; }
+
+.bi { color: rgb(233, 241, 250); }
+
+.bj { padding: 7px 16px 9px; }
+
+.bk { background: 0px center; }
+
+.bl { fill: rgb(233, 241, 250); }
+
+.bm { border-color: rgb(215, 226, 238); }
+
+.br:disabled { cursor: inherit !important; }
+
+.bs:disabled { opacity: 0.3; }
+
+.bt:disabled:hover { color: rgb(233, 241, 250); }
+
+.bu:disabled:hover { fill: rgb(233, 241, 250); }
+
+.bv:disabled:hover { border-color: rgb(215, 226, 238); }
+
+.bw { border-radius: 99em; }
+
+.bx { border-width: 1px; }
+
+.by { border-style: solid; }
+
+.bz { box-sizing: border-box; }
+
+.ca { display: inline-block; }
+
+.cb { text-decoration: none; }
+
+.cc { margin-left: 0px; }
+
+.cd { color: rgb(197, 210, 225); }
+
+.ce { font-size: inherit; }
+
+.cf { border: inherit; }
+
+.cg { font-family: inherit; }
+
+.ch { letter-spacing: inherit; }
+
+.ci { font-weight: inherit; }
+
+.cj { padding: 0px; }
+
+.ck { margin: 0px; }
+
+.cl:disabled { cursor: default; }
+
+.cm:disabled { color: rgba(163, 208, 162, 0.5); }
+
+.cn:disabled { fill: rgba(163, 208, 162, 0.5); }
+
+.co { min-height: 115px; }
+
+.cp { justify-content: space-between; }
+
+.cv { align-items: flex-start; }
+
+.cw { margin-bottom: 0px; }
+
+.cx { margin-top: -32px; }
+
+.cy { flex-wrap: wrap; }
+
+.db { margin-top: 32px; }
+
+.dc { margin-right: 24px; }
+
+.de { height: 35px; }
+
+.df { width: 112px; }
+
+.dg { margin-bottom: -3px; }
+
+.dh { margin-left: 14px; }
+
+.di { margin-top: -3px; }
+
+.dj { fill: rgb(251, 255, 255); }
+
+.dk { padding-top: 1px; }
+
+.dl { height: 70px; }
+
+.dn { font-size: 16px; }
+
+.do { line-height: 24px; }
+
+.dp::before { margin-bottom: -10px; }
+
+.dq::before { content: ""; }
+
+.dr::before { display: table; }
+
+.ds::before { border-collapse: collapse; }
+
+.dt::after { margin-top: -6px; }
+
+.du::after { content: ""; }
+
+.dv::after { display: table; }
+
+.dw::after { border-collapse: collapse; }
+
+.dx { color: rgb(117, 117, 117); }
+
+.dy { margin-right: 12px; }
+
+.dz { display: inline-flex; }
+
+.ea { color: inherit; }
+
+.eb { fill: inherit; }
+
+.ee:disabled { color: rgb(117, 117, 117); }
+
+.ef:disabled { fill: rgb(117, 117, 117); }
+
+.eg { margin-left: 12px; }
+
+.eh { margin: 0px 12px; }
+
+.ei { position: absolute; }
+
+.ej { right: 24px; }
+
+.ek { margin: 0px; }
+
+.el { border: 0px; }
+
+.em { padding: 0px; }
+
+.en { cursor: pointer; }
+
+.eo { stroke: rgb(117, 117, 117); }
+
+.er { left: 0px; }
+
+.es { opacity: 0; }
+
+.et { position: fixed; }
+
+.eu { right: 0px; }
+
+.ev { top: 0px; }
+
+.ex { height: 60px; }
+
+.fa { height: 100%; }
+
+.fd { color: rgb(102, 138, 170); }
+
+.fe { fill: rgb(102, 138, 170); }
+
+.ff { border-color: rgb(102, 138, 170); }
+
+.fj:disabled:hover { color: rgb(102, 138, 170); }
+
+.fk:disabled:hover { fill: rgb(102, 138, 170); }
+
+.fl:disabled:hover { border-color: rgb(102, 138, 170); }
+
+.fm { margin-left: 16px; }
+
+.fs { margin-left: auto; }
+
+.ft { margin-right: auto; }
+
+.fu { max-width: 728px; }
+
+.fv { background: rgb(255, 255, 255); }
+
+.fw { border: 1px solid rgb(230, 230, 230); }
+
+.fx { border-radius: 4px; }
+
+.fy { box-shadow: rgb(230, 230, 230) 0px 1px 4px; }
+
+.fz { max-height: 100vh; }
+
+.ga { overflow-y: auto; }
+
+.gb { top: calc(100vh + 100px); }
+
+.gc { bottom: calc(100vh + 100px); }
+
+.gd { width: 10px; }
+
+.ge { pointer-events: none; }
+
+.gf { word-break: break-word; }
+
+.gg { overflow-wrap: break-word; }
+
+.gh::after { display: block; }
+
+.gi::after { clear: both; }
+
+.gj { max-width: 680px; }
+
+.gk { line-height: 1.23; }
+
+.gl { letter-spacing: 0px; }
+
+.gm { font-style: normal; }
+
+.gn { font-weight: 700; }
+
+.hi { margin-bottom: -0.27em; }
+
+.hj { color: rgb(41, 41, 41); }
+
+.hk { line-height: 1.394; }
+
+.ia { margin-bottom: -0.42em; }
+
+.ie { border-radius: 50%; }
+
+.if { height: 28px; }
+
+.ig { width: 28px; }
+
+.ih { margin-left: 8px; }
+
+.ii { fill: rgb(61, 61, 61); }
+
+.ij { margin-top: -2px; }
+
+.ik { padding-left: 4px; }
+
+.il { margin: 0px 4px; }
+
+.im { margin: 0px 7px; }
+
+.in { align-items: flex-end; }
+
+.iw { margin: 0px 6px 0px 7px; }
+
+.ix { line-height: 1.58; }
+
+.iy { letter-spacing: -0.004em; }
+
+.iz { font-family: charter, Georgia, Cambria, "Times New Roman", Times, ser=
+if; }
+
+.jn { margin-top: 24px; }
+
+.jo { margin-bottom: -0.46em; }
+
+.ju { }
+
+.jv:disabled { color: rgba(26, 137, 23, 0.3); }
+
+.jw:disabled { fill: rgba(26, 137, 23, 0.3); }
+
+.jx { top: calc(100vh + 455px); }
+
+.jy { top: 0px; }
+
+.jz { left: 0px; }
+
+.ka { background-color: rgba(0, 0, 0, 0.08); }
+
+.kb { z-index: 510; }
+
+.kc { transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0s; }
+
+.kd { width: 414px; }
+
+.ke { z-index: 520; }
+
+.kf { background-color: white; }
+
+.kg { left: 100%; }
+
+.kh { overflow: auto; }
+
+.ki { }
+
+.kj { box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px; }
+
+.kk { opacity: 1; }
+
+.kl { transform: translateX(0px); }
+
+.km { transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0s, opacity=
+ 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0s; }
+
+.kt { padding-bottom: 18px; }
+
+.ku { padding: 24px; }
+
+.kv { font-weight: 500; }
+
+.kw { font-size: 20px; }
+
+.kx { right: -7px; }
+
+.ky { fill: rgb(117, 117, 117); }
+
+.kz { height: 80vh; }
+
+.la { text-align: center; }
+
+.lb { font-style: italic; }
+
+.lc { font-weight: 200; }
+
+.ld { margin-right: -4px; }
+
+.lg { visibility: visible; }
+
+.lh { height: 32px; }
+
+.li { overflow: visible; }
+
+.lj { border-radius: 1000px; }
+
+.lk { background-color: rgba(53, 88, 118, 0.8); }
+
+.ll { fill: rgb(197, 210, 225); }
+
+.lm { padding: 4px; }
+
+.ln { margin-right: 10px; }
+
+.lo { border: none; }
+
+.lp { outline: none; }
+
+.lq { font: inherit; }
+
+.lr { background-color: transparent; }
+
+.ls::placeholder { color: rgb(197, 210, 225); }
+
+.lt { width: 0px; }
+
+.lu { transition: width 140ms ease-in 0s, padding 140ms ease-in 0s; }
+
+.lx:disabled { color: rgb(197, 210, 225); }
+
+.ly:disabled { fill: rgb(197, 210, 225); }
+
+.lz { padding: 4px 12px 6px; }
+
+.ma { margin-right: 32px; }
+
+.mb { margin-bottom: -16px; }
+
+.mc { margin-top: -14px; }
+
+.md { color: rgb(255, 255, 255); }
+
+.me { fill: rgb(255, 255, 255); }
+
+.mf { background: rgb(102, 138, 170); }
+
+.mh:disabled:hover { background: rgb(102, 138, 170); }
+
+.mi path { fill: rgb(41, 41, 41); }
+
+.mj { padding-right: 1px; }
+
+.mk path { fill: rgb(8, 8, 8); }
+
+.ml { height: 0px; }
+
+.mm { overflow: hidden; }
+
+.mn { transition: height 2s cubic-bezier(0.23, 1, 0.32, 1) 0s; }
+
+.mo { padding: 32px 0px; }
+
+.mp { background-color: rgba(0, 0, 0, 0.9); }
+
+.nd:disabled { color: rgba(255, 255, 255, 0.7); }
+
+.ne:disabled { fill: rgba(255, 255, 255, 0.7); }
+
+.nf { height: 22px; }
+
+.nl { width: 200px; }
+
+.nm { color: rgba(255, 255, 255, 0.98); }
+
+.nr { color: rgba(255, 255, 255, 0.7); }
+
+.nu { margin-top: -240px; }
+
+.nv { height: 250px; }
+
+.nw { background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255=
+)); }
+
+.nx { margin: auto; }
+
+.ny { max-width: 760px; }
+
+.oa { padding: 48px 50px; }
+
+.od { font-family: gt-super, Georgia, Cambria, "Times New Roman", Times, se=
+rif; }
+
+.oo { font-feature-settings: "pnum", "lnum"; }
+
+.op { color: rgb(8, 8, 8); }
+
+.oq { text-align: left; }
+
+.pc { margin-bottom: 28px; }
+
+.pd { margin-top: 8px; }
+
+.pf { width: 104px; }
+
+.pg { padding-left: 6px; }
+
+.ph { padding-right: 6px; }
+
+.bn:hover { color: rgb(251, 255, 255); }
+
+.bo:hover { fill: rgb(251, 255, 255); }
+
+.bp:hover { border-color: rgb(251, 255, 255); }
+
+.bq:hover { cursor: pointer; }
+
+.ec:hover { color: rgb(25, 25, 25); }
+
+.ed:hover { fill: rgb(25, 25, 25); }
+
+.fg:hover { color: rgb(90, 118, 144); }
+
+.fh:hover { fill: rgb(90, 118, 144); }
+
+.fi:hover { border-color: rgb(90, 118, 144); }
+
+.le:hover { fill: rgb(8, 8, 8); }
+
+.lv:hover { color: rgb(242, 248, 253); }
+
+.lw:hover { fill: rgb(242, 248, 253); }
+
+.mg:hover { background: rgb(90, 118, 144); }
+
+.nb:hover { color: rgba(255, 255, 255, 0.99); }
+
+.nc:hover { fill: rgba(255, 255, 255, 0.99); }
+
+.nn:hover { text-decoration: underline; }
+
+.lf:focus { fill: rgb(8, 8, 8); }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-8df6c995-f487-4b30-b475-ab09e474df32@mhtml.blink
+
+@charset "utf-8";
+
+.d { display: none; }
+
+.w { display: flex; }
+
+.ay { margin: 0px 64px; }
+
+.fr { padding: 0px 16px; }
+
+.he { font-size: 46px; }
+
+.hf { margin-top: 0.6em; }
+
+.hg { line-height: 56px; }
+
+.hh { letter-spacing: -0.011em; }
+
+.hx { font-size: 22px; }
+
+.hy { margin-top: 0.92em; }
+
+.hz { line-height: 28px; }
+
+.iu { margin-left: 30px; }
+
+.jk { font-size: 21px; }
+
+.jl { line-height: 32px; }
+
+.jm { letter-spacing: -0.003em; }
+
+.jt { margin-top: 2em; }
+
+.mz { align-items: center; }
+
+.na { flex-direction: row; }
+
+.nk { padding: 0px; }
+
+.om { font-size: 28px; }
+
+.on { letter-spacing: -0.03em; }
+
+.pa { font-size: 16px; }
+
+.pb { line-height: 24px; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-0a0e234e-5bb5-411f-8583-b922e31c329a@mhtml.blink
+
+@charset "utf-8";
+
+.e { display: none; }
+
+.it { margin-left: 30px; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-842c73aa-570e-41fc-b1a9-52d2c51fc4c8@mhtml.blink
+
+@charset "utf-8";
+
+.f { display: none; }
+
+.is { margin-left: 30px; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-9cd63ec9-26dd-4a23-8ed7-9f749f22eccd@mhtml.blink
+
+@charset "utf-8";
+
+.g { display: none; }
+
+.u { margin-bottom: 20px; }
+
+.am { box-shadow: rgb(230, 230, 230) 0px -1px 0px inset; }
+
+.an { min-height: 230px; }
+
+.ar { display: block; }
+
+.cq { min-height: 98px; }
+
+.cr { display: flex; }
+
+.cs { align-items: flex-start; }
+
+.ct { flex-direction: column; }
+
+.cu { justify-content: flex-end; }
+
+.cz { margin-bottom: 28px; }
+
+.da { margin-top: 0px; }
+
+.dd { margin-top: 28px; }
+
+.dm { margin: 0px; }
+
+.ep { border-top: 1px solid rgb(230, 230, 230); }
+
+.eq { border-bottom: 1px solid rgb(230, 230, 230); }
+
+.fb { align-items: center; }
+
+.fc { flex: 1 0 auto; }
+
+.ic { margin-top: 32px; }
+
+.id { flex-direction: column-reverse; }
+
+.iq { margin-bottom: 30px; }
+
+.ir { margin-left: 0px; }
+
+.kn { left: 0px; }
+
+.ko { width: 100%; }
+
+.kp { border-top-left-radius: 20px; }
+
+.kq { border-top-right-radius: 20px; }
+
+.kr { transform: translateY(100%); }
+
+.ks { }
+
+.mq { padding: 28px 0px 12px; }
+
+.no { padding: 20px 0px; }
+
+.np { border-top: 1px solid rgba(255, 255, 255, 0.54); }
+
+.nq { margin-top: 0px; }
+
+.ns { margin-bottom: 16px; }
+
+.nt { flex-direction: row; }
+
+.nz { margin: 0px 24px; }
+
+.ob { padding: 28px 16px 32px; }
+
+.oc { text-align: center; }
+
+.or { margin-bottom: 5px; }
+
+.pe { display: inline-block; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-f8ff6c7d-e64c-487b-ab5d-10c48f94acc1@mhtml.blink
+
+@charset "utf-8";
+
+.h { display: none; }
+
+.au { margin: 0px 24px; }
+
+.ey { display: block; }
+
+.fn { padding: 0px 8px 24px; }
+
+.go { font-size: 32px; }
+
+.gp { margin-top: 0.64em; }
+
+.gq { line-height: 40px; }
+
+.gr { letter-spacing: -0.016em; }
+
+.hl { font-size: 18px; }
+
+.hm { margin-top: 0.79em; }
+
+.hn { line-height: 24px; }
+
+.ib { margin-top: 32px; }
+
+.io { margin-bottom: 30px; }
+
+.ip { margin-left: 0px; }
+
+.ja { line-height: 28px; }
+
+.jb { letter-spacing: -0.003em; }
+
+.jp { margin-top: 1.56em; }
+
+.mr { align-items: flex-start; }
+
+.ms { flex-direction: column; }
+
+.ng { padding: 20px 0px 28px; }
+
+.oe { font-size: 24px; }
+
+.of { letter-spacing: -0.02em; }
+
+.os { font-size: 14px; }
+
+.ot { line-height: 20px; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-a3cc5f7f-93db-4ee2-83c1-8648ddc8bc8e@mhtml.blink
+
+@charset "utf-8";
+
+.i { display: none; }
+
+.x { display: flex; }
+
+.ax { margin: 0px 64px; }
+
+.fq { padding: 0px 16px; }
+
+.ha { font-size: 46px; }
+
+.hb { margin-top: 0.6em; }
+
+.hc { line-height: 56px; }
+
+.hd { letter-spacing: -0.011em; }
+
+.hu { font-size: 22px; }
+
+.hv { margin-top: 0.92em; }
+
+.hw { line-height: 28px; }
+
+.jh { font-size: 21px; }
+
+.ji { line-height: 32px; }
+
+.jj { letter-spacing: -0.003em; }
+
+.js { margin-top: 2em; }
+
+.mx { align-items: center; }
+
+.my { flex-direction: row; }
+
+.nj { padding: 0px; }
+
+.ok { font-size: 28px; }
+
+.ol { letter-spacing: -0.03em; }
+
+.oy { font-size: 16px; }
+
+.oz { line-height: 24px; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-30bebd4b-987e-4cfc-b157-fc2472495b77@mhtml.blink
+
+@charset "utf-8";
+
+.j { display: none; }
+
+.y { display: flex; }
+
+.aw { margin: 0px 48px; }
+
+.fp { padding: 0px 16px; }
+
+.gw { font-size: 46px; }
+
+.gx { margin-top: 0.6em; }
+
+.gy { line-height: 56px; }
+
+.gz { letter-spacing: -0.011em; }
+
+.hr { font-size: 22px; }
+
+.hs { margin-top: 0.92em; }
+
+.ht { line-height: 28px; }
+
+.je { font-size: 21px; }
+
+.jf { line-height: 32px; }
+
+.jg { letter-spacing: -0.003em; }
+
+.jr { margin-top: 2em; }
+
+.mv { align-items: center; }
+
+.mw { flex-direction: row; }
+
+.ni { padding: 0px; }
+
+.oi { font-size: 28px; }
+
+.oj { letter-spacing: -0.03em; }
+
+.ow { font-size: 16px; }
+
+.ox { line-height: 24px; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-bd014177-68c4-4fec-82c1-c580b90daa1f@mhtml.blink
+
+@charset "utf-8";
+
+.k { display: none; }
+
+.av { margin: 0px 24px; }
+
+.ez { display: block; }
+
+.fo { padding: 0px 8px 24px; }
+
+.gs { font-size: 32px; }
+
+.gt { margin-top: 0.64em; }
+
+.gu { line-height: 40px; }
+
+.gv { letter-spacing: -0.016em; }
+
+.ho { font-size: 18px; }
+
+.hp { margin-top: 0.79em; }
+
+.hq { line-height: 24px; }
+
+.jc { line-height: 28px; }
+
+.jd { letter-spacing: -0.003em; }
+
+.jq { margin-top: 1.56em; }
+
+.mt { align-items: flex-start; }
+
+.mu { flex-direction: column; }
+
+.nh { padding: 20px 0px 28px; }
+
+.og { font-size: 24px; }
+
+.oh { letter-spacing: -0.02em; }
+
+.ou { font-size: 14px; }
+
+.ov { line-height: 20px; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-deff57f9-166a-4804-afef-2601b9b0e15a@mhtml.blink
+
+@charset "utf-8";
+
+.iv { display: none; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-9f54df14-ed44-482c-bd65-24a72ca0d643@mhtml.blink
+
+@charset "utf-8";
+
+.ew { animation: 0.2s ease-in-out 0s 1 normal both running k3; }
+
+.pi { animation: 0.2s ease-in-out 0s 1 normal both running k2; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://glyph.medium.com/css/unbound.css
+
+@charset "utf-8";
+
+@font-face { font-family: charter; font-weight: 400; font-style: italic; sr=
+c: url("https://glyph.medium.com/font/81d2bf1/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6=
+cd_6ci_6cm/charter-400-italic.woff") format("woff"); unicode-range: U+0-7F,=
+ U+A0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: charter; font-weight: 400; font-style: italic; sr=
+c: url("https://glyph.medium.com/font/81d2bf1/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_=
+6ca-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/charter-400-italic.woff") format("woff"); =
+unicode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U=
++201E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: charter; font-weight: 400; font-style: normal; sr=
+c: url("https://glyph.medium.com/font/be78681/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6=
+cd_6ci_6cm/charter-400-normal.woff") format("woff"); unicode-range: U+0-7F,=
+ U+A0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: charter; font-weight: 400; font-style: normal; sr=
+c: url("https://glyph.medium.com/font/be78681/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_=
+6ca-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/charter-400-normal.woff") format("woff"); =
+unicode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U=
++201E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: charter; font-weight: 700; font-style: italic; sr=
+c: url("https://glyph.medium.com/font/77a0c0c/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6=
+cd_6ci_6cm/charter-700-italic.woff") format("woff"); unicode-range: U+0-7F,=
+ U+A0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: charter; font-weight: 700; font-style: italic; sr=
+c: url("https://glyph.medium.com/font/77a0c0c/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_=
+6ca-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/charter-700-italic.woff") format("woff"); =
+unicode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U=
++201E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: charter; font-weight: 700; font-style: normal; sr=
+c: url("https://glyph.medium.com/font/f50d520/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6=
+cd_6ci_6cm/charter-700-normal.woff") format("woff"); unicode-range: U+0-7F,=
+ U+A0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: charter; font-weight: 700; font-style: normal; sr=
+c: url("https://glyph.medium.com/font/f50d520/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_=
+6ca-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/charter-700-normal.woff") format("woff"); =
+unicode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U=
++201E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: fell; font-weight: 400; font-style: italic; src: =
+url("https://glyph.medium.com/font/415369b/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd_=
+6ci_6cm/fell-400-italic.woff") format("woff"); unicode-range: U+0-7F, U+A0,=
+ U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: fell; font-weight: 400; font-style: italic; src: =
+url("https://glyph.medium.com/font/415369b/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6ca=
+-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/fell-400-italic.woff") format("woff"); unicod=
+e-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201E-=
+2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: fell; font-weight: 400; font-style: normal; src: =
+url("https://glyph.medium.com/font/78ce731/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd_=
+6ci_6cm/fell-400-normal.woff") format("woff"); unicode-range: U+0-7F, U+A0,=
+ U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: fell; font-weight: 400; font-style: normal; src: =
+url("https://glyph.medium.com/font/78ce731/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6ca=
+-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/fell-400-normal.woff") format("woff"); unicod=
+e-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201E-=
+2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: gt-super; font-weight: 400; font-style: normal; s=
+rc: url("https://glyph.medium.com/font/4a44748/0-3j_4g_6bu_6c4_6c8_6c9_6cc_=
+6cd_6ci_6cm/gt-super-400-normal.woff") format("woff"); unicode-range: U+0-7=
+F, U+A0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: gt-super; font-weight: 400; font-style: normal; s=
+rc: url("https://glyph.medium.com/font/4a44748/3k-4f_4h-6bt_6bv-6c3_6c5-6c7=
+_6ca-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/gt-super-400-normal.woff") format("woff")=
+; unicode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B,=
+ U+201E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: noe; font-weight: 500; font-style: normal; src: u=
+rl("https://glyph.medium.com/font/b6752aa/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd_6=
+ci_6cm/noe-display-500-normal.woff") format("woff"); unicode-range: U+0-7F,=
+ U+A0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: noe; font-weight: 500; font-style: normal; src: u=
+rl("https://glyph.medium.com/font/b6752aa/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6ca-=
+6cb_6ce-6ch_6cj-6cl_6cn-nvnj/noe-display-500-normal.woff") format("woff"); =
+unicode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U=
++201E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: opendyslexic; font-weight: 400; font-style: itali=
+c; src: url("https://glyph.medium.com/font/1c491fd/0-3j_4g_6bu_6c4_6c8_6c9_=
+6cc_6cd_6ci_6cm/opendyslexic-400-italic.woff") format("woff"); unicode-rang=
+e: U+0-7F, U+A0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+=
+2026; }
+
+@font-face { font-family: opendyslexic; font-weight: 400; font-style: itali=
+c; src: url("https://glyph.medium.com/font/1c491fd/3k-4f_4h-6bt_6bv-6c3_6c5=
+-6c7_6ca-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/opendyslexic-400-italic.woff") format=
+("woff"); unicode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+20=
+1A-201B, U+201E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: opendyslexic; font-weight: 400; font-style: norma=
+l; src: url("https://glyph.medium.com/font/0a6190b/0-3j_4g_6bu_6c4_6c8_6c9_=
+6cc_6cd_6ci_6cm/opendyslexic-400-normal.woff") format("woff"); unicode-rang=
+e: U+0-7F, U+A0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+=
+2026; }
+
+@font-face { font-family: opendyslexic; font-weight: 400; font-style: norma=
+l; src: url("https://glyph.medium.com/font/0a6190b/3k-4f_4h-6bt_6bv-6c3_6c5=
+-6c7_6ca-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/opendyslexic-400-normal.woff") format=
+("woff"); unicode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+20=
+1A-201B, U+201E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: sohne; font-weight: 300; font-style: italic; src:=
+ url("https://glyph.medium.com/font/51a79f1/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd=
+_6ci_6cm/sohne-300-italic.woff") format("woff"); unicode-range: U+0-7F, U+A=
+0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: sohne; font-weight: 300; font-style: italic; src:=
+ url("https://glyph.medium.com/font/51a79f1/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6c=
+a-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/sohne-300-italic.woff") format("woff"); unic=
+ode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201=
+E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: sohne; font-weight: 300; font-style: normal; src:=
+ url("https://glyph.medium.com/font/6fd11d6/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd=
+_6ci_6cm/sohne-300-normal.woff") format("woff"); unicode-range: U+0-7F, U+A=
+0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: sohne; font-weight: 300; font-style: normal; src:=
+ url("https://glyph.medium.com/font/6fd11d6/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6c=
+a-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/sohne-300-normal.woff") format("woff"); unic=
+ode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201=
+E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: sohne; font-weight: 400; font-style: italic; src:=
+ url("https://glyph.medium.com/font/3887986/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd=
+_6ci_6cm/sohne-400-italic.woff") format("woff"); unicode-range: U+0-7F, U+A=
+0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: sohne; font-weight: 400; font-style: italic; src:=
+ url("https://glyph.medium.com/font/3887986/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6c=
+a-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/sohne-400-italic.woff") format("woff"); unic=
+ode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201=
+E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: sohne; font-weight: 400; font-style: normal; src:=
+ url("https://glyph.medium.com/font/b492c44/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd=
+_6ci_6cm/sohne-400-normal.woff") format("woff"); unicode-range: U+0-7F, U+A=
+0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: sohne; font-weight: 400; font-style: normal; src:=
+ url("https://glyph.medium.com/font/b492c44/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6c=
+a-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/sohne-400-normal.woff") format("woff"); unic=
+ode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201=
+E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: sohne; font-weight: 500; font-style: italic; src:=
+ url("https://glyph.medium.com/font/54b52d6/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd=
+_6ci_6cm/sohne-500-italic.woff") format("woff"); unicode-range: U+0-7F, U+A=
+0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: sohne; font-weight: 500; font-style: italic; src:=
+ url("https://glyph.medium.com/font/54b52d6/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6c=
+a-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/sohne-500-italic.woff") format("woff"); unic=
+ode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201=
+E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: sohne; font-weight: 500; font-style: normal; src:=
+ url("https://glyph.medium.com/font/df9ba7f/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd=
+_6ci_6cm/sohne-500-normal.woff") format("woff"); unicode-range: U+0-7F, U+A=
+0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: sohne; font-weight: 500; font-style: normal; src:=
+ url("https://glyph.medium.com/font/df9ba7f/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6c=
+a-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/sohne-500-normal.woff") format("woff"); unic=
+ode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201=
+E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: sohne; font-weight: 700; font-style: italic; src:=
+ url("https://glyph.medium.com/font/9da4d76/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd=
+_6ci_6cm/sohne-700-italic.woff") format("woff"); unicode-range: U+0-7F, U+A=
+0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: sohne; font-weight: 700; font-style: italic; src:=
+ url("https://glyph.medium.com/font/9da4d76/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6c=
+a-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/sohne-700-italic.woff") format("woff"); unic=
+ode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201=
+E-2021, U+2023-2025, U+2027-10FFFF; }
+
+@font-face { font-family: sohne; font-weight: 700; font-style: normal; src:=
+ url("https://glyph.medium.com/font/cf896f3/0-3j_4g_6bu_6c4_6c8_6c9_6cc_6cd=
+_6ci_6cm/sohne-700-normal.woff") format("woff"); unicode-range: U+0-7F, U+A=
+0, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026; }
+
+@font-face { font-family: sohne; font-weight: 700; font-style: normal; src:=
+ url("https://glyph.medium.com/font/cf896f3/3k-4f_4h-6bt_6bv-6c3_6c5-6c7_6c=
+a-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/sohne-700-normal.woff") format("woff"); unic=
+ode-range: U+80-9F, U+A1-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201=
+E-2021, U+2023-2025, U+2027-10FFFF; }
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://miro.medium.com/max/112/1*AGyTPCaRzVqL77kFwUwHKg.png
+
+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
+
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://miro.medium.com/fit/c/56/56/1*UFkZ6xqWWTW1UWHKZwfxHQ.png
+
+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
+APzfAAAA//90rYJ2PcjkSwAAAABJRU5ErkJggg==
+
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://miro.medium.com/max/135/1*Crl55Tm6yDNMoucPo1tvDg.png
+
+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
+gg==
+
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://miro.medium.com/max/135/1*W_RAPQ62h0em559zluJLdQ.png
+
+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
+///i00hrUmUwagAAAABJRU5ErkJggg==
+
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl----
+Content-Type: text/html
+Content-ID: <frame-5F737838F88F88C3DAF136C0E55C701C@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://a16180790160.cdn.optimizely.com/client_storage/a16180790160.html
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"></head><body></body></html>
+------MultipartBoundary--1t7bvNu7R2QYRCQjK6LkS4tmGwVleeALSyGFFpHVvl------
