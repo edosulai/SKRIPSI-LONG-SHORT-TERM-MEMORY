@@ -415,4 +415,4 @@ class ProyeksiForm(forms.Form):
             'max': last.tanggal
         })
         
-        self.fields['feature_training'].initial = ('rr')
+        # self.fields['feature_training'].initial = ('rr')

@@ -1,3 +1,4 @@
+import sys
 from tkinter import E
 from channels.generic.websocket import WebsocketConsumer
 
@@ -30,6 +31,7 @@ class ProyeksiConsumer(WebsocketConsumer):
         try:
             klimatologi_data = Klimatologi.objects.all()
             text_data_json = json.loads(text_data)
+            print(text_data_json)
             config = set_config({
                 "timestep": int(text_data_json['timestep']),
                 "max_epoch": int(text_data_json['max_epoch']),
@@ -57,7 +59,7 @@ class ProyeksiConsumer(WebsocketConsumer):
             })
             
             if "id_riwayat" not in text_data_json:
-
+                
                 DATASETS = pd.DataFrame(list(klimatologi_data.values())).replace(to_replace=[8888, 9999, 2555], value=np.nan)
                 DATASETS.interpolate(inplace=True)
 

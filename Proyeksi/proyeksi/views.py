@@ -260,7 +260,7 @@ class ProyeksiView(View):
                     'row_start': datetime(year=2004, month=10, day=16).strftime('%Y-%m-%d'),
                     'row_end': datetime(year=2004, month=12, day=14).strftime('%Y-%m-%d'),
                     'num_predict': 5,
-                    'feature_training': ('rr'),
+                    # 'feature_training': ('rr'),
                     'feature_predict': ('rr'),
                 }),
             })

@@ -94,10 +94,13 @@ const SelectMultiple = createApp({
       this.options.push({
         value: this.selectTag.options[i].value,
         text: this.selectTag.options[i].innerText,
-        selected: this.selectTag.options[i].value == 'rr' ? true : false
+        // selected: this.selectTag.options[i].value == 'rr' ? true : false
+        selected: false
       })
+
       if (this.selectTag.options[i].value == 'rr') {
-        this.selecteds.push(i)
+        // this.selectTag.options[i].setAttribute('selected', 'selected')
+        this.setSelected(i)
       }
     }
   },
@@ -105,11 +108,13 @@ const SelectMultiple = createApp({
     onClickAway() {
       if (this.show) this.show = false
     },
-    setSelected(index, event) {
+    setSelected(index, event = null) {
       if (!this.options[index].selected) {
         this.selectTag.options[index].setAttribute('selected', 'selected')
         this.options[index].selected = true
-        this.options[index].element = event.target
+        if (event) {
+          this.options[index].element = event.target
+        }
         this.selecteds.push(index)
       } else {
         this.selectTag.options[index].removeAttribute('selected')
@@ -530,13 +535,23 @@ const PredictionResult = createApp({
       language: {
         zeroRecords: LOADING
       },
-      columns: [{
-        data: "tanggal"
-      }, {
-        data: this.hyperparameters['feature_predict']
-      }, {
-        data: 'intensitas'
-      }],
+      columns: ((hyperparameters) => {
+        let columns = [
+          {
+            data: "tanggal"
+          }, {
+            data: hyperparameters['feature_predict']
+          }
+        ]
+
+        if (hyperparameters['feature_predict'] == 'rr') {
+          columns.push({
+            data: 'intensitas'
+          })
+        }
+
+        return columns
+      })(this.hyperparameters),
       searching: false,
     })
 
